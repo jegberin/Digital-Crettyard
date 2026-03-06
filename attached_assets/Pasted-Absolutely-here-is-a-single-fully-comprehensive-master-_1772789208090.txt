@@ -1,0 +1,939 @@
+Absolutely — here is a single, fully comprehensive master prompt you can paste into Replit AI to generate the first draft of the Crettyard Digital website, now updated with your preferred Microsoft‑inspired design system and all the business, SEO, service, and layout requirements we discussed.
+
+Master Prompt for Replit AI
+Act as an expert UI/UX designer, conversion-focused website strategist, SEO-aware copywriter, and front-end developer.
+
+Your task is to design and build a modern, responsive, B2B-focused website for my business, Crettyard Digital.
+
+The website should feel credible, local, professional, technically strong, and built to convert small business visitors into enquiries.
+
+Build the site as if it is for a real business launch, not a demo.
+
+1. Business identity
+Business name: Crettyard Digital
+
+Business type: Small Irish digital services business
+
+Location: Near Crettyard, on the Laois–Carlow border, Ireland
+
+Service area: Primarily Laois, Carlow, Kilkenny, Kildare, Offaly, Tipperary, and nearby counties, but able to work remotely across Ireland
+
+Privacy requirement: Do not display my surname anywhere on the website
+
+How to describe the owner:
+Describe me as:
+
+a senior cloud and network architect with experience at Microsoft, Intel, Dell and Citi
+
+Do not invent a personal full name.
+
+2. Business services
+Crettyard Digital offers three core service areas:
+
+A. Web design & development
+For small businesses that need:
+
+New websites
+
+Website redesigns
+
+Service-based websites
+
+Mobile-friendly websites
+
+SEO-friendly page structure
+
+Lead generation pages
+
+Contact forms / quote forms
+
+Simple brochure websites
+
+Ongoing website maintenance
+
+B. Microsoft 365 setup & support
+For small businesses that need:
+
+Microsoft 365 setup
+
+User and tenant configuration
+
+Exchange Online email setup and migration
+
+Microsoft Teams setup
+
+OneDrive setup
+
+SharePoint setup
+
+MFA and security configuration
+
+General small business IT support around Microsoft 365
+
+Email migration from old systems, Gmail, POP/IMAP, or legacy Exchange
+
+C. Network architecture, Wi‑Fi & security
+For small businesses, workshops, offices, and home offices that need:
+
+Small business network design
+
+Wi‑Fi setup and optimisation
+
+Mesh Wi‑Fi planning
+
+Access point placement
+
+Router and firewall configuration
+
+Network segmentation / guest Wi‑Fi
+
+Secure remote access
+
+Network troubleshooting
+
+Security-focused network advice
+
+Network health checks
+
+3. Target audience
+The site is aimed at:
+
+Tradespeople
+
+Contractors
+
+Cleaning businesses
+
+Plant hire / civil engineering businesses
+
+Furniture / joinery / fit-out businesses
+
+Professional service businesses
+
+Local business owners
+
+Small teams without in-house IT
+
+Irish SMEs who want one trusted technical partner
+
+The audience is not highly technical. Write in clear, plain English.
+
+They care about:
+
+Looking professional online
+
+Getting more enquiries
+
+Reliable email and file sharing
+
+Better Wi‑Fi and office connectivity
+
+Security without complexity
+
+A local partner they can trust
+
+4. Main website goals
+This website must:
+
+Present Crettyard Digital as a professional, trustworthy local business
+
+Explain services clearly and simply
+
+Rank well for relevant local and service-based Google searches
+
+Encourage visitors to get in touch
+
+Showcase previous website projects
+
+Position the business as both technically strong and approachable
+
+Generate leads through contact forms and calls to action
+
+5. Design direction
+Role & objective
+Act as an expert UI/UX designer and front-end developer. Build a modern, responsive, B2B-focused website landing page and full business website for my company, "Crettyard Digital".
+
+Design language & style
+Emulate Microsoft’s corporate Fluent Design style, but keep it practical and grounded for a small Irish services business.
+
+The design must be:
+
+Minimalist
+
+Highly structured
+
+Clean
+
+Sharp
+
+Professional
+
+Entirely utilitarian
+
+Modern and premium without being flashy
+
+Do not use:
+
+Gimmicks
+
+Overdesigned layouts
+
+Heavy gradients
+
+Glassmorphism
+
+Heavy drop shadows
+
+Rounded blob shapes
+
+Cartoonish icons
+
+Overly playful startup visuals
+
+UI elements
+Keep everything flat and neat.
+
+Use:
+
+Sharp 90-degree corners, or
+
+Extremely subtle 2px corner rounding only
+
+Apply this consistently to:
+
+Cards
+
+Buttons
+
+Form fields
+
+Images
+
+Containers
+
+Secondary actions
+For secondary links or actions, do not use outlined buttons unless absolutely necessary.
+
+Prefer text-style actions like:
+
+Learn more >
+
+View project >
+
+See all services >
+
+Get in touch >
+
+These should use bold text and a chevron.
+
+6. Strict color palette
+Use this palette exactly and consistently:
+
+Main backgrounds
+White: #FFFFFF
+
+Very light cool gray: #F8F9FA
+
+Alternate these between sections for structure.
+
+Primary brand color
+Navy Blue: #0C2366
+
+Use Navy Blue for:
+
+Main headings
+
+H1 / H2 / H3
+
+Footer background
+
+Section dividers or subtle structural lines
+
+Important labels where appropriate
+
+Navigation links
+
+Action color
+Vibrant Teal: #12B388
+
+Use Teal strictly for:
+
+Primary CTA buttons
+
+Hover states
+
+Text links
+
+Chevron links
+
+Subtle icon highlights
+
+Selected states where appropriate
+
+Body text
+Dark charcoal gray: #333333
+
+Use for:
+
+Paragraphs
+
+List text
+
+Supporting descriptions
+
+Form labels
+
+Avoid introducing additional strong colors unless necessary for neutral UI support.
+
+7. Typography
+Use a clean, highly legible humanist sans-serif font such as:
+
+Inter
+
+Open Sans
+
+Segoe UI
+
+Typography rules:
+
+Headings: bold, large, Navy Blue
+
+Body text: regular weight, charcoal gray
+
+Strong hierarchy and spacing
+
+Keep line lengths readable
+
+Clean B2B editorial feel
+
+Use generous whitespace
+
+8. Layout and page structure
+Navbar
+Create a simple, flat navbar with:
+
+White background
+
+Crettyard Digital wordmark/logo text on left
+
+Navy Blue nav links
+
+A Vibrant Teal Get Started button on the top right
+
+Suggested nav items:
+
+Home
+
+Services
+
+Portfolio
+
+About
+
+Contact
+
+Sticky on scroll on desktop.
+
+Hero section
+Use a clean 50/50 split layout.
+
+Left side:
+
+Large Navy Blue headline
+
+Short trust-building description
+
+Primary Teal CTA button
+
+Secondary text link with chevron
+
+Right side:
+
+Placeholder for a high-quality tech / digital / business image
+
+Image should look clean, professional, corporate, modern
+
+No gimmicky illustration styles unless very subtle and premium
+
+Suggested hero copy:
+
+Headline:
+Crettyard Digital – Web Design, Microsoft 365 & Network Solutions for Small Businesses in Laois & Carlow
+
+Text:
+Crettyard Digital builds fast, modern websites and cloud and network setups for small businesses across Laois, Carlow and the surrounding counties. Whether you need a new website, better local SEO, a reliable Microsoft 365 environment or a secure Wi‑Fi network, I help you get online, stay secure and win more customers.
+
+Primary CTA:
+Request a Free Website, IT & Network Review
+
+Secondary action:
+See Recent Projects >
+
+Services grid
+Create a modular, symmetrical 3-column card grid.
+
+Section background:
+
+#F8F9FA
+
+Cards:
+
+White background
+
+Sharp or 2px corners
+
+Very subtle border only
+
+No heavy shadows
+
+Each card should contain:
+
+Small teal icon
+
+Navy Blue title
+
+Short explanatory text
+
+Teal chevron link at bottom
+
+Three cards:
+
+Web Design
+
+Microsoft 365
+
+Network & Wi‑Fi
+
+Footer
+Create a full-width footer with:
+
+Solid Navy Blue background #0C2366
+
+White text
+
+Clean multi-column layout
+
+Business summary
+
+Quick links
+
+Service links
+
+Contact section
+
+Copyright line
+
+9. SEO strategy
+The site must be structured to perform well on Google for local and service-based intent.
+
+Naturally incorporate these keyword themes throughout headings, body copy, meta data and internal links:
+
+web design Carlow
+
+web design Laois
+
+website design Carlow
+
+website design Laois
+
+small business website design Ireland
+
+Microsoft 365 support Ireland
+
+Microsoft 365 setup for small business
+
+Office 365 email migration
+
+Exchange Online migration
+
+business wifi setup Ireland
+
+small business network design
+
+network security for small business
+
+wifi setup for office
+
+local web designer Laois
+
+local web designer Carlow
+
+Do not keyword stuff.
+Use them naturally in copy and metadata.
+
+SEO requirements
+Create strong page titles and meta descriptions for every page
+
+Use one H1 per page
+
+Use a proper semantic heading hierarchy
+
+Use internal links between related pages
+
+Make service pages location-aware where appropriate
+
+Use clear conversion-oriented copy
+
+Ensure fast, lightweight implementation
+
+Include alt text placeholders for images
+
+Structure content for readability and scanning
+
+10. Site architecture
+Build the following pages:
+
+/ Home
+
+/web-design
+
+/microsoft-365
+
+/network-wifi-security
+
+/portfolio
+
+/about
+
+/contact
+
+You may also include:
+
+/services as a summary hub page
+
+or keep services linked directly from home
+
+11. Homepage content structure
+Section 1: Hero
+Use the provided hero copy and CTA.
+
+Section 2: Why work with a local web & network specialist?
+Write a short section explaining that when people search for:
+
+web design Carlow
+
+website design Laois
+
+Microsoft 365 support Ireland
+
+business wifi setup
+
+they want a local, dependable expert rather than a faceless overseas agency.
+
+Include points such as:
+
+Bespoke websites that convert visitors into enquiries
+
+SEO-ready content for local search
+
+Microsoft 365 that “just works”
+
+Network architecture advice from modem to mesh Wi‑Fi, firewalls and VLANs
+
+Practical network security for Irish SMEs
+
+Section 3: Services overview
+Three service cards linking to service pages.
+
+Section 4: Process
+Create a “How it works” section with 5 steps:
+
+Free discovery call
+
+Proposal & fixed price
+
+Content, build & network plan
+
+Launch & training
+
+Optional care plan
+
+Section 5: Featured projects
+Highlight these three projects:
+
+BM Custom Furniture
+
+Go Green Steam Clean
+
+Nurney Plant and Civil
+
+Each should have:
+
+project title
+
+short summary
+
+placeholder image
+
+“View project >” link style
+
+Section 6: About teaser
+Short version of the About page content.
+
+Section 7: FAQ
+Add common FAQs:
+
+I just need a simple website. Can you help?
+
+Do you only work with businesses in Carlow and Laois?
+
+Can you look after my existing website?
+
+What does Microsoft 365 support include?
+
+Can you help with my office or workshop Wi‑Fi?
+
+Do you offer network security reviews?
+
+How much does a website or IT project cost?
+
+Section 8: Final CTA
+Strong closing call to action with contact button.
+
+12. Web Design page content
+Page title intent: Web Design Carlow & Laois
+
+H1:
+Web Design Carlow & Laois – Fast, Mobile-Friendly Websites That Win You Work
+
+Include sections for:
+
+New business websites
+
+Website redesigns
+
+Local SEO-focused content
+
+Quote/contact forms
+
+Hosting and maintenance
+
+Explain benefits like:
+
+Better first impressions
+
+Mobile usability
+
+Faster loading
+
+More enquiries
+
+Better visibility in Google
+
+Simpler content structure for service businesses
+
+Mention natural examples like:
+
+bespoke furniture Dublin
+
+carpet cleaning Laois
+
+plant hire Carlow
+
+13. Microsoft 365 page content
+H1:
+Microsoft 365 Setup & Support for Irish Small Businesses
+
+Include sections for:
+
+Microsoft 365 setup and licensing advice
+
+Exchange Online migration
+
+Teams, OneDrive & SharePoint setup
+
+Security and compliance hardening
+
+Ongoing support and training
+
+Tone:
+
+practical
+
+clear
+
+non-technical
+
+reassuring
+
+Emphasise:
+
+email that works properly
+
+smoother collaboration
+
+secure file sharing
+
+secure identity and MFA
+
+migration without unnecessary stress
+
+14. Network page content
+H1:
+Network Architecture, Wi‑Fi & Security for Homes and Small Businesses
+
+Include sections for:
+
+Office & home-office network design
+
+Business Wi‑Fi setup & optimisation
+
+Network security & firewall configuration
+
+Secure remote working
+
+Network health checks
+
+Include real-world style pain points:
+
+dead spots
+
+dropped calls
+
+poor workshop coverage
+
+weak office Wi‑Fi
+
+card terminals dropping off
+
+unreliable remote access
+
+Use reassuring, competence-led copy.
+
+15. Portfolio page content
+H1:
+Recent Websites Built for Local Businesses
+
+Include project cards for:
+
+BM Custom Furniture
+Description should explain this is a brochure-style site for bespoke furniture, fitted furniture, wall panelling and custom cabinetry, with an image-led presentation and local search focus.
+
+Go Green Steam Clean
+Description should explain this is a service-led site for eco-friendly steam cleaning in the Midlands, with strong local service pages and clear CTAs.
+
+Nurney Plant and Civil
+Description should explain this is a professional site for plant hire and civil engineering services in Co. Carlow and nearby areas.
+
+Keep room for adding more projects later.
+
+16. About page content
+H1:
+About Crettyard Digital
+
+Key messaging:
+
+Independent web design, cloud and network studio
+
+Based near Crettyard on the Laois–Carlow border
+
+Run by a senior cloud and network architect
+
+Experience at Microsoft, Intel, Dell and Citi
+
+Focused on bringing enterprise-grade reliability with small-business simplicity
+
+Add a “What this means for you” section:
+
+You deal directly with the person doing the work
+
+Performance, security and scalability built in from the start
+
+Practical advice without jargon
+
+Strong technical foundation with local business focus
+
+17. Contact page content
+H1:
+Ready to Talk About Your Website, Microsoft 365 or Network?
+
+Include:
+
+short introductory text
+
+contact form
+
+note that replies usually come within one business day
+
+area served
+
+optional map placeholder around Crettyard area without exact address
+
+Form fields:
+
+Name
+
+Business Name
+
+Email
+
+Phone (optional)
+
+What can I help you with?
+
+New website
+
+Website redesign
+
+Microsoft 365
+
+Network & Wi‑Fi
+
+Ongoing support
+
+Other
+
+Message
+
+18. Copy style rules
+Write copy that is:
+
+Clear
+
+Professional
+
+Helpful
+
+Trustworthy
+
+Local
+
+Confident without sounding arrogant
+
+Avoid:
+
+hypey startup language
+
+buzzword overload
+
+Americanised hard-sell copy
+
+vague generic agency filler
+
+Prefer:
+
+plain English
+
+practical explanations
+
+short paragraphs
+
+service clarity
+
+strong CTA wording
+
+19. Technical build requirements
+Build with:
+
+clean semantic HTML
+
+modern CSS
+
+responsive layout
+
+accessible contrast
+
+fast loading
+
+good spacing
+
+reusable components
+
+Do not use:
+
+bloated libraries unless necessary
+
+overly complex animations
+
+carousels if avoidable
+
+intrusive popups
+
+Recommended:
+
+responsive cards
+
+clean grid systems
+
+simple hover states
+
+lightweight transitions only
+
+clear form styling
+
+consistent button system
+
+20. Conversion requirements
+Every page should guide users toward enquiry.
+
+Use strong CTAs such as:
+
+Request a Free Website, IT & Network Review
+
+Get Started
+
+Talk About Your Project
+
+Book a Discovery Call
+
+Contact Crettyard Digital
+
+Make the contact option visible throughout the site.
+
+21. Image direction
+Use placeholders for now, but structure the site for:
+
+one professional tech/business image in hero
+
+one image per portfolio project
+
+optional subtle service icons
+
+Image style should feel:
+
+professional
+
+businesslike
+
+local SME appropriate
+
+modern
+
+clean
+
+22. Deliverables expected from you
+Generate:
+
+Full site structure
+
+Full copy for all pages
+
+Complete responsive layout
+
+Navigation and footer
+
+SEO-friendly titles and meta descriptions
+
+Clean design system using the exact palette above
+
+Components that are easy to edit later
+
+23. Final instruction
+Now build the complete first version of the website for Crettyard Digital using all instructions above.
+
+Prioritise:
+
+strong visual credibility
+
+excellent readability
+
+local SEO
+
+service clarity
+
+conversion
+
+simple maintainability
+
+The result should feel like a polished, real B2B services website ready for refinement and launch.
+
