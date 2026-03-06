@@ -9,7 +9,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-1">
             <img src={logoImg} alt="Crettyard Digital" className="h-10 mb-6 bg-white p-2 rounded" />
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Crettyard Digital builds fast, modern websites and provides cloud & network setups for small businesses across Laois, Carlow and the surrounding counties.
+              Crettyard Digital builds fast, modern websites and provides cloud & network setups for small businesses across Laois, Carlow, Kilkenny and the surrounding counties.
             </p>
           </div>
 

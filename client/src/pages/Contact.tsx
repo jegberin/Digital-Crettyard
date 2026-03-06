@@ -81,7 +81,7 @@ export default function Contact() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="new-website">New website</SelectItem>
-                      <SelectItem value="website-redesign">Website redesign</SelectItem>
+                      <SelectItem value="website-design">Website design</SelectItem>
                       <SelectItem value="microsoft-365">Microsoft 365</SelectItem>
                       <SelectItem value="network-wifi">Network & Wi‑Fi</SelectItem>
                       <SelectItem value="ongoing-support">Ongoing support</SelectItem>

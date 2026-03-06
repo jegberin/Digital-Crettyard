@@ -15,10 +15,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-                Web Design, Office and Networking for Small Businesses in Laois, Carlow & Kilkenny
+                Web Design, Office and Networking for Small Businesses
               </h1>
               <p className="text-lg text-foreground mb-8 leading-relaxed">
-                Crettyard Digital builds fast, modern websites and cloud and network setups for small businesses across Laois, Carlow and the surrounding counties. Whether you need a new website, better local SEO, a reliable Microsoft 365 environment or a secure Wi‑Fi network, I help you get online, stay secure and win more customers.
+                Crettyard Digital builds fast, modern websites and cloud and network setups for small businesses across Laois, Carlow, Kilkenny and the surrounding counties. Whether you need a new website, better local SEO, a reliable Microsoft 365 environment or a secure Wi‑Fi network, I help you get online, stay secure and win more customers.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <Link href="/contact">
@@ -44,7 +44,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-bold text-primary">Trusted Local Partner</p>
-                    <p className="text-sm text-foreground">Laois & Carlow</p>
+                    <p className="text-sm text-foreground">Laois, Carlow & Kilkenny</p>
                   </div>
                 </div>
               </div>
