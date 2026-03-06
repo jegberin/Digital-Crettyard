@@ -29,10 +29,17 @@ export default function Contact() {
                 Based near Crettyard on the Laois–Carlow border. I primarily serve businesses in Laois, Carlow, Kilkenny, Kildare, Offaly, Tipperary, and nearby counties, but I am able to work remotely across Ireland for cloud and web projects.
               </p>
               
-              <div className="bg-secondary aspect-video rounded-sm border border-gray-200 flex items-center justify-center">
-                <p className="text-muted-foreground font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-accent inline-block"></span> Map Placeholder: Crettyard Area
-                </p>
+              <div className="bg-secondary aspect-video rounded-sm border border-gray-200 overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19124.629555198084!2d-7.143872473854153!3d52.85378190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485d6a9277c61d77%3A0x2600c7a819bf1c62!2sClonbrock%2C%20Co.%20Laois!5e1!3m2!1sen!2sie!4v1714567890123!5m2!1sen!2sie" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Service Area Map - Clonbrock, Co. Laois"
+                ></iframe>
               </div>
             </div>
 
