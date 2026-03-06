@@ -31,14 +31,14 @@ export default function Contact() {
               
               <div className="bg-secondary aspect-video rounded-sm border border-gray-200 overflow-hidden">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19124.629555198084!2d-7.143872473854153!3d52.85378190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485d6a9277c61d77%3A0x2600c7a819bf1c62!2sClonbrock%2C%20Co.%20Laois!5e1!3m2!1sen!2sie!4v1714567890123!5m2!1sen!2sie" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38249.25911039808!2d-7.1574163!3d52.8534297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485d6a98122565d1%3A0x76ca5b3cd5d8e81b!2sCrettyard%2C%20Co.%20Laois!5e0!3m2!1sen!2sie!4v1714567890123!5m2!1sen!2sie" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen={false} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Service Area Map - Clonbrock, Co. Laois"
+                  title="Service Area Map - Crettyard, Co. Laois"
                 ></iframe>
               </div>
             </div>
