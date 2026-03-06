@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Cloud, Wifi, CheckCircle2 } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@assets/Gemini_Generated_Image_52qfjo52qfjo52qf_1772790597131.png";
 import project1 from "@/assets/portfolio-furniture.jpg";
 import project2 from "@/assets/portfolio-cleaning.jpg";
 import project3 from "@/assets/portfolio-plant.jpg";
@@ -15,7 +15,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="max-w-xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-                Web Design, Microsoft 365 & Network Solutions for Small Businesses in Laois & Carlow
+                Web Design, Office and Networking for Small Businesses in Laois, Carlow & Kilkenny
               </h1>
               <p className="text-lg text-foreground mb-8 leading-relaxed">
                 Crettyard Digital builds fast, modern websites and cloud and network setups for small businesses across Laois, Carlow and the surrounding counties. Whether you need a new website, better local SEO, a reliable Microsoft 365 environment or a secure Wi‑Fi network, I help you get online, stay secure and win more customers.
