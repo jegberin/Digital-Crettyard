@@ -39,32 +39,36 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-white p-8 border border-gray-200 rounded-sm shadow-sm">
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" action="https://formsubmit.co/info@crettyard.com" method="POST">
+                {/* FormSubmit config options */}
+                <input type="hidden" name="_subject" value="New contact form submission from Crettyard Digital" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                    <Input id="name" name="name" required placeholder="Your name" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="businessName">Business Name</Label>
-                    <Input id="businessName" placeholder="Your company" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                    <Input id="businessName" name="businessName" placeholder="Your company" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="you@company.com" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                    <Input id="email" name="email" type="email" required placeholder="you@company.com" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone (optional)</Label>
-                    <Input id="phone" type="tel" placeholder="08..." className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                    <Input id="phone" name="phone" type="tel" placeholder="08..." className="rounded-sm border-gray-300 focus-visible:ring-accent" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label>What can I help you with?</Label>
-                  <Select>
+                  <Select name="service">
                     <SelectTrigger className="rounded-sm border-gray-300 focus:ring-accent">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
@@ -83,6 +87,8 @@ export default function Contact() {
                   <Label htmlFor="message">Message</Label>
                   <Textarea 
                     id="message" 
+                    name="message"
+                    required
                     placeholder="Tell me a bit about your business and what you need help with..." 
                     className="min-h-[120px] rounded-sm border-gray-300 focus-visible:ring-accent" 
                   />
