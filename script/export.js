@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.join(rootDir, 'dist', 'public');
-const pageDir = path.join(rootDir, 'page');
+const docsDir = path.join(rootDir, 'docs');
 
 const routes = [
   { path: '/', file: 'index.html' },
@@ -21,6 +21,13 @@ const routes = [
   { path: '/contact', file: 'contact.html' }
 ];
 
+function rewriteLinks(html) {
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact)"/g, 'href="/$1.html"');
+  html = html.replace(/href="\/"/g, 'href="/index.html"');
+  html = html.replace(/href="\/#services"/g, 'href="/index.html#services"');
+  return html;
+}
+
 async function exportStatic() {
   console.log('Building Vite app...');
   execSync('npm run build', { stdio: 'inherit' });
@@ -29,7 +36,6 @@ async function exportStatic() {
   const app = express();
   app.use(express.static(distDir));
   
-  // Fallback to index.html for SPA routing
   app.use((req, res) => {
     res.sendFile(path.join(distDir, 'index.html'));
   });
@@ -40,19 +46,17 @@ async function exportStatic() {
     console.log(`Server running at ${baseUrl}`);
 
     try {
-      await fs.rm(pageDir, { recursive: true, force: true });
-      await fs.mkdir(pageDir, { recursive: true });
+      await fs.rm(docsDir, { recursive: true, force: true });
+      await fs.mkdir(docsDir, { recursive: true });
       
-      // Copy assets
-      await fs.cp(path.join(distDir, 'assets'), path.join(pageDir, 'assets'), { recursive: true });
+      await fs.cp(path.join(distDir, 'assets'), path.join(docsDir, 'assets'), { recursive: true });
       
-      // Copy other static files if any (like favicon)
       const files = await fs.readdir(distDir);
       for (const file of files) {
         if (file !== 'assets' && file !== 'index.html') {
           const stat = await fs.stat(path.join(distDir, file));
           if (stat.isFile()) {
-            await fs.copyFile(path.join(distDir, file), path.join(pageDir, file));
+            await fs.copyFile(path.join(distDir, file), path.join(docsDir, file));
           }
         }
       }
@@ -69,19 +73,22 @@ async function exportStatic() {
         console.log(`Exporting ${route.path} to ${route.file}...`);
         await page.goto(`${baseUrl}${route.path}`, { waitUntil: 'networkidle0' });
         
-        // Wait for React to render
         await page.waitForSelector('#root > div', { timeout: 5000 }).catch(() => {});
         
-        // Let animations/initial renders settle
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 1500));
         
         let html = await page.content();
         
-        await fs.writeFile(path.join(pageDir, route.file), html);
+        html = rewriteLinks(html);
+        
+        await fs.writeFile(path.join(docsDir, route.file), html);
       }
 
       await browser.close();
-      console.log('Export complete! Files are in the /page directory.');
+
+      await fs.writeFile(path.join(docsDir, '.nojekyll'), '');
+
+      console.log('Export complete! Files are in the /docs directory.');
     } catch (err) {
       console.error('Export failed:', err);
     } finally {
