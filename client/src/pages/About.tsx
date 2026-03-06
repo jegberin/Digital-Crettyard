@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
+import joeyImg from "@assets/5add63ba-e810-43cb-90e6-3212a7dbbf2f_1772804490402.jpg";
 
 export default function About() {
   return (
@@ -20,15 +21,27 @@ export default function About() {
       </section>
 
       <section className="py-28 bg-white">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <FadeIn>
-            <p className="text-xl mb-8 text-foreground/80 leading-relaxed">
-              Crettyard Digital is run by a senior cloud and network architect with extensive enterprise experience at companies like Microsoft, Intel, Dell, and Citi. 
-            </p>
-            <p className="mb-8 text-foreground/70 leading-relaxed">
-              The goal of Crettyard Digital is simple: to bring enterprise-grade reliability and security to Irish small businesses, without the corporate jargon or unnecessary complexity. Whether you need a local SEO-optimized website to win more trade, a secure Microsoft 365 migration, or a robust Wi-Fi network for your office or workshop, I provide practical, effective solutions.
-            </p>
-          </FadeIn>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="grid md:grid-cols-5 gap-14 items-start mb-16">
+            <FadeIn className="md:col-span-2">
+              <div className="aspect-[3/4] rounded-[4px] overflow-hidden shadow-md">
+                <img src={joeyImg} alt="Joey — founder of Crettyard Digital" className="w-full h-full object-cover" data-testid="img-joey" />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.15} className="md:col-span-3">
+              <span className="eyebrow mb-4 inline-block">Meet Joey</span>
+              <h2 className="text-3xl mb-6">The person behind Crettyard Digital</h2>
+              <p className="text-lg mb-6 text-foreground/80 leading-relaxed">
+                Hi, I'm Joey. I run Crettyard Digital — a one-person studio helping small businesses get online, stay secure, and win more customers.
+              </p>
+              <p className="mb-6 text-foreground/70 leading-relaxed">
+                I'm a senior cloud and network architect with extensive enterprise experience at companies like Microsoft, Intel, and Dell. I started Crettyard Digital to bring that same enterprise-grade reliability and security to Irish small businesses, without the corporate jargon or unnecessary complexity.
+              </p>
+              <p className="text-foreground/70 leading-relaxed">
+                Whether you need a local SEO-optimized website to win more trade, a secure Microsoft 365 migration, or a robust Wi-Fi network for your office or workshop, I provide practical, effective solutions — and you deal directly with me every step of the way.
+              </p>
+            </FadeIn>
+          </div>
 
           <FadeIn delay={0.15}>
             <span className="eyebrow mb-4 inline-block">Your Advantage</span>
@@ -39,7 +52,7 @@ export default function About() {
             <StaggerItem>
               <div className="border border-gray-200/80 p-7 rounded-[4px] card-hover">
                 <h3 className="text-lg font-bold mb-2">Direct Communication</h3>
-                <p className="text-foreground/70 text-[15px] leading-relaxed">You deal directly with the person doing the work. No account managers, no confusing support ticketing systems.</p>
+                <p className="text-foreground/70 text-[15px] leading-relaxed">You deal directly with Joey — the person doing the work. No account managers, no confusing support ticketing systems.</p>
               </div>
             </StaggerItem>
             <StaggerItem>
