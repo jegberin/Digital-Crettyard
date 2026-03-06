@@ -49,7 +49,7 @@
   --secondary-foreground: #0C2366;
   
   --muted: #F8F9FA;
-  --muted-foreground: #333333;
+  --muted-foreground: #6B7280;
   
   --accent: #12B388;
   --accent-foreground: #FFFFFF;
@@ -61,7 +61,7 @@
   --input: #E5E7EB;
   --ring: #12B388;
   
-  --radius: 0.125rem; /* 2px rounding as requested */
+  --radius: 0.125rem;
 }
 
 @layer base {
@@ -71,7 +71,36 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    @apply font-semibold text-primary tracking-tight;
+  }
+  h2 {
+    @apply font-semibold text-primary tracking-tight;
+  }
+  h3, h4, h5, h6 {
     @apply font-bold text-primary;
+  }
+}
+
+@layer utilities {
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+  }
+  .section-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+  }
+  .section-gradient-reverse {
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 }

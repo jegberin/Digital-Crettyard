@@ -14,34 +14,32 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="/"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Home</a></Link></li>
-              <li><Link href="/portfolio"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Portfolio</a></Link></li>
-              <li><Link href="/about"><a className="text-gray-300 hover:text-accent transition-colors text-sm">About</a></Link></li>
-              <li><Link href="/contact"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Contact</a></Link></li>
+              <li><Link href="/" className="text-gray-300 hover:text-accent transition-colors text-sm">Home</Link></li>
+              <li><Link href="/portfolio" className="text-gray-300 hover:text-accent transition-colors text-sm">Portfolio</Link></li>
+              <li><Link href="/about" className="text-gray-300 hover:text-accent transition-colors text-sm">About</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-accent transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Services</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Services</h4>
             <ul className="space-y-3">
-              <li><Link href="/web-design"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Web Design</a></Link></li>
-              <li><Link href="/microsoft-365"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Microsoft 365</a></Link></li>
-              <li><Link href="/network-wifi-security"><a className="text-gray-300 hover:text-accent transition-colors text-sm">Network & Wi-Fi</a></Link></li>
+              <li><Link href="/web-design" className="text-gray-300 hover:text-accent transition-colors text-sm">Web Design</Link></li>
+              <li><Link href="/microsoft-365" className="text-gray-300 hover:text-accent transition-colors text-sm">Microsoft 365</Link></li>
+              <li><Link href="/network-wifi-security" className="text-gray-300 hover:text-accent transition-colors text-sm">Network & Wi-Fi</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Contact</h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>Serving Laois, Carlow, Kilkenny, Kildare & beyond.</li>
               <li>Remote support across Ireland.</li>
               <li className="pt-4">
-                <Link href="/contact">
-                  <a className="inline-flex items-center text-accent hover:text-white font-bold transition-colors">
-                    Get in touch &gt;
-                  </a>
+                <Link href="/contact" className="inline-flex items-center text-accent hover:text-white font-bold transition-colors">
+                  Get in touch &gt;
                 </Link>
               </li>
             </ul>
