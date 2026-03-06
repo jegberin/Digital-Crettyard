@@ -1,0 +1,102 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+export default function Contact() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <section className="bg-secondary py-16 md:py-24 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h1 className="text-4xl md:text-5xl leading-tight mb-6">
+            Ready to Talk About Your Website, Microsoft 365 or Network?
+          </h1>
+          <p className="text-xl text-foreground">
+            Get in touch to discuss your project. Replies usually come within one business day.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-16">
+            
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-3xl mb-6">Service Area</h2>
+              <p className="text-foreground mb-8 text-lg">
+                Based near Crettyard on the Laois–Carlow border. I primarily serve businesses in Laois, Carlow, Kilkenny, Kildare, Offaly, Tipperary, and nearby counties, but I am able to work remotely across Ireland for cloud and web projects.
+              </p>
+              
+              <div className="bg-secondary aspect-video rounded-sm border border-gray-200 flex items-center justify-center">
+                <p className="text-muted-foreground font-medium flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent inline-block"></span> Map Placeholder: Crettyard Area
+                </p>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-white p-8 border border-gray-200 rounded-sm shadow-sm">
+              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" placeholder="Your name" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="businessName">Business Name</Label>
+                    <Input id="businessName" placeholder="Your company" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="you@company.com" className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone (optional)</Label>
+                    <Input id="phone" type="tel" placeholder="08..." className="rounded-sm border-gray-300 focus-visible:ring-accent" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>What can I help you with?</Label>
+                  <Select>
+                    <SelectTrigger className="rounded-sm border-gray-300 focus:ring-accent">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="new-website">New website</SelectItem>
+                      <SelectItem value="website-redesign">Website redesign</SelectItem>
+                      <SelectItem value="microsoft-365">Microsoft 365</SelectItem>
+                      <SelectItem value="network-wifi">Network & Wi‑Fi</SelectItem>
+                      <SelectItem value="ongoing-support">Ongoing support</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Tell me a bit about your business and what you need help with..." 
+                    className="min-h-[120px] rounded-sm border-gray-300 focus-visible:ring-accent" 
+                  />
+                </div>
+
+                <Button type="submit" className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-sm font-bold h-12">
+                  Send Message
+                </Button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
