@@ -2,9 +2,9 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Cloud, Wifi, CheckCircle2 } from "lucide-react";
 import heroImg from "@assets/Gemini_Generated_Image_52qfjo52qfjo52qf_1772790597131.png";
-import project1 from "@/assets/portfolio-furniture.jpg";
-import project2 from "@/assets/portfolio-cleaning.jpg";
-import project3 from "@/assets/portfolio-plant.jpg";
+import project1 from "@assets/screenshot-1772791998786.png";
+import project2 from "@assets/screenshot-1772791995871.png";
+import project3 from "@assets/screenshot-1772791990532.png";
 
 export default function Home() {
   return (
@@ -175,30 +175,33 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group cursor-pointer">
+            <a href="https://bmcustomfurniture.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block">
               <div className="aspect-[4/3] bg-gray-100 mb-6 overflow-hidden border border-gray-100 rounded-sm">
                 <img src={project1} alt="BM Custom Furniture" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-xl mb-2 group-hover:text-accent transition-colors">BM Custom Furniture</h3>
+              <h3 className="text-xl mb-1 group-hover:text-accent transition-colors">BM Custom Furniture</h3>
+              <p className="text-xs font-medium text-muted-foreground hover:text-accent mb-2">bmcustomfurniture.ie</p>
               <p className="text-sm text-foreground mb-4">Bespoke fitted furniture showcase</p>
-              <Link href="/portfolio"><a className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</a></Link>
-            </div>
-            <div className="group cursor-pointer">
+              <span className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</span>
+            </a>
+            <a href="https://gogreensteamclean.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block">
               <div className="aspect-[4/3] bg-gray-100 mb-6 overflow-hidden border border-gray-100 rounded-sm">
                 <img src={project2} alt="Go Green Steam Clean" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-xl mb-2 group-hover:text-accent transition-colors">Go Green Steam Clean</h3>
+              <h3 className="text-xl mb-1 group-hover:text-accent transition-colors">Go Green Steam Clean</h3>
+              <p className="text-xs font-medium text-muted-foreground hover:text-accent mb-2">gogreensteamclean.ie</p>
               <p className="text-sm text-foreground mb-4">Service-led eco-friendly cleaning</p>
-              <Link href="/portfolio"><a className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</a></Link>
-            </div>
-            <div className="group cursor-pointer">
+              <span className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</span>
+            </a>
+            <a href="https://nurneyplantandcivil.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block">
               <div className="aspect-[4/3] bg-gray-100 mb-6 overflow-hidden border border-gray-100 rounded-sm">
                 <img src={project3} alt="Nurney Plant and Civil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <h3 className="text-xl mb-2 group-hover:text-accent transition-colors">Nurney Plant and Civil</h3>
+              <h3 className="text-xl mb-1 group-hover:text-accent transition-colors">Nurney Plant and Civil</h3>
+              <p className="text-xs font-medium text-muted-foreground hover:text-accent mb-2">nurneyplantandcivil.ie</p>
               <p className="text-sm text-foreground mb-4">Professional plant hire services</p>
-              <Link href="/portfolio"><a className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</a></Link>
-            </div>
+              <span className="text-accent font-bold inline-flex items-center text-sm">View project &gt;</span>
+            </a>
           </div>
           <div className="mt-8 text-center md:hidden">
             <Link href="/portfolio">

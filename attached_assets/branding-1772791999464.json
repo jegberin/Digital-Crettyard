@@ -1,0 +1,136 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Source Sans Pro",
+      "role": "body"
+    },
+    {
+      "family": "Reem Kufi",
+      "role": "heading"
+    },
+    {
+      "family": "Muli",
+      "role": "unknown"
+    }
+  ],
+  "colors": {
+    "primary": "#FF9900",
+    "accent": "#365C9A",
+    "background": "#FFFFFF",
+    "textPrimary": "#2D2D2D",
+    "link": "#6C757D"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Source Sans Pro",
+      "heading": "Reem Kufi"
+    },
+    "fontStacks": {
+      "heading": [
+        "Reem Kufi",
+        "sans-serif"
+      ],
+      "body": [
+        "Muli"
+      ],
+      "paragraph": [
+        "Reem Kufi",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "56px",
+      "h2": "56px",
+      "body": "28.8px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#FF9900",
+      "textColor": "#FFFFFF",
+      "borderColor": "#FF9900",
+      "borderRadius": "100px",
+      "borderRadiusCorners": {
+        "topLeft": "100px",
+        "topRight": "100px",
+        "bottomRight": "100px",
+        "bottomLeft": "100px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#365C9A",
+      "textColor": "#FFFFFF",
+      "borderColor": "#365C9A",
+      "borderRadius": "100px",
+      "borderRadiusCorners": {
+        "topLeft": "100px",
+        "topRight": "100px",
+        "bottomRight": "100px",
+        "bottomLeft": "100px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.webp",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "https://www.bmcustomfurniture.ie/assets/images/logo-recoveredwhite-80x74.webp",
+    "logoHref": "index.html",
+    "logoAlt": "BM Custom Furniture Logo"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Selected #1 because it is located in the header, is visible, and matches the brand name 'BM Custom Furniture'. It also matches the favicon, indicating it is the primary logo.",
+    "confidence": 0.9,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 2,
+      "text": "Staircase Storage",
+      "reasoning": "Button #2 ('Staircase Storage') uses the vibrant brand color #FF9900, which aligns with the primary brand color and is likely a key call-to-action."
+    },
+    "secondary": {
+      "index": 1,
+      "text": "Reviews on Facebook",
+      "reasoning": "Button #1 ('Reviews on Facebook') uses a different vibrant color #365C9A, making it suitable as a secondary CTA."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "homeowners and interior design enthusiasts"
+  },
+  "designSystem": {
+    "framework": "bootstrap",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 1,
+        "selectedLogoReasoning": "Selected #1 because it is located in the header, is visible, and matches the brand name 'BM Custom Furniture'. It also matches the favicon, indicating it is the primary logo.",
+        "confidence": 0.9
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}

@@ -1,23 +1,26 @@
 import { Link } from "wouter";
-import project1 from "@/assets/portfolio-furniture.jpg";
-import project2 from "@/assets/portfolio-cleaning.jpg";
-import project3 from "@/assets/portfolio-plant.jpg";
+import project1 from "@assets/screenshot-1772791998786.png";
+import project2 from "@assets/screenshot-1772791995871.png";
+import project3 from "@assets/screenshot-1772791990532.png";
 import { Button } from "@/components/ui/button";
 
 export default function Portfolio() {
   const projects = [
     {
       title: "BM Custom Furniture",
+      url: "https://bmcustomfurniture.ie",
       image: project1,
       description: "A brochure-style website for bespoke furniture, fitted furniture, wall panelling, and custom cabinetry. Features an image-led presentation and strong local search focus to highlight their craftsmanship.",
     },
     {
       title: "Go Green Steam Clean",
+      url: "https://gogreensteamclean.ie",
       image: project2,
       description: "A service-led site for an eco-friendly steam cleaning business in the Midlands. Built with strong local service pages and clear CTAs to drive enquiries and bookings.",
     },
     {
       title: "Nurney Plant and Civil",
+      url: "https://nurneyplantandcivil.ie",
       image: project3,
       description: "A professional corporate site for plant hire and civil engineering services operating in Co. Carlow and nearby areas. Designed to present credibility, capabilities, and ease of contact.",
     }
@@ -47,7 +50,10 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
+                  <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-accent mb-4 inline-block">
+                    {project.url.replace('https://', '')}
+                  </a>
                   <p className="text-lg text-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
