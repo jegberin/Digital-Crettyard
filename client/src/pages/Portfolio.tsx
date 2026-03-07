@@ -110,17 +110,17 @@ export default function Portfolio() {
               {[
                 {
                   quote: "Joey built us a website that actually looks as good as the furniture we make. Within weeks of launching, we were getting enquiries from people who found us on Google — that never happened before. Brilliant service, no messing.",
-                  name: "Brian",
+                  name: "Barry",
                   business: "BM Custom Furniture"
                 },
                 {
                   quote: "I had no website and no idea where to start. Joey made the whole thing painless — explained everything in plain English and delivered a site that brings in new bookings every week. Best investment I've made in my business.",
-                  name: "Sarah",
+                  name: "Darren",
                   business: "Go Green Steam Clean"
                 },
                 {
                   quote: "We needed a professional site that showed what we do without any fuss. Joey delivered exactly that, on time and on budget. The lads on site even get compliments from clients about the website now. Can't recommend him enough.",
-                  name: "Paudie",
+                  name: "Brian",
                   business: "Nurney Plant and Civil"
                 }
               ].map((testimonial, i) => (
