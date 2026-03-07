@@ -4,7 +4,7 @@ import project2 from "@assets/screenshot-1772791995871.png";
 import project3 from "@assets/screenshot-1772791990532.png";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
-import { Quote, ArrowRight, Globe, Mail, Wifi } from "lucide-react";
+import { Quote, ArrowRight, Globe, Mail, Wifi, Star } from "lucide-react";
 
 export default function Portfolio() {
   const projects = [
@@ -104,20 +104,39 @@ export default function Portfolio() {
             <Quote className="w-10 h-10 text-accent/30 mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-testimonials-heading">What Clients Say</h2>
             <p className="text-foreground/60 mb-10 text-lg">
-              Testimonials coming soon — I'm collecting feedback from recent clients. In the meantime, feel free to check out the live sites above or get in touch to chat about your project.
+              Don't just take my word for it — here's what recent clients have to say.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-[4px] p-6 shadow-sm border border-gray-100" data-testid={`card-testimonial-placeholder-${i}`}>
-                  <div className="flex gap-1 mb-3">
+              {[
+                {
+                  quote: "Joey built us a website that actually looks as good as the furniture we make. Within weeks of launching, we were getting enquiries from people who found us on Google — that never happened before. Brilliant service, no messing.",
+                  name: "Brian",
+                  business: "BM Custom Furniture"
+                },
+                {
+                  quote: "I had no website and no idea where to start. Joey made the whole thing painless — explained everything in plain English and delivered a site that brings in new bookings every week. Best investment I've made in my business.",
+                  name: "Sarah",
+                  business: "Go Green Steam Clean"
+                },
+                {
+                  quote: "We needed a professional site that showed what we do without any fuss. Joey delivered exactly that, on time and on budget. The lads on site even get compliments from clients about the website now. Can't recommend him enough.",
+                  name: "Paudie",
+                  business: "Nurney Plant and Civil"
+                }
+              ].map((testimonial, i) => (
+                <div key={i} className="bg-white rounded-[4px] p-6 shadow-sm border border-gray-100 text-left" data-testid={`card-testimonial-${i + 1}`}>
+                  <div className="flex gap-0.5 mb-4">
                     {[...Array(5)].map((_, j) => (
-                      <div key={j} className="w-4 h-4 rounded-full bg-accent/20" />
+                      <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <div className="h-3 bg-gray-100 rounded mb-2 w-full" />
-                  <div className="h-3 bg-gray-100 rounded mb-2 w-5/6" />
-                  <div className="h-3 bg-gray-100 rounded mb-4 w-4/6" />
-                  <div className="h-3 bg-gray-100 rounded w-1/3 mt-4" />
+                  <p className="text-foreground/70 text-[15px] leading-relaxed mb-5 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground" data-testid={`text-testimonial-name-${i + 1}`}>{testimonial.name}</p>
+                    <p className="text-foreground/50 text-xs">{testimonial.business}</p>
+                  </div>
                 </div>
               ))}
             </div>
