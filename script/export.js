@@ -44,7 +44,13 @@ function fixFramerMotionStyles(html) {
   return html;
 }
 
-const mobileMenuScript = `
+function fixAccordionContent(html) {
+  html = html.replace(/data-\[state=closed\]:animate-accordion-up/g, '');
+  html = html.replace(/data-\[state=open\]:animate-accordion-down/g, '');
+  return html;
+}
+
+const staticScripts = `
 <script>
 (function(){
   var btn = document.querySelector('[data-mobile-toggle]');
@@ -71,12 +77,69 @@ const mobileMenuScript = `
       });
     });
   }
+
+  var triggers = document.querySelectorAll('[data-orientation="vertical"] > h3 button[aria-expanded]');
+  triggers.forEach(function(trigger){
+    var contentId = trigger.getAttribute('aria-controls');
+    var content = document.getElementById(contentId);
+    if(!content) return;
+    content.removeAttribute('hidden');
+    content.style.display = 'none';
+    content.style.overflow = 'hidden';
+    trigger.addEventListener('click', function(){
+      var isOpen = trigger.getAttribute('data-state') === 'open';
+      var parent = trigger.closest('[data-orientation="vertical"]');
+      if(parent){
+        var root = parent.parentElement;
+        if(root){
+          root.querySelectorAll('[data-orientation="vertical"] > h3 button[aria-expanded]').forEach(function(otherTrigger){
+            if(otherTrigger !== trigger){
+              var otherId = otherTrigger.getAttribute('aria-controls');
+              var otherContent = document.getElementById(otherId);
+              otherTrigger.setAttribute('data-state','closed');
+              otherTrigger.setAttribute('aria-expanded','false');
+              otherTrigger.closest('[data-orientation="vertical"]').setAttribute('data-state','closed');
+              var otherH3 = otherTrigger.closest('h3');
+              if(otherH3) otherH3.setAttribute('data-state','closed');
+              if(otherContent){
+                otherContent.setAttribute('data-state','closed');
+                otherContent.style.display = 'none';
+              }
+              var otherSvg = otherTrigger.querySelector('svg');
+              if(otherSvg) otherSvg.style.transform = 'rotate(0deg)';
+            }
+          });
+        }
+      }
+      if(isOpen){
+        trigger.setAttribute('data-state','closed');
+        trigger.setAttribute('aria-expanded','false');
+        if(parent) parent.setAttribute('data-state','closed');
+        var h3el = trigger.closest('h3');
+        if(h3el) h3el.setAttribute('data-state','closed');
+        content.setAttribute('data-state','closed');
+        content.style.display = 'none';
+        var svg = trigger.querySelector('svg');
+        if(svg) svg.style.transform = 'rotate(0deg)';
+      } else {
+        trigger.setAttribute('data-state','open');
+        trigger.setAttribute('aria-expanded','true');
+        if(parent) parent.setAttribute('data-state','open');
+        var h3el2 = trigger.closest('h3');
+        if(h3el2) h3el2.setAttribute('data-state','open');
+        content.setAttribute('data-state','open');
+        content.style.display = 'block';
+        var svg2 = trigger.querySelector('svg');
+        if(svg2) svg2.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
 })();
 </script>
 `;
 
-function addMobileMenuSupport(html) {
-  html = html.replace('</body>', mobileMenuScript + '</body>');
+function addStaticScripts(html) {
+  html = html.replace('</body>', staticScripts + '</body>');
   return html;
 }
 
@@ -135,7 +198,8 @@ async function exportStatic() {
         html = stripReactBundle(html);
         html = fixOgImages(html);
         html = fixFramerMotionStyles(html);
-        html = addMobileMenuSupport(html);
+        html = fixAccordionContent(html);
+        html = addStaticScripts(html);
         
         await fs.writeFile(path.join(docsDir, route.file), html);
       }

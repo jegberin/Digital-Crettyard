@@ -2,28 +2,12 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Search, Wrench, Smartphone, Rocket, FormInput, Users, CheckCircle, PiggyBank, HelpCircle, ChevronDown } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
-import { useState } from "react";
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border border-gray-200/80 rounded-[4px] overflow-hidden">
-      <button
-        data-testid={`faq-toggle-${question.slice(0, 20).replace(/\s/g, '-').toLowerCase()}`}
-        className="w-full flex items-center justify-between p-5 text-left font-semibold text-[15px] hover:bg-secondary/50 transition-colors"
-        onClick={() => setOpen(!open)}
-      >
-        <span>{question}</span>
-        <ChevronDown className={`shrink-0 ml-2 transition-transform duration-200 ${open ? "rotate-180" : ""}`} size={18} />
-      </button>
-      {open && (
-        <div className="px-5 pb-5 text-foreground/70 text-[15px] leading-relaxed">
-          {answer}
-        </div>
-      )}
-    </div>
-  );
-}
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function WebDesign() {
   return (
@@ -260,32 +244,56 @@ export default function WebDesign() {
           </FadeIn>
 
           <FadeIn className="max-w-3xl mx-auto mb-24">
-            <div className="space-y-3" data-testid="faq-list">
-              <FAQItem
-                question="How long does it take to build a website?"
-                answer="Most projects take 2–4 weeks from start to launch. A simple brochure site can be ready faster, while larger sites with custom features may take a little longer. I'll give you a clear timeline before we start."
-              />
-              <FAQItem
-                question="What do I need to provide?"
-                answer="Just your logo (if you have one), a rough idea of what pages you want, and some photos of your work. Don't worry if you're not sure — I'll guide you through the whole process and can help with content, copywriting, and image sourcing."
-              />
-              <FAQItem
-                question="Do you help with SEO and Google rankings?"
-                answer="Yes. Every website I build includes on-page SEO — proper headings, meta descriptions, fast loading times, and mobile-friendly design. I also offer guidance on Google Business Profile setup to help you rank in local map results."
-              />
-              <FAQItem
-                question="Will I be able to update the site myself?"
-                answer="That depends on the type of site. Some projects include a content management system so you can make simple updates. For most small business sites, I handle updates for you as part of an affordable maintenance plan — so you can focus on running your business."
-              />
-              <FAQItem
-                question="Do you offer hosting and ongoing support?"
-                answer="Yes. I offer hosting and maintenance care plans that include security updates, backups, and content changes. You deal directly with me — no call centres or ticket systems."
-              />
-              <FAQItem
-                question="I already have a website but it's outdated — can you help?"
-                answer="Absolutely. I regularly redesign and rebuild existing websites. Whether your current site is slow, not mobile-friendly, or just not bringing in enquiries, I can give it a fresh start with modern design and proper SEO."
-              />
-            </div>
+            <Accordion type="single" collapsible className="w-full" data-testid="faq-list">
+              <AccordionItem value="wd-faq-1">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-1">
+                  How long does it take to build a website?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-1">
+                  Most projects take 2–4 weeks from start to launch. A simple brochure site can be ready faster, while larger sites with custom features may take a little longer. I'll give you a clear timeline before we start.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="wd-faq-2">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-2">
+                  What do I need to provide?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-2">
+                  Just your logo (if you have one), a rough idea of what pages you want, and some photos of your work. Don't worry if you're not sure — I'll guide you through the whole process and can help with content, copywriting, and image sourcing.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="wd-faq-3">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-3">
+                  Do you help with SEO and Google rankings?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-3">
+                  Yes. Every website I build includes on-page SEO — proper headings, meta descriptions, fast loading times, and mobile-friendly design. I also offer guidance on Google Business Profile setup to help you rank in local map results.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="wd-faq-4">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-4">
+                  Will I be able to update the site myself?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-4">
+                  That depends on the type of site. Some projects include a content management system so you can make simple updates. For most small business sites, I handle updates for you as part of an affordable maintenance plan — so you can focus on running your business.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="wd-faq-5">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-5">
+                  Do you offer hosting and ongoing support?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-5">
+                  Yes. I offer hosting and maintenance care plans that include security updates, backups, and content changes. You deal directly with me — no call centres or ticket systems.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="wd-faq-6">
+                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-wd-6">
+                  I already have a website but it's outdated — can you help?
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-wd-6">
+                  Absolutely. I regularly redesign and rebuild existing websites. Whether your current site is slow, not mobile-friendly, or just not bringing in enquiries, I can give it a fresh start with modern design and proper SEO.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </FadeIn>
 
           <FadeIn className="text-center mb-14">
