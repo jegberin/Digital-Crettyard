@@ -232,7 +232,7 @@ export default function About() {
             <p className="text-foreground/70 text-lg mb-8 max-w-xl mx-auto">
               Whether you need a website, email setup, or better Wi-Fi — I'll give you honest, practical advice with no obligation.
             </p>
-            <Link href="/contact">
+            <Link href="/contact#send-message">
               <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200" data-testid="button-contact-cta">
                 Book a Free Consultation
               </Button>

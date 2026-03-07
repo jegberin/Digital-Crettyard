@@ -87,7 +87,7 @@ export default function Portfolio() {
                       </p>
                     </div>
 
-                    <Link href="/contact" className="text-accent font-semibold inline-flex items-center gap-1 text-sm hover:text-primary transition-colors" data-testid={`link-discuss-project-${index}`}>
+                    <Link href="/contact#send-message" className="text-accent font-semibold inline-flex items-center gap-1 text-sm hover:text-primary transition-colors" data-testid={`link-discuss-project-${index}`}>
                       Discuss a similar project <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -185,7 +185,7 @@ export default function Portfolio() {
             <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
               If you're a local business owner who wants to look more professional online and win more customers, let's have a chat. No pressure, no jargon — just honest advice.
             </p>
-            <Link href="/contact">
+            <Link href="/contact#send-message">
               <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-10 text-sm border-0 transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-start-project">
                 Book a Free Consultation
               </Button>

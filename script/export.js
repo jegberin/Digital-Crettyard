@@ -22,6 +22,7 @@ const routes = [
 ];
 
 function rewriteLinks(html) {
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact)#([^"]*)"/g, 'href="/$1.html#$2"');
   html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact)"/g, 'href="/$1.html"');
   html = html.replace(/href="\/"/g, 'href="/index.html"');
   html = html.replace(/href="\/#services"/g, 'href="/index.html#services"');

@@ -32,7 +32,7 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <Link href="/contact">
+          <Link href="/contact#send-message">
             <Button className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium px-6 h-9 text-[13px] transition-all duration-200 shadow-sm hover:shadow-md" data-testid="button-nav-contact">
               Book a Free Consultation
             </Button>
@@ -60,7 +60,7 @@ export function Navbar() {
             {item.label}
           </Link>
         ))}
-        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+        <Link href="/contact#send-message" onClick={() => setIsMobileMenuOpen(false)}>
           <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200" data-testid="button-mobile-contact">
             Book a Free Consultation
           </Button>

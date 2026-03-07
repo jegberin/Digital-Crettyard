@@ -23,7 +23,7 @@ export default function WebDesign() {
               Your website should be your hardest-working employee — bringing in enquiries, building trust, and making your business look as professional as the work you do. I design and build fast, mobile-friendly websites for tradespeople, contractors, and local service businesses across Laois, Carlow, and the surrounding counties.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
+              <Link href="/contact#send-message">
                 <Button data-testid="button-hero-cta" size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg">
                   Book a Free Website Consultation
                 </Button>
@@ -338,7 +338,7 @@ export default function WebDesign() {
           <FadeIn>
             <h2 className="text-3xl mb-4" data-testid="text-bottom-cta-heading">Ready to Get a Website That Works for Your Business?</h2>
             <p className="text-foreground/70 mb-8 max-w-xl mx-auto leading-relaxed">Book a free, no-obligation consultation and I'll show you exactly how a professional website can help you win more customers.</p>
-            <Link href="/contact">
+            <Link href="/contact#send-message">
               <Button data-testid="button-bottom-cta" size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200">
                 Book a Free Website Consultation
               </Button>

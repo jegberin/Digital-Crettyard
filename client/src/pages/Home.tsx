@@ -24,7 +24,7 @@ export default function Home() {
                 Websites, Microsoft 365 and network solutions built for small businesses across Laois, Carlow, Kilkenny and the surrounding counties. No jargon, no hassle — just technology that works for your business.
               </p>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <Link href="/contact">
+                <Link href="/contact#send-message">
                   <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold w-full sm:w-auto h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-book-consultation">
                     Book a Free Consultation
                   </Button>
@@ -405,7 +405,7 @@ export default function Home() {
             <p className="text-lg text-white/60 mb-10 leading-relaxed">
               Book a free, no-obligation consultation. I'll give you honest advice on what your business needs — whether that's a website, email setup, or better Wi-Fi.
             </p>
-            <Link href="/contact">
+            <Link href="/contact#send-message">
               <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-10 text-sm border-0 transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-cta-contact">
                 Book a Free Consultation
               </Button>

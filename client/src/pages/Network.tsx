@@ -24,7 +24,7 @@ export default function NetworkWifi() {
               Dropped connections, dead spots, and unreliable Wi&#8209;Fi cost your business time and money every day. I design, install, and secure networks that actually work — so your team can focus on the job, not the internet.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
+              <Link href="/contact#send-message">
                 <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-hero-cta">
                   Book a Free Network Review
                 </Button>
@@ -365,7 +365,7 @@ export default function NetworkWifi() {
             <p className="text-foreground/70 mb-8 max-w-xl mx-auto leading-relaxed">
               Book a free, no-obligation network review. I'll assess your setup, identify the problems, and give you a clear plan to sort it out.
             </p>
-            <Link href="/contact">
+            <Link href="/contact#send-message">
               <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200" data-testid="button-cta-bottom">
                 Book a Free Network Review
               </Button>

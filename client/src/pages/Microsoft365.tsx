@@ -24,7 +24,7 @@ export default function Microsoft365() {
               Stop losing emails, sharing files by USB stick, or paying for tools you don't understand. I set up Microsoft 365 properly so your business email, file sharing, and collaboration just work — securely, from anywhere.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
+              <Link href="/contact#send-message">
                 <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-hero-cta">
                   Book a Free Consultation
                 </Button>
@@ -323,7 +323,7 @@ export default function Microsoft365() {
               Book a free, no-obligation consultation. I'll assess your current setup, recommend the right plan, and give you a clear quote — in plain English.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
+              <Link href="/contact#send-message">
                 <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-cta-consultation">
                   Book a Free Consultation
                 </Button>
