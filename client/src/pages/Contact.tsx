@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { MessageCircle, Clock, FileText, CheckCircle } from "lucide-react";
 
@@ -156,20 +155,22 @@ export default function Contact() {
                       <Input id="phone" name="phone" type="tel" placeholder="08..." className="rounded-[4px] border-gray-200 focus-visible:ring-accent h-10" data-testid="input-phone" />
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-sm">What can I help with?</Label>
-                      <Select name="service">
-                        <SelectTrigger className="rounded-[4px] border-gray-200 focus:ring-accent h-10" data-testid="select-service">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="new-website">New website</SelectItem>
-                          <SelectItem value="website-redesign">Website redesign</SelectItem>
-                          <SelectItem value="microsoft-365">Microsoft 365</SelectItem>
-                          <SelectItem value="network-wifi">Network & Wi&#8209;Fi</SelectItem>
-                          <SelectItem value="ongoing-support">Ongoing support</SelectItem>
-                          <SelectItem value="not-sure">Not sure yet</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Label htmlFor="service" className="text-sm">What can I help with?</Label>
+                      <select
+                        id="service"
+                        name="service"
+                        className="flex h-10 w-full rounded-[4px] border border-gray-200 bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        data-testid="select-service"
+                        defaultValue=""
+                      >
+                        <option value="" disabled>Select a service</option>
+                        <option value="new-website">New website</option>
+                        <option value="website-redesign">Website redesign</option>
+                        <option value="microsoft-365">Microsoft 365</option>
+                        <option value="network-wifi">Network &amp; Wi‑Fi</option>
+                        <option value="ongoing-support">Ongoing support</option>
+                        <option value="not-sure">Not sure yet</option>
+                      </select>
                     </div>
                   </div>
 

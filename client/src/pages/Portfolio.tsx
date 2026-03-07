@@ -119,7 +119,7 @@ export default function Portfolio() {
                   business: "Go Green Steam Clean"
                 },
                 {
-                  quote: "We needed a professional site that showed what we do without any fuss. Joey delivered exactly that, on time and on budget. The lads on site even get compliments from clients about the website now. Can't recommend him enough.",
+                  quote: "Joey did the lot for us — a professional website, Microsoft 365 so we have proper email between the office and the lads on site, and sorted our Wi-Fi so it works in every room. The lads even get compliments from clients about the website now. Can't recommend him enough.",
                   name: "Brian",
                   business: "Nurney Plant and Civil"
                 }
