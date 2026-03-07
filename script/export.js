@@ -39,6 +39,11 @@ function fixOgImages(html) {
   return html;
 }
 
+function fixFramerMotionStyles(html) {
+  html = html.replace(/style="opacity: 0;[^"]*"/g, 'style="opacity: 1; transform: none;"');
+  return html;
+}
+
 const mobileMenuScript = `
 <script>
 (function(){
@@ -129,6 +134,7 @@ async function exportStatic() {
         html = rewriteLinks(html);
         html = stripReactBundle(html);
         html = fixOgImages(html);
+        html = fixFramerMotionStyles(html);
         html = addMobileMenuSupport(html);
         
         await fs.writeFile(path.join(docsDir, route.file), html);
