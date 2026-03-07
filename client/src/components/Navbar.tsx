@@ -40,26 +40,30 @@ export function Navbar() {
 
         <button
           className="md:hidden text-primary"
+          data-mobile-toggle=""
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu size={24} style={{ display: isMobileMenuOpen ? 'none' : 'block' }} />
+          <X size={24} style={{ display: isMobileMenuOpen ? 'block' : 'none' }} />
         </button>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 p-4 shadow-lg flex flex-col gap-3">
-          {navItems.map((item) => (
-            <Link key={item.path} href={item.path} className="block text-primary font-medium p-2 hover:bg-secondary rounded text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-              {item.label}
-            </Link>
-          ))}
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200">
-              Get Started
-            </Button>
+      <div
+        data-mobile-menu=""
+        className="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 p-4 shadow-lg flex-col gap-3"
+        style={{ display: isMobileMenuOpen ? 'flex' : 'none' }}
+      >
+        {navItems.map((item) => (
+          <Link key={item.path} href={item.path} className="block text-primary font-medium p-2 hover:bg-secondary rounded text-sm" onClick={() => setIsMobileMenuOpen(false)}>
+            {item.label}
           </Link>
-        </div>
-      )}
+        ))}
+        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+          <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200">
+            Get Started
+          </Button>
+        </Link>
+      </div>
     </nav>
   );
 }

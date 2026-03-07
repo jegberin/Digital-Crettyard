@@ -28,6 +28,48 @@ function rewriteLinks(html) {
   return html;
 }
 
+function stripReactBundle(html) {
+  html = html.replace(/<script type="module" crossorigin="" src="\/assets\/index-[^"]+\.js"><\/script>/g, '');
+  html = html.replace(/<link rel="modulepreload"[^>]*href="\/assets\/[^"]+\.js"[^>]*>/g, '');
+  return html;
+}
+
+const mobileMenuScript = `
+<script>
+(function(){
+  var btn = document.querySelector('[data-mobile-toggle]');
+  var menu = document.querySelector('[data-mobile-menu]');
+  if(btn && menu){
+    menu.style.display = 'none';
+    btn.addEventListener('click', function(){
+      var open = menu.style.display !== 'none';
+      menu.style.display = open ? 'none' : 'flex';
+      var icons = btn.querySelectorAll('svg');
+      if(icons.length === 2){
+        icons[0].style.display = open ? 'block' : 'none';
+        icons[1].style.display = open ? 'none' : 'block';
+      }
+    });
+    menu.querySelectorAll('a, button').forEach(function(el){
+      el.addEventListener('click', function(){
+        menu.style.display = 'none';
+        var icons = btn.querySelectorAll('svg');
+        if(icons.length === 2){
+          icons[0].style.display = 'block';
+          icons[1].style.display = 'none';
+        }
+      });
+    });
+  }
+})();
+</script>
+`;
+
+function addMobileMenuSupport(html) {
+  html = html.replace('</body>', mobileMenuScript + '</body>');
+  return html;
+}
+
 async function exportStatic() {
   console.log('Building Vite app...');
   execSync('npm run build', { stdio: 'inherit' });
@@ -80,6 +122,8 @@ async function exportStatic() {
         let html = await page.content();
         
         html = rewriteLinks(html);
+        html = stripReactBundle(html);
+        html = addMobileMenuSupport(html);
         
         await fs.writeFile(path.join(docsDir, route.file), html);
       }
