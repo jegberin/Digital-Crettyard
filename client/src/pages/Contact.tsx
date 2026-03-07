@@ -134,7 +134,7 @@ export default function Contact() {
               <div className="bg-white p-8 border border-gray-200/80 rounded-[4px] shadow-sm">
                 <h3 className="text-xl font-bold mb-2" data-testid="text-form-heading">Send a Message</h3>
                 <p className="text-foreground/50 text-sm mb-6">It only takes a minute. I'll get back to you within one business day.</p>
-                <form className="space-y-5" action="https://formsubmit.co/info@crettyard.com" method="POST" data-testid="form-contact">
+                <form className="space-y-5" action="https://formsubmit.co/a91adc27e1b3a9255f7d031230612b44" method="POST" data-testid="form-contact">
                   <input type="hidden" name="_subject" value="New contact form submission from Crettyard Digital" />
                   <input type="hidden" name="_template" value="table" />
 
