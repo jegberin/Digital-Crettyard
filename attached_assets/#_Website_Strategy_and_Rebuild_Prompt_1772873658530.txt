@@ -1,0 +1,305 @@
+﻿# Website Strategy and Rebuild Prompt
+
+
+**Role:** Act as a senior conversion-focused web strategist, local SEO specialist, UX designer, copywriter, and front-end developer.
+
+
+**Task:** Review and improve my entire existing website and its subpages, then implement the changes directly in the project.
+
+
+## Primary Objective
+Turn the website into a stronger sales tool for local small businesses by improving:
+- SEO performance
+- Trust and credibility
+- Conversion rate
+- Clarity of services
+- Appointment enquiries
+- Long-term value messaging
+- The business case for having a professional online presence
+
+
+**Requirement:** You must not only suggest improvements. You must make the improvements in the code and content.
+
+
+---
+
+
+## PROJECT APPROACH
+
+
+### 1. Review the Entire Existing Site
+- Inspect all current pages, routes, components, layout sections, metadata, navigation, footer, and calls to action.
+- Identify weak messaging, thin SEO structure, unclear service positioning, poor conversion opportunities, repetitive content, weak hierarchy, and anything too generic.
+- Review desktop and mobile layouts.
+- Preserve the site’s overall brand feel where appropriate, but improve it where needed.
+
+
+### 2. Reposition the Website Strategically
+The site should be written for small local business owners, not web designers or technical people.
+
+
+**The messaging should clearly communicate:**
+- I help local businesses look more professional online.
+- A proper website helps generate more enquiries and sales.
+- A better online presence improves trust and first impressions.
+- Investing properly now saves money later by avoiding rebuilds, missed leads, and patchwork fixes.
+- A good site works as a long-term business asset, not just a brochure.
+- I offer practical, approachable help rather than jargon-heavy technical services.
+
+
+**The tone should be:**
+- Local
+- Trustworthy
+- Plain English
+- Professional
+- Commercially minded
+- Reassuring
+- Not flashy
+- Not overly technical
+
+
+### 3. Improve the Homepage First
+The homepage should immediately answer:
+- Who is this for?
+- What do you do?
+- Why should I trust you?
+- Why does it matter commercially?
+- What should I do next?
+
+
+**Update the homepage so it includes:**
+- A stronger headline focused on business outcomes, not vague design language.
+- A short supporting subheading that explains who I help and what result they get.
+- A strong primary CTA above the fold such as “Book a free consultation” or “Request a callback”.
+- A secondary CTA such as “View services” or “See pricing”.
+- A clear benefits section focused on outcomes like more enquiries, better credibility, saved time, and fewer tech headaches.
+- A short section explaining why a professional website saves money in the long run.
+- A section explaining why an online presence matters even for businesses that already get referrals.
+- A simple process section such as Discover, Build, Launch, Support.
+- Trust-building content such as local focus, plain-English support, and dependable communication.
+- Clear internal links to services and contact page.
+
+
+### 4. Strengthen the Sales Messaging Across the Whole Site
+Every major page should support these commercial messages:
+- A weak or outdated website can cost a business leads.
+- Customers often check online before making contact.
+- Facebook alone is not enough for many businesses.
+- A proper website builds trust before the first call.
+- Good setup now prevents wasted money later.
+- Professional email, domain, website, and support reduce problems over time.
+- A business website should help growth, not just exist.
+
+
+**Where appropriate, add short comparison-style sections such as:**
+- “Without a proper site” vs “With a proper site”
+- “Cheap now, costly later” vs “Proper setup, better value later”
+
+
+### 5. Improve All Service Pages
+Each service page should have:
+- One clear search-focused H1.
+- A strong intro paragraph explaining the business outcome.
+- Benefits for the client, not just features.
+- A section on who the service is for.
+- A section on what is included.
+- A section on why this saves time, money, or hassle.
+- A CTA to make an enquiry or book an appointment.
+- Relevant FAQ content.
+- Good internal links to related services and contact.
+
+
+*Note: If some services are currently grouped too broadly, split them into better-defined pages.*
+
+
+**Possible service structure if needed:**
+- Website Design
+- Website Redesign
+- Small Business SEO Basics
+- Microsoft 365 Setup
+- Business Email Setup
+- Network and Wi-Fi Advice
+- Website Support and Maintenance
+
+
+### 6. Improve the About Page
+The About page should build trust without feeling too self-focused.
+
+
+**Make sure it:**
+- Explains who I help and why I do this work.
+- Emphasises practical support and business outcomes.
+- Feels personal but still professional.
+- Does not let the profile image dominate the page.
+- Uses the text, credibility, and value proposition as the main focus.
+- Includes a CTA near the end.
+
+
+*Do not make the About page feel like a personal profile page. Make it feel like a trustworthy business introduction.*
+
+
+### 7. Improve the Contact Page for Conversion
+The Contact page should reduce hesitation and make reaching out easy.
+
+
+**Include:**
+- A clear invitation to get in touch.
+- A short note on what happens after submitting the form.
+- Reassurance that there is no pressure or obligation.
+- A friendly explanation of who should contact me.
+- A simple, short form.
+- A CTA around booking a call or requesting a callback.
+- Optional trust line such as fast response, local support, plain-English advice.
+
+
+### 8. Add or Improve Pricing Guidance
+If the site currently hides pricing completely, add more clarity to reduce uncertainty for small business owners.
+
+
+**Use one of these:**
+- Starting from pricing
+- Package tiers
+- Indicative ranges
+- “What affects price” section
+
+
+**Pricing language should emphasise:**
+- Value over time
+- Avoiding expensive rebuilds
+- Fewer missed leads
+- Better first impressions
+- Better return from proper setup
+
+
+### 9. Improve SEO Sitewide
+Implement practical on-page SEO improvements across the entire site.
+
+
+**Requirements:**
+- Unique title tag for every page.
+- Unique meta description for every page.
+- One H1 per page.
+- Logical H2 and H3 structure.
+- Strong internal linking between related pages.
+- Descriptive URL slugs where needed.
+- Better image alt text.
+- No duplicate or thin copy.
+- Keyword usage that feels natural, not spammy.
+- Strong page-level focus for each service page.
+
+
+**Target search intent around:**
+- Local website design
+- Small business website help
+- Business email setup
+- Microsoft 365 setup
+- Local IT support
+- Website support for small businesses
+- Affordable professional websites
+- Websites that help businesses get more enquiries
+
+
+*Also add FAQ-style content where relevant to capture long-tail search intent.*
+
+
+### 10. Improve Local SEO
+The site should feel grounded, relevant, and trustworthy for nearby businesses.
+
+
+**Where appropriate, naturally reinforce:**
+- Local service area
+- Support for nearby small businesses
+- Practical one-to-one help
+- Understanding of small business needs
+
+
+**Add or improve:**
+- `LocalBusiness` schema
+- `Service` schema
+- `FAQ` schema where relevant
+- Clear NAP/contact consistency if applicable
+- Strong location references where natural
+
+
+*Do not keyword stuff locations. Keep it believable and useful.*
+
+
+### 11. Improve Trust and Persuasion
+Add trust-building content where missing, such as:
+- Why choose us section
+- Practical process section
+- FAQs that reduce objections
+- Testimonials placeholder section if real ones are not yet available
+- Portfolio/case study placeholders that can be updated later
+- Reassurance around support after launch
+- Clear explanations in plain English
+
+
+**Anticipate and address objections in copy, such as:**
+- “I already have Facebook”
+- “I’m too small for a proper website”
+- “I don’t want to overspend”
+- “I’m not technical”
+- “I’m too busy to deal with this”
+
+
+### 12. Improve UX and Layout
+Review spacing, hierarchy, typography, CTA placement, card layouts, section order, and visual emphasis.
+
+
+**Improve:**
+- Readability
+- Visual hierarchy
+- Mobile responsiveness
+- CTA visibility
+- Content flow
+- Scannability
+
+
+**Reduce:**
+- Walls of text
+- Vague wording
+- Overly generic stock phrasing
+- Design elements that distract from conversion
+
+
+*Keep the design clean, modern, local-business-friendly, and easy to trust.*
+
+
+### 13. Improve Technical Performance
+Make performance-conscious improvements where possible:
+- Compress and properly size images.
+- Lazy-load below-the-fold media where appropriate.
+- Reduce layout shift.
+- Avoid unnecessary scripts or libraries.
+- Keep CSS and JS tidy.
+- Improve Lighthouse-friendly basics.
+- Optimise font loading if needed.
+- Ensure mobile performance is strong.
+
+
+### 14. Preserve Privacy and Professionalism
+- Do not add my surname publicly anywhere on the site.
+- Keep branding professional and privacy-conscious.
+
+
+### 15. Output Requirements
+Complete the work directly in the project and then provide:
+- A summary of what you changed.
+- The main SEO improvements.
+- The main conversion improvements.
+- The main trust-building improvements.
+- Any pages you created or restructured.
+- Any recommended next steps such as testimonials, case studies, Google Business Profile, analytics, or Search Console.
+
+
+### 16. Quality Standard
+The final result should feel like a polished, credible website for a local business service provider that:
+- Ranks better
+- Explains value clearly
+- Makes it easy to enquire
+- Reassures cautious small business owners
+- Shows that investing properly now saves money later
+
+
+*Do not return a shallow review. Do not only provide advice. Implement the changes.*

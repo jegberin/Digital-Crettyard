@@ -34,6 +34,11 @@ function stripReactBundle(html) {
   return html;
 }
 
+function fixOgImages(html) {
+  html = html.replace(/content="https?:\/\/[^"]*?\/opengraph\.jpg"/g, 'content="https://digital.crettyard.com/opengraph.jpg"');
+  return html;
+}
+
 const mobileMenuScript = `
 <script>
 (function(){
@@ -123,6 +128,7 @@ async function exportStatic() {
         
         html = rewriteLinks(html);
         html = stripReactBundle(html);
+        html = fixOgImages(html);
         html = addMobileMenuSupport(html);
         
         await fs.writeFile(path.join(docsDir, route.file), html);

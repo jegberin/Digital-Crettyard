@@ -10,10 +10,11 @@ export function Navbar() {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Services", path: "/#services" },
+    { label: "Web Design", path: "/web-design" },
+    { label: "Microsoft 365", path: "/microsoft-365" },
+    { label: "Network & Wi-Fi", path: "/network-wifi-security" },
     { label: "Portfolio", path: "/portfolio" },
     { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -23,25 +24,26 @@ export function Navbar() {
           <img src={logoImg} alt="Crettyard Digital" className="h-9" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-10">
-          <div className="flex gap-8">
+        <div className="hidden lg:flex items-center gap-8">
+          <div className="flex gap-6">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path} className={`text-[13px] font-medium transition-all duration-200 hover:text-accent ${location === item.path ? "text-primary" : "text-primary/80"}`}>
+              <Link key={item.path} href={item.path} className={`text-[13px] font-medium transition-all duration-200 hover:text-accent ${location === item.path ? "text-accent" : "text-primary/80"}`}>
                 {item.label}
               </Link>
             ))}
           </div>
           <Link href="/contact">
-            <Button className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium px-6 h-9 text-[13px] transition-all duration-200 shadow-sm hover:shadow-md">
-              Get Started
+            <Button className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium px-6 h-9 text-[13px] transition-all duration-200 shadow-sm hover:shadow-md" data-testid="button-nav-contact">
+              Book a Free Consultation
             </Button>
           </Link>
         </div>
 
         <button
-          className="md:hidden text-primary"
+          className="lg:hidden text-primary"
           data-mobile-toggle=""
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          data-testid="button-mobile-menu"
         >
           <Menu size={24} style={{ display: isMobileMenuOpen ? 'none' : 'block' }} />
           <X size={24} style={{ display: isMobileMenuOpen ? 'block' : 'none' }} />
@@ -50,7 +52,7 @@ export function Navbar() {
 
       <div
         data-mobile-menu=""
-        className="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 p-4 shadow-lg flex-col gap-3"
+        className="lg:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 p-4 shadow-lg flex-col gap-3"
         style={{ display: isMobileMenuOpen ? 'flex' : 'none' }}
       >
         {navItems.map((item) => (
@@ -59,8 +61,8 @@ export function Navbar() {
           </Link>
         ))}
         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-          <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200">
-            Get Started
+          <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200" data-testid="button-mobile-contact">
+            Book a Free Consultation
           </Button>
         </Link>
       </div>

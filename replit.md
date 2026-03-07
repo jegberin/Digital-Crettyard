@@ -1,0 +1,60 @@
+# Crettyard Digital Website
+
+## Overview
+Static multi-page website for Crettyard Digital — a small Irish digital services business (web design, Microsoft 365, network/Wi-Fi) based near Crettyard on the Laois-Carlow border. Deployed to GitHub Pages at `digital.crettyard.com`.
+
+## Architecture
+- **React/Vite** frontend for development, exported to **static HTML** via Puppeteer-based export script
+- No database, no backend — static site only
+- Contact form posts to `info@crettyard.com` via FormSubmit.co
+- Static export outputs to `/docs` folder for GitHub Pages
+
+## Pages
+- **Home** (`/`) — Hero, online presence value prop, comparison section, investment section, process, services, featured projects, FAQ, CTA
+- **Web Design** (`/web-design`) — Service page with who-for, what's-included, pricing guidance, FAQ
+- **Microsoft 365** (`/microsoft-365`) — Service page with who-for, what's-included, comparison, pricing, FAQ
+- **Network & Wi-Fi** (`/network-wifi-security`) — Service page with who-for, what's-included, pricing, FAQ
+- **Portfolio** (`/portfolio`) — Case studies with what-we-did/results, testimonial placeholder
+- **About** (`/about`) — Trust-building, who-I-help, objection handling, Joey's intro (no surname)
+- **Contact** (`/contact`) — FormSubmit.co form, what-happens-next, Google Maps
+
+## Key Files
+- `client/src/pages/` — All page components
+- `client/src/components/Navbar.tsx` — Sticky navbar with service links
+- `client/src/components/Footer.tsx` — 4-column footer
+- `client/src/components/SEO.tsx` — SEO component (title, description, canonical, structured data schemas)
+- `client/src/components/FadeIn.tsx` — Animation components
+- `client/src/components/WhatsAppButton.tsx` — Floating WhatsApp button
+- `client/src/App.tsx` — Router with per-route SEO data
+- `client/index.html` — Base HTML with Google Analytics, OG/Twitter meta
+- `script/export.js` — Puppeteer export script (builds, renders each route, strips React bundle, rewrites links, fixes OG images, adds mobile menu JS)
+
+## Design System
+- **Colors**: Navy `#0C2366`, Teal `#12B388`, Charcoal `#333333`, White + `#F8F9FA`
+- **Styling**: Sharp `rounded-[4px]`, Inter font, `.eyebrow` utility, `.card-hover`, `.section-gradient`, `py-28` spacing
+- **Animations**: FadeIn, StaggerContainer, StaggerItem
+
+## Static Export Rules
+- Run `node script/export.js` to rebuild `/docs`
+- React JS bundle is **stripped** from exported HTML (static only)
+- Mobile menu uses `data-mobile-toggle` / `data-mobile-menu` attributes for vanilla JS
+- CNAME (`digital.crettyard.com`) lives in `client/public/` to survive rebuilds
+- Links rewritten: `/route` → `/route.html`, `/` → `/index.html`
+- OG images fixed to production domain during export
+- Canonical URLs set per-page
+
+## SEO
+- Unique title + meta description per page (set via React useEffect, captured by Puppeteer)
+- Structured data: LocalBusiness (sitewide), Service (service pages), FAQPage (pages with FAQ)
+- Per-page canonical URLs
+- Google Analytics: G-F31MN0XL4T
+- sitemap.xml + robots.txt for `digital.crettyard.com`
+
+## External Services
+- **FormSubmit.co** — Contact form submission to info@crettyard.com
+- **WhatsApp** — Floating button, number 353879700701
+- **Google Analytics** — G-F31MN0XL4T
+
+## Asset Imports
+- Use `@assets/` alias (Vite). Never use `attached_assets/` in src URLs.
+- Joey's photo: `@assets/5add63ba-e810-43cb-90e6-3212a7dbbf2f_1772804490402.jpg`
