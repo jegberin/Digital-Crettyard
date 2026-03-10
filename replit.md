@@ -17,6 +17,9 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - **Portfolio** (`/portfolio`) — Case studies with what-we-did/results, testimonial placeholder
 - **About** (`/about`) — Trust-building, who-I-help, objection handling, Joey's intro (no surname)
 - **Contact** (`/contact`) — FormSubmit.co form, what-happens-next, Google Maps
+- **Privacy Policy** (`/privacy-policy`) — GDPR-compliant privacy policy
+- **Terms & Conditions** (`/terms-and-conditions`) — Business terms and conditions
+- **Cookie Policy** (`/cookie-policy`) — Cookie usage and consent information
 
 ## Key Files
 - `client/src/pages/` — All page components
@@ -25,6 +28,7 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - `client/src/components/SEO.tsx` — SEO component (title, description, canonical, structured data schemas)
 - `client/src/components/FadeIn.tsx` — Animation components
 - `client/src/components/WhatsAppButton.tsx` — Floating WhatsApp button
+- `client/src/components/CookieBanner.tsx` — Cookie consent banner (accept/reject, links to policies)
 - `client/src/App.tsx` — Router with per-route SEO data
 - `client/index.html` — Base HTML with Google Analytics, OG/Twitter meta
 - `script/export.js` — Puppeteer export script (builds, renders each route, strips React bundle, rewrites links, fixes OG images, adds mobile menu JS)
@@ -38,6 +42,7 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - Run `node script/export.js` to rebuild `/docs`
 - React JS bundle is **stripped** from exported HTML (static only)
 - Mobile menu uses `data-mobile-toggle` / `data-mobile-menu` attributes for vanilla JS
+- Cookie banner uses `data-cookie-banner` attribute for vanilla JS (localStorage-based consent)
 - CNAME (`digital.crettyard.com`) lives in `client/public/` to survive rebuilds
 - Links rewritten: `/route` → `/route.html`, `/` → `/index.html`
 - OG images fixed to production domain during export

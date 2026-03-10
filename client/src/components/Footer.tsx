@@ -56,9 +56,11 @@ export function Footer() {
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Crettyard Digital. All rights reserved.
           </p>
-          <p className="text-xs text-gray-500">
-            Web design, Microsoft 365 & network solutions for small businesses in Ireland
-          </p>
+          <div className="flex gap-4 text-xs text-gray-500">
+            <Link href="/privacy-policy" className="hover:text-accent transition-colors" data-testid="link-footer-privacy">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-accent transition-colors" data-testid="link-footer-terms">Terms & Conditions</Link>
+            <Link href="/cookie-policy" className="hover:text-accent transition-colors" data-testid="link-footer-cookies">Cookie Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

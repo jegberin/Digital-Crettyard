@@ -11,9 +11,13 @@ import NetworkWifi from "@/pages/Network";
 import Portfolio from "@/pages/Portfolio";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsAndConditions from "@/pages/TermsAndConditions";
+import CookiePolicy from "@/pages/CookiePolicy";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CookieBanner } from "@/components/CookieBanner";
 import { SEO, LocalBusinessSchema, ServiceSchema, FAQSchema } from "@/components/SEO";
 
 const pageSEO: Record<string, { title: string; description: string }> = {
@@ -44,6 +48,18 @@ const pageSEO: Record<string, { title: string; description: string }> = {
   "/contact": {
     title: "Book a Free Consultation — No Obligation, No Pressure | Crettyard Digital",
     description: "Get in touch for a free, no-obligation chat about your website, email, or network needs. Fast response, local support, plain-English advice."
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | Crettyard Digital",
+    description: "How Crettyard Digital collects, uses, stores, and protects your personal data. Read our full privacy policy."
+  },
+  "/terms-and-conditions": {
+    title: "Terms and Conditions | Crettyard Digital",
+    description: "Terms and Conditions governing the use of the Crettyard Digital website and engagement with our services."
+  },
+  "/cookie-policy": {
+    title: "Cookie Policy | Crettyard Digital",
+    description: "How Crettyard Digital uses cookies and similar technologies on our website. Manage your cookie preferences."
   }
 };
 
@@ -119,11 +135,15 @@ function Router() {
           <Route path="/portfolio" component={Portfolio} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route path="/cookie-policy" component={CookiePolicy} />
           <Route component={NotFound} />
         </Switch>
       </main>
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
       <LocalBusinessSchema />
       <RouteSEO />
     </div>

@@ -18,12 +18,15 @@ const routes = [
   { path: '/network-wifi-security', file: 'network-wifi-security.html' },
   { path: '/portfolio', file: 'portfolio.html' },
   { path: '/about', file: 'about.html' },
-  { path: '/contact', file: 'contact.html' }
+  { path: '/contact', file: 'contact.html' },
+  { path: '/privacy-policy', file: 'privacy-policy.html' },
+  { path: '/terms-and-conditions', file: 'terms-and-conditions.html' },
+  { path: '/cookie-policy', file: 'cookie-policy.html' }
 ];
 
 function rewriteLinks(html) {
-  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact)#([^"]*)"/g, 'href="/$1.html#$2"');
-  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact)"/g, 'href="/$1.html"');
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)#([^"]*)"/g, 'href="/$1.html#$2"');
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)"/g, 'href="/$1.html"');
   html = html.replace(/href="\/"/g, 'href="/index.html"');
   html = html.replace(/href="\/#services"/g, 'href="/index.html#services"');
   return html;
@@ -135,6 +138,29 @@ const staticScripts = `
       }
     });
   });
+  var bannerEl = document.querySelector('[data-cookie-banner]');
+  if(bannerEl){
+    var consent = localStorage.getItem('cookie_consent');
+    if(consent){
+      bannerEl.style.display = 'none';
+    } else {
+      bannerEl.style.display = 'block';
+      var acceptBtn = bannerEl.querySelector('[data-testid="button-accept-cookies"]');
+      var rejectBtn = bannerEl.querySelector('[data-testid="button-reject-cookies"]');
+      if(acceptBtn){
+        acceptBtn.addEventListener('click', function(){
+          localStorage.setItem('cookie_consent','accepted');
+          bannerEl.style.display = 'none';
+        });
+      }
+      if(rejectBtn){
+        rejectBtn.addEventListener('click', function(){
+          localStorage.setItem('cookie_consent','rejected');
+          bannerEl.style.display = 'none';
+        });
+      }
+    }
+  }
 })();
 </script>
 `;
