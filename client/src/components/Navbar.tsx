@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import logoImg from "@assets/Gemini_Generated_Image_ceomikceomikceom_(1)_(1)_1772791156018.png";
+import logoImg from "@assets/crettyard-digital-logo.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -21,7 +21,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-100/80">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <img src={logoImg} alt="Crettyard Digital" className="h-9" />
+          <img src={logoImg} alt="Crettyard Digital logo" className="h-9" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-8">

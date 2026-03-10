@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import project1 from "@assets/screenshot-1772791998786.png";
-import project2 from "@assets/screenshot-1772791995871.png";
-import project3 from "@assets/screenshot-1772791990532.png";
+import project1 from "@assets/portfolio-bm-custom-furniture.png";
+import project2 from "@assets/portfolio-go-green-steam-clean.png";
+import project3 from "@assets/portfolio-nurney-plant-civil.png";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { Quote, ArrowRight, Globe, Mail, Wifi, Star } from "lucide-react";

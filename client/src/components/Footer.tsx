@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import logoImg from "@assets/Gemini_Generated_Image_ceomikceomikceom_(1)_(1)_1772791156018.png";
+import logoImg from "@assets/crettyard-digital-logo.png";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <img src={logoImg} alt="Crettyard Digital" className="h-10 mb-6 bg-white p-2 rounded" />
+            <img src={logoImg} alt="Crettyard Digital logo" className="h-10 mb-6 bg-white p-2 rounded" />
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Professional web design, Microsoft 365 setup, and network solutions for small businesses across Laois, Carlow, Kilkenny, and surrounding counties.
             </p>

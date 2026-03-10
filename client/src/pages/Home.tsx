@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Cloud, Wifi, CheckCircle2, XCircle, ArrowRight, Shield, Clock, TrendingUp, MessageCircle } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import heroImg from "@assets/Gemini_Generated_Image_52qfjo52qfjo52qf_1772790597131.png";
-import project1 from "@assets/screenshot-1772791998786.png";
-import project2 from "@assets/screenshot-1772791995871.png";
-import project3 from "@assets/screenshot-1772791990532.png";
+import heroImg from "@assets/hero-digital-services.png";
+import project1 from "@assets/portfolio-bm-custom-furniture.png";
+import project2 from "@assets/portfolio-go-green-steam-clean.png";
+import project3 from "@assets/portfolio-nurney-plant-civil.png";
 
 export default function Home() {
   return (
@@ -287,7 +287,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://bmcustomfurniture.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-bm">
                 <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
-                  <img src={project1} alt="BM Custom Furniture" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project1} alt="BM Custom Furniture website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">BM Custom Furniture</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">bmcustomfurniture.ie</p>
@@ -298,7 +298,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://gogreensteamclean.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-gogreen">
                 <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
-                  <img src={project2} alt="Go Green Steam Clean" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project2} alt="Go Green Steam Clean website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">Go Green Steam Clean</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">gogreensteamclean.ie</p>
@@ -309,7 +309,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://nurneyplantandcivil.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-nurney">
                 <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
-                  <img src={project3} alt="Nurney Plant and Civil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project3} alt="Nurney Plant and Civil website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">Nurney Plant and Civil</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">nurneyplantandcivil.ie</p>
