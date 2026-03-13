@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import logoImg from "@assets/crettyard-digital-logo.png";
@@ -32,6 +32,10 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+          <a href="https://clients.digital.crettyard.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium transition-all duration-200 hover:text-accent text-primary/80 flex items-center gap-1" data-testid="link-nav-client-login">
+            <LogIn size={14} />
+            Client Login
+          </a>
           <Link href="/contact#send-message">
             <Button className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium px-6 h-9 text-[13px] transition-all duration-200 shadow-sm hover:shadow-md" data-testid="button-nav-contact">
               Book a Free Consultation
@@ -60,6 +64,10 @@ export function Navbar() {
             {item.label}
           </Link>
         ))}
+        <a href="https://clients.digital.crettyard.com" target="_blank" rel="noopener noreferrer" className="block text-primary font-medium p-2 hover:bg-secondary rounded text-sm flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)} data-testid="link-mobile-client-login">
+          <LogIn size={14} />
+          Client Login
+        </a>
         <Link href="/contact#send-message" onClick={() => setIsMobileMenuOpen(false)}>
           <Button className="w-full bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-medium mt-2 transition-all duration-200" data-testid="button-mobile-contact">
             Book a Free Consultation

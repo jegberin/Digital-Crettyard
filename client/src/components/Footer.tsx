@@ -32,6 +32,7 @@ export function Footer() {
               <li><Link href="/portfolio" className="text-gray-300 hover:text-accent transition-colors text-sm">Portfolio</Link></li>
               <li><Link href="/about" className="text-gray-300 hover:text-accent transition-colors text-sm">About</Link></li>
               <li><Link href="/contact" className="text-gray-300 hover:text-accent transition-colors text-sm">Contact</Link></li>
+              <li><a href="https://clients.digital.crettyard.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent transition-colors text-sm" data-testid="link-footer-client-login">Client Login</a></li>
             </ul>
           </div>
 
