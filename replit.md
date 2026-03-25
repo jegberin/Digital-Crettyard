@@ -64,6 +64,6 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - Use `@assets/` alias (Vite). Never use `attached_assets/` in src URLs.
 - Logo: `@assets/crettyard-digital-logo.png`
 - Hero image: `@assets/hero-digital-services.png`
-- Joey's photo: `@assets/joey-headshot.jpg`
+- Joey's photo: `@assets/joey-profile-photo.png`
 - Portfolio screenshots: `@assets/portfolio-bm-custom-furniture.png`, `@assets/portfolio-go-green-steam-clean.png`, `@assets/portfolio-nurney-plant-civil.png`
 - Unused variants kept: `crettyard-digital-logo-icon.png`, `crettyard-digital-logo-white-bg.png`, `joey-cartoon-illustration.png`

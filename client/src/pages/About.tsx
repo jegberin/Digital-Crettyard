@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { MonitorSmartphone, Cloud, Wifi, MessageSquare, Shield, MapPin, Languages, Wrench, Briefcase, Store, HardHat, CheckCircle2 } from "lucide-react";
-import joeyImg from "@assets/joey-headshot.jpg";
+import joeyImg from "@assets/joey-profile-photo.png";
 
 export default function About() {
   return (
