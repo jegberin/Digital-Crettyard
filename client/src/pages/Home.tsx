@@ -7,6 +7,7 @@ import heroImg from "@assets/hero-digital-services.png";
 import project1 from "@assets/portfolio-bm-custom-furniture.png";
 import project2 from "@assets/portfolio-go-green-steam-clean.png";
 import project3 from "@assets/portfolio-nurney-plant-civil.png";
+import project4 from "@assets/portfolio-more-than-points.png";
 
 export default function Home() {
   return (
@@ -283,7 +284,7 @@ export default function Home() {
             </Link>
           </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <StaggerItem>
               <a href="https://bmcustomfurniture.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-bm">
                 <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
@@ -314,6 +315,17 @@ export default function Home() {
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">Nurney Plant and Civil</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">nurneyplantandcivil.ie</p>
                 <p className="text-sm text-foreground/70 mb-3">Professional plant hire services</p>
+                <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
+              </a>
+            </StaggerItem>
+            <StaggerItem>
+              <a href="https://morethanpoints.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-morethanpoints">
+                <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
+                  <img src={project4} alt="More Than Points website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">More Than Points</h3>
+                <p className="text-xs font-medium text-muted-foreground mb-2">morethanpoints.ie</p>
+                <p className="text-sm text-foreground/70 mb-3">Teen & parent coaching for Irish families</p>
                 <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>

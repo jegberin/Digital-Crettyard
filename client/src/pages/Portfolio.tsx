@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import project1 from "@assets/portfolio-bm-custom-furniture.png";
 import project2 from "@assets/portfolio-go-green-steam-clean.png";
 import project3 from "@assets/portfolio-nurney-plant-civil.png";
+import project4 from "@assets/portfolio-more-than-points.png";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { Quote, ArrowRight, Globe, Mail, Wifi, Star } from "lucide-react";
@@ -31,6 +32,14 @@ export default function Portfolio() {
       description: "A professional corporate site for plant hire and civil engineering services operating in Co. Carlow and nearby areas. Designed to present credibility, capabilities, and ease of contact.",
       whatWeDid: "Created a professional corporate website that clearly presents their plant hire fleet and civil engineering capabilities. Designed to build trust with potential clients through strong visuals, service breakdowns, and easy-to-find contact information.",
       theResult: "A credible, modern web presence that helps Nurney Plant and Civil win contracts by demonstrating professionalism and capability to prospective clients, councils, and contractors across the region.",
+    },
+    {
+      title: "More Than Points",
+      url: "https://morethanpoints.ie",
+      image: project4,
+      description: "A coaching website for teenagers aged 16–19 and their parents, helping families navigate the Irish education system and explore life beyond the CAO points race.",
+      whatWeDid: "Designed and built a warm, grounded website for a teen and parent coaching service. The focus was on empathetic, conversion-focused copy, a clear service structure for different audiences (teens and parents), and a calm visual identity that reflects the coaching approach.",
+      theResult: "A professional, trust-building online presence that clearly communicates the coaching offering, differentiates the service from traditional academic tutoring, and guides parents and teens towards booking a session.",
     }
   ];
 
