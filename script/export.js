@@ -138,6 +138,28 @@ const staticScripts = `
       }
     });
   });
+  // Glass-light interaction for service cards
+  document.querySelectorAll('.glass-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var rect = card.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / card.clientWidth) * 100;
+      var y = ((e.clientY - rect.top) / card.clientHeight) * 100;
+      card.style.setProperty('--x', x + '%');
+      card.style.setProperty('--y', y + '%');
+    });
+  });
+
+  // Scroll reveal intersection observer
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ revealObserver.observe(el); });
+
   var bannerEl = document.querySelector('[data-cookie-banner]');
   if(bannerEl){
     var consent = localStorage.getItem('cookie_consent');

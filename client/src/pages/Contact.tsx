@@ -140,22 +140,22 @@ export default function Contact() {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label htmlFor="name" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Name</Label>
+                      <Label htmlFor="name" className="text-sm font-headline font-bold text-foreground/60 uppercase tracking-wide">Name</Label>
                       <Input id="name" name="name" required placeholder="Your name" className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-name" />
                     </div>
                     <div className="space-y-1">
-                      <Label htmlFor="email" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Email</Label>
+                      <Label htmlFor="email" className="text-sm font-headline font-bold text-foreground/60 uppercase tracking-wide">Email</Label>
                       <Input id="email" name="email" type="email" required placeholder="you@company.com" className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-email" />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label htmlFor="phone" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Phone (optional)</Label>
+                      <Label htmlFor="phone" className="text-sm font-headline font-bold text-foreground/60 uppercase tracking-wide">Phone (optional)</Label>
                       <Input id="phone" name="phone" type="tel" placeholder="08..." className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-phone" />
                     </div>
                     <div className="space-y-1">
-                      <Label htmlFor="service" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">What can I help with?</Label>
+                      <Label htmlFor="service" className="text-sm font-headline font-bold text-foreground/60 uppercase tracking-wide">What can I help with?</Label>
                       <select
                         id="service"
                         name="service"
@@ -175,7 +175,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-1">
-                    <Label htmlFor="message" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Message</Label>
+                    <Label htmlFor="message" className="text-sm font-headline font-bold text-foreground/60 uppercase tracking-wide">Message</Label>
                     <Textarea 
                       id="message" 
                       name="message"
@@ -189,7 +189,7 @@ export default function Contact() {
                   <Button type="submit" className="w-full" data-testid="button-submit">
                     Send Message
                   </Button>
-                  <p className="text-xs text-foreground/40 text-center font-sans">No spam. Your details are only used to reply to your enquiry.</p>
+                  <p className="text-sm text-foreground/50 text-center font-sans">No spam. Your details are only used to reply to your enquiry.</p>
                 </form>
               </div>
             </FadeIn>

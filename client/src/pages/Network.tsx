@@ -120,7 +120,7 @@ export default function NetworkWifi() {
                 </p>
                 <ul className="space-y-2">
                   {["Site survey & coverage mapping", "Structured cabling plans", "VLAN segmentation", "Capacity planning for growth"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
+                    <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -138,7 +138,7 @@ export default function NetworkWifi() {
                 </p>
                 <ul className="space-y-2">
                   {["Mesh Wi‑Fi & access point deployment", "Channel optimisation", "Guest network separation", "Seamless roaming between zones"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
+                    <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -156,7 +156,7 @@ export default function NetworkWifi() {
                 </p>
                 <ul className="space-y-2">
                   {["Business-grade firewall setup", "Intrusion detection", "Guest Wi‑Fi isolation", "Security policy configuration"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
+                    <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -174,7 +174,7 @@ export default function NetworkWifi() {
                 </p>
                 <ul className="space-y-2">
                   {["Network health audit & reporting", "VPN setup for remote access", "Performance troubleshooting", "Ongoing monitoring & support"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
+                    <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -239,7 +239,7 @@ export default function NetworkWifi() {
                     "Security requirements (firewall, VPN, guest isolation)",
                     "Whether remote access or VPN is needed",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
+                    <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -262,7 +262,7 @@ export default function NetworkWifi() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-foreground/50 mt-4 font-sans">
+                <p className="text-sm text-foreground/60 mt-4 font-sans">
                   All prices are indicative. I'll provide a clear, fixed quote after an initial chat.
                 </p>
               </div>
@@ -337,7 +337,7 @@ export default function NetworkWifi() {
               <Link href="/web-design">
                 <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover cursor-pointer group" data-testid="link-web-design">
                   <h3 className="text-lg mb-2 group-hover:text-accent transition-colors">Website Design</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed font-sans">
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans">
                     Professional websites that help your business get found online and win more customers.
                   </p>
                 </div>
@@ -347,7 +347,7 @@ export default function NetworkWifi() {
               <Link href="/microsoft-365">
                 <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover cursor-pointer group" data-testid="link-microsoft-365">
                   <h3 className="text-lg mb-2 group-hover:text-accent transition-colors">Microsoft 365 Setup</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed font-sans">
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans">
                     Professional email, Teams, and cloud storage — set up properly so your team can collaborate from day one.
                   </p>
                 </div>

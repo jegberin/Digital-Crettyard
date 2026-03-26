@@ -144,7 +144,7 @@ export default function Portfolio() {
                   </p>
                   <div>
                     <p className="font-headline font-bold text-sm text-foreground" data-testid={`text-testimonial-name-${i + 1}`}>{testimonial.name}</p>
-                    <p className="text-foreground/50 text-xs">{testimonial.business}</p>
+                    <p className="text-foreground/60 text-sm">{testimonial.business}</p>
                   </div>
                 </div>
               ))}
@@ -165,21 +165,21 @@ export default function Portfolio() {
                 <div className="p-6 rounded-2xl bg-[#f3f4f5] hover:shadow-md transition-all cursor-pointer">
                   <Globe className="w-8 h-8 text-accent mb-3 mx-auto" />
                   <h3 className="font-headline font-bold mb-1">Web Design</h3>
-                  <p className="text-sm text-foreground/60 font-sans">Professional websites that get found and win customers</p>
+                  <p className="text-[15px] text-foreground/70 font-sans">Professional websites that get found and win customers</p>
                 </div>
               </Link>
               <Link href="/microsoft-365" data-testid="link-service-m365">
                 <div className="p-6 rounded-2xl bg-[#f3f4f5] hover:shadow-md transition-all cursor-pointer">
                   <Mail className="w-8 h-8 text-accent mb-3 mx-auto" />
                   <h3 className="font-headline font-bold mb-1">Microsoft 365</h3>
-                  <p className="text-sm text-foreground/60 font-sans">Business email, Teams, and cloud setup done right</p>
+                  <p className="text-[15px] text-foreground/70 font-sans">Business email, Teams, and cloud setup done right</p>
                 </div>
               </Link>
               <Link href="/network-wifi-security" data-testid="link-service-network">
                 <div className="p-6 rounded-2xl bg-[#f3f4f5] hover:shadow-md transition-all cursor-pointer">
                   <Wifi className="w-8 h-8 text-accent mb-3 mx-auto" />
                   <h3 className="font-headline font-bold mb-1">Network & Wi-Fi</h3>
-                  <p className="text-sm text-foreground/60 font-sans">Reliable connectivity for offices and workshops</p>
+                  <p className="text-[15px] text-foreground/70 font-sans">Reliable connectivity for offices and workshops</p>
                 </div>
               </Link>
             </div>

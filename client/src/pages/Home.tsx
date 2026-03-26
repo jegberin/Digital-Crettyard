@@ -45,7 +45,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-headline font-bold text-primary text-sm" data-testid="text-trust-badge">Trusted Local Partner</p>
-                  <p className="text-xs text-foreground/60 font-sans">Laois, Carlow & Kilkenny</p>
+                  <p className="text-sm text-foreground/70 font-sans">Laois, Carlow & Kilkenny</p>
                 </div>
               </div>
             </FadeIn>
@@ -200,7 +200,7 @@ export default function Home() {
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8">
             <StaggerItem>
-              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-webdesign">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-webdesign">
                 <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <MonitorSmartphone size={24} />
                 </div>
@@ -215,7 +215,7 @@ export default function Home() {
             </StaggerItem>
 
             <StaggerItem>
-              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-microsoft365">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-microsoft365">
                 <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Cloud size={24} />
                 </div>
@@ -230,7 +230,7 @@ export default function Home() {
             </StaggerItem>
 
             <StaggerItem>
-              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-network">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-network">
                 <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Wifi size={24} />
                 </div>
@@ -263,8 +263,8 @@ export default function Home() {
             ].map((step, i) => (
               <StaggerItem key={i} className="text-center">
                 <div className="text-5xl font-headline font-extrabold text-primary/10 mb-4 tracking-tight">{step.num}</div>
-                <h4 className="text-sm mb-2">{step.title}</h4>
-                <p className="text-foreground/60 text-xs leading-relaxed font-sans">{step.desc}</p>
+                <h4 className="text-base mb-2">{step.title}</h4>
+                <p className="text-foreground/70 text-sm leading-relaxed font-sans">{step.desc}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>

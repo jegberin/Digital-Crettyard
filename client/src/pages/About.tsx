@@ -91,7 +91,7 @@ export default function About() {
                   <img src={joeyImg} alt="Joey — founder of Crettyard Digital" className="w-full h-full object-cover object-top" data-testid="img-joey" />
                 </div>
                 <p className="text-center mt-3 text-sm font-headline font-bold text-primary">Joey</p>
-                <p className="text-center text-xs text-muted-foreground font-sans">Founder, Crettyard Digital</p>
+                <p className="text-center text-sm text-muted-foreground font-sans">Founder, Crettyard Digital</p>
               </div>
             </FadeIn>
           </div>
@@ -198,7 +198,7 @@ export default function About() {
               <Link href="/web-design">
                 <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover text-center cursor-pointer" data-testid="card-service-web">
                   <MonitorSmartphone className="text-accent mx-auto mb-4" size={24} />
-                  <h3 className="text-sm mb-2">Web Design</h3>
+                  <h3 className="text-base mb-2">Web Design</h3>
                   <p className="text-foreground/70 text-[13px] leading-relaxed font-sans">Fast, SEO-ready websites that help you get found and win more enquiries.</p>
                 </div>
               </Link>
@@ -207,7 +207,7 @@ export default function About() {
               <Link href="/microsoft-365">
                 <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover text-center cursor-pointer" data-testid="card-service-m365">
                   <Cloud className="text-accent mx-auto mb-4" size={24} />
-                  <h3 className="text-sm mb-2">Microsoft 365</h3>
+                  <h3 className="text-base mb-2">Microsoft 365</h3>
                   <p className="text-foreground/70 text-[13px] leading-relaxed font-sans">Professional email, Teams, and cloud storage — set up properly from day one.</p>
                 </div>
               </Link>
@@ -216,7 +216,7 @@ export default function About() {
               <Link href="/network-wifi-security">
                 <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover text-center cursor-pointer" data-testid="card-service-network">
                   <Wifi className="text-accent mx-auto mb-4" size={24} />
-                  <h3 className="text-sm mb-2">Network & Wi-Fi</h3>
+                  <h3 className="text-base mb-2">Network & Wi-Fi</h3>
                   <p className="text-foreground/70 text-[13px] leading-relaxed font-sans">Reliable coverage, secure firewalls, and proper setup for offices and workshops.</p>
                 </div>
               </Link>
