@@ -94,7 +94,7 @@ export default function Microsoft365() {
               },
               {
                 icon: <ShieldCheck className="text-accent" size={28} />,
-                title: "Expert Setup &amp; Support",
+                title: "Expert Setup & Support",
                 benefit: "I configure everything correctly from day one — including security policies, MFA, and migration of existing emails — so you're protected and productive immediately."
               },
             ].map((item, i) => (
@@ -320,7 +320,7 @@ export default function Microsoft365() {
             {[
               { title: "Avoid Costly Mistakes", desc: "A misconfigured tenant can lead to data breaches, lost emails, or compliance failures. Getting it right from the start prevents expensive emergency fixes later." },
               { title: "Stop Paying for What You Don't Need", desc: "Many businesses are on the wrong Microsoft 365 plan — overpaying for features they'll never use. I match the right plan to your actual needs." },
-              { title: "Reduce Downtime &amp; Wasted Hours", desc: "When email goes down or files disappear, your business stops. Professional setup means fewer problems, and when issues arise, someone who knows your system can fix them fast." },
+              { title: "Reduce Downtime & Wasted Hours", desc: "When email goes down or files disappear, your business stops. Professional setup means fewer problems, and when issues arise, someone who knows your system can fix them fast." },
             ].map((item, index) => (
               <FadeIn key={item.title} delay={index * 0.1}>
                 <div className="bg-[#f3f4f5] p-8 rounded-2xl h-full" data-testid={`card-saves-money-${index}`}>
