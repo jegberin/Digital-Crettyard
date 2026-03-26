@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Cloud, ShieldCheck, Mail, Users, FileLock, CheckCircle, XCircle, ArrowRight, Monitor, Wrench, Calendar, Globe, HardDrive } from "lucide-react";
+import serviceImg from "@assets/service-microsoft-365.png";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import {
   Accordion,
@@ -13,29 +14,43 @@ export default function Microsoft365() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#f3f4f5] py-24 md:py-32 dot-matrix-bg">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <FadeIn>
-            <span className="eyebrow mb-5 inline-block">Microsoft 365</span>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
-              Microsoft 365 Setup &amp; Business Email for Small Businesses in Ireland
-            </h1>
-            <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal" data-testid="text-hero-description">
-              Stop losing emails, sharing files by USB stick, or paying for tools you don't understand. I set up Microsoft 365 properly so your business email, file sharing, and collaboration just work — securely, from anywhere.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact#send-message">
-                <Button size="lg" className="px-10" data-testid="button-hero-cta">
-                  Book a Free Consultation
-                </Button>
-              </Link>
-              <Link href="/network-wifi-security">
-                <Button variant="outline" size="lg" className="px-8" data-testid="link-network">
-                  Network &amp; Wi-Fi Services <ArrowRight className="ml-2" size={16} />
-                </Button>
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="bg-[#f3f4f5] py-20 md:py-28 dot-matrix-bg">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <FadeIn>
+              <span className="eyebrow mb-5 inline-block">Microsoft 365</span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
+                Microsoft 365 Setup &amp; Business Email for Small Businesses in Ireland
+              </h1>
+              <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal" data-testid="text-hero-description">
+                Stop losing emails, sharing files by USB stick, or paying for tools you don't understand. I set up Microsoft 365 properly so your business email, file sharing, and collaboration just work — securely, from anywhere.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact#send-message">
+                  <Button size="lg" className="px-10" data-testid="button-hero-cta">
+                    Book a Free Consultation
+                  </Button>
+                </Link>
+                <Link href="/network-wifi-security">
+                  <Button variant="outline" size="lg" className="px-8" data-testid="link-network">
+                    Network &amp; Wi-Fi Services <ArrowRight className="ml-2" size={16} />
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
+            <FadeIn className="hidden md:block">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={serviceImg}
+                  alt="A clean professional desk setup with laptop and devices showing productivity software"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

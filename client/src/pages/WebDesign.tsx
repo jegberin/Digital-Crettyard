@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Search, Wrench, Smartphone, Rocket, FormInput, Users, CheckCircle, PiggyBank, ArrowRight } from "lucide-react";
+import serviceImg from "@assets/service-web-design.png";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import {
   Accordion,
@@ -12,29 +13,43 @@ import {
 export default function WebDesign() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-[#f3f4f5] py-24 md:py-32 dot-matrix-bg">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <FadeIn>
-            <span className="eyebrow mb-5 inline-block">Web Design</span>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
-              Professional Website Design for Small Businesses in Laois & Carlow
-            </h1>
-            <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal" data-testid="text-intro">
-              Your website should be your hardest-working employee — bringing in enquiries, building trust, and making your business look as professional as the work you do. I design and build fast, mobile-friendly websites for tradespeople, contractors, and local service businesses across Laois, Carlow, and the surrounding counties.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact#send-message">
-                <Button data-testid="button-hero-cta" size="lg" className="px-10">
-                  Book a Free Website Consultation
-                </Button>
-              </Link>
-              <Link href="/portfolio">
-                <Button data-testid="button-hero-portfolio" variant="outline" size="lg" className="px-8">
-                  View My Work →
-                </Button>
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="bg-[#f3f4f5] py-20 md:py-28 dot-matrix-bg">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <FadeIn>
+              <span className="eyebrow mb-5 inline-block">Web Design</span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
+                Professional Website Design for Small Businesses in Laois & Carlow
+              </h1>
+              <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal" data-testid="text-intro">
+                Your website should be your hardest-working employee — bringing in enquiries, building trust, and making your business look as professional as the work you do. I design and build fast, mobile-friendly websites for tradespeople, contractors, and local service businesses across Laois, Carlow, and the surrounding counties.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact#send-message">
+                  <Button data-testid="button-hero-cta" size="lg" className="px-10">
+                    Book a Free Website Consultation
+                  </Button>
+                </Link>
+                <Link href="/portfolio">
+                  <Button data-testid="button-hero-portfolio" variant="outline" size="lg" className="px-8">
+                    View My Work →
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
+            <FadeIn className="hidden md:block">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={serviceImg}
+                  alt="A laptop displaying a professionally designed small business website"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

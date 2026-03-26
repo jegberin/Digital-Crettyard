@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Wifi, ShieldAlert, Server, Network, CheckCircle, Users, Building2, Wrench, HelpCircle, ArrowRight, PiggyBank } from "lucide-react";
+import serviceImg from "@assets/service-network-wifi.png";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { FAQSchema } from "@/components/SEO";
 
@@ -37,29 +38,43 @@ export default function NetworkWifi() {
       <FAQSchema items={faqItems.map(f => ({ question: f.q, answer: f.a }))} />
 
       {/* Hero Section */}
-      <section className="bg-[#f3f4f5] py-24 md:py-32 dot-matrix-bg">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <FadeIn>
-            <span className="eyebrow mb-5 inline-block">Network &amp; Security</span>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
-              Business Network &amp; Wi&#8209;Fi Solutions for Offices and Workshops
-            </h1>
-            <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal">
-              Dropped connections, dead spots, and unreliable Wi&#8209;Fi cost your business time and money every day. I design, install, and secure networks that actually work — so your team can focus on the job, not the internet.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact#send-message">
-                <Button size="lg" className="px-10" data-testid="button-hero-cta">
-                  Book a Free Network Review
-                </Button>
-              </Link>
-              <Link href="/microsoft-365">
-                <Button variant="outline" size="lg" className="px-8" data-testid="link-microsoft365">
-                  Microsoft 365 Setup <ArrowRight className="ml-2" size={16} />
-                </Button>
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="bg-[#f3f4f5] py-20 md:py-28 dot-matrix-bg">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <FadeIn>
+              <span className="eyebrow mb-5 inline-block">Network &amp; Security</span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
+                Business Network &amp; Wi&#8209;Fi Solutions for Offices and Workshops
+              </h1>
+              <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal">
+                Dropped connections, dead spots, and unreliable Wi&#8209;Fi cost your business time and money every day. I design, install, and secure networks that actually work — so your team can focus on the job, not the internet.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact#send-message">
+                  <Button size="lg" className="px-10" data-testid="button-hero-cta">
+                    Book a Free Network Review
+                  </Button>
+                </Link>
+                <Link href="/microsoft-365">
+                  <Button variant="outline" size="lg" className="px-8" data-testid="link-microsoft365">
+                    Microsoft 365 Setup <ArrowRight className="ml-2" size={16} />
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
+            <FadeIn className="hidden md:block">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={serviceImg}
+                  alt="Neatly organised network rack with ethernet cables in a professional office environment"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
