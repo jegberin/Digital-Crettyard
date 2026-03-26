@@ -4,12 +4,12 @@ import { FadeIn } from "@/components/FadeIn";
 export default function TermsAndConditions() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="section-gradient py-24 md:py-32 border-b border-gray-100">
+      <section className="bg-[#f3f4f5] py-24 md:py-32">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <FadeIn>
-            <span className="eyebrow mb-4 inline-block">Legal</span>
+            <span className="eyebrow mb-5 inline-block">Legal</span>
             <h1 className="text-4xl md:text-5xl leading-[1.1] mb-6">Terms and Conditions</h1>
-            <p className="text-foreground/70">Effective date: 10/03/2026</p>
+            <p className="text-foreground/70 font-sans">Effective date: 10/03/2026</p>
           </FadeIn>
         </div>
       </section>
@@ -29,7 +29,7 @@ export default function TermsAndConditions() {
               <p>Crettyard Digital is a sole trader business based in Crettyard, Co. Laois, Ireland.</p>
               <p className="mt-2"><strong>Contact details:</strong></p>
               <ul className="list-none space-y-1 pl-0">
-                <li>Email: <a href="mailto:info@crettyard.com" className="text-accent hover:underline">info@crettyard.com</a></li>
+                <li>Email: <a href="mailto:info@crettyard.ie" className="text-accent hover:underline">info@crettyard.ie</a></li>
                 <li>Phone: <a href="tel:+353879700701" className="text-accent hover:underline">+353 87 970 0701</a></li>
               </ul>
             </div>
@@ -183,7 +183,7 @@ export default function TermsAndConditions() {
               <div className="space-y-1">
                 <p><strong>Crettyard Digital</strong></p>
                 <p>Crettyard, Co. Laois, Ireland</p>
-                <p>Email: <a href="mailto:info@crettyard.com" className="text-accent hover:underline">info@crettyard.com</a></p>
+                <p>Email: <a href="mailto:info@crettyard.ie" className="text-accent hover:underline">info@crettyard.ie</a></p>
                 <p>Phone: <a href="tel:+353879700701" className="text-accent hover:underline">+353 87 970 0701</a></p>
               </div>
             </div>

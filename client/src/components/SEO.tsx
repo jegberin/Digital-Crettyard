@@ -29,7 +29,7 @@ export function SEO({ title, description, canonicalPath = "/" }: SEOProps) {
     if (twDesc) twDesc.setAttribute("content", description);
 
     const canonical = document.querySelector('link[rel="canonical"]');
-    const canonicalUrl = `https://digital.crettyard.com${canonicalPath === "/" ? "/" : canonicalPath + ".html"}`;
+    const canonicalUrl = `https://digital.crettyard.ie${canonicalPath === "/" ? "/" : canonicalPath + ".html"}`;
     if (canonical) {
       canonical.setAttribute("href", canonicalUrl);
     }
@@ -44,8 +44,8 @@ export function LocalBusinessSchema() {
     "@type": "LocalBusiness",
     name: "Crettyard Digital",
     description: "Web design, Microsoft 365 setup, and network solutions for small businesses in Laois, Carlow, Kilkenny, and surrounding areas.",
-    url: "https://digital.crettyard.com",
-    email: "info@crettyard.com",
+    url: "https://digital.crettyard.ie",
+    email: "info@crettyard.ie",
     telephone: "+353879700701",
     address: {
       "@type": "PostalAddress",
@@ -85,7 +85,7 @@ export function ServiceSchema({ name, description }: { name: string; description
     provider: {
       "@type": "LocalBusiness",
       name: "Crettyard Digital",
-      url: "https://digital.crettyard.com"
+      url: "https://digital.crettyard.ie"
     },
     areaServed: {
       "@type": "AdministrativeArea",

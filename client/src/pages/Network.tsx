@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Wifi, ShieldAlert, Server, Network, CheckCircle, Users, Building2, Wrench, HelpCircle, ArrowRight, PoundSterling } from "lucide-react";
+import { Wifi, ShieldAlert, Server, Network, CheckCircle, Users, Building2, Wrench, HelpCircle, ArrowRight, PiggyBank } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import {
   Accordion,
@@ -13,25 +13,25 @@ export default function NetworkWifi() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="section-gradient py-24 md:py-32 border-b border-gray-100">
+      <section className="bg-[#f3f4f5] py-24 md:py-32 dot-matrix-bg">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn>
-            <span className="eyebrow mb-4 inline-block">Network & Security</span>
+            <span className="eyebrow mb-5 inline-block">Network & Security</span>
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
               Business Network & Wi&#8209;Fi Solutions for Offices and Workshops
             </h1>
-            <p className="text-xl text-foreground/70 mb-8 leading-relaxed">
+            <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal">
               Dropped connections, dead spots, and unreliable Wi&#8209;Fi cost your business time and money every day. I design, install, and secure networks that actually work — so your team can focus on the job, not the internet.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact#send-message">
-                <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-hero-cta">
+                <Button size="lg" className="px-10" data-testid="button-hero-cta">
                   Book a Free Network Review
                 </Button>
               </Link>
               <Link href="/portfolio">
-                <Button variant="outline" size="lg" className="rounded-[4px] font-semibold h-12 px-8 text-sm" data-testid="link-portfolio">
-                  View Our Work <ArrowRight className="ml-2 h-4 w-4" />
+                <Button variant="outline" size="lg" className="px-8" data-testid="link-portfolio">
+                  View Our Work <ArrowRight className="ml-2" size={16} />
                 </Button>
               </Link>
             </div>
@@ -43,9 +43,9 @@ export default function NetworkWifi() {
       <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
-            <span className="eyebrow mb-4 inline-block">Common Issues</span>
+            <span className="eyebrow mb-5 inline-block">Common Issues</span>
             <h2 className="text-3xl mb-6">Solving Real-World Connectivity Problems</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed font-sans font-normal">
               These are the everyday frustrations I help businesses eliminate — for good.
             </p>
 
@@ -59,7 +59,7 @@ export default function NetworkWifi() {
                 "Unreliable remote access"
               ].map((painPoint, i) => (
                 <StaggerItem key={i}>
-                  <div className="bg-secondary px-4 py-3 rounded-[4px] border border-gray-100 text-center font-medium text-primary text-sm" data-testid={`text-pain-point-${i}`}>
+                  <div className="bg-[#f3f4f5] px-4 py-3 rounded-xl text-center font-headline font-bold text-primary text-sm" data-testid={`text-pain-point-${i}`}>
                     {painPoint}
                   </div>
                 </StaggerItem>
@@ -70,12 +70,12 @@ export default function NetworkWifi() {
       </section>
 
       {/* Who This Is For */}
-      <section className="py-28 section-gradient border-t border-gray-100">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
-            <span className="eyebrow mb-4 inline-block">Who This Is For</span>
+            <span className="eyebrow mb-5 inline-block">Who This Is For</span>
             <h2 className="text-3xl mb-6">Built for Businesses That Rely on Connectivity</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
               If your business depends on a reliable internet connection — and whose doesn't — this service is for you.
             </p>
           </FadeIn>
@@ -88,10 +88,10 @@ export default function NetworkWifi() {
               { icon: Server, title: "Home Offices & Remote Workers", desc: "A professional-grade setup so your home office runs as reliably as any corporate network." },
             ].map((item, i) => (
               <StaggerItem key={i}>
-                <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover" data-testid={`card-who-for-${i}`}>
+                <div className="bg-white p-8 rounded-2xl card-hover shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-who-for-${i}`}>
                   <item.icon className="text-accent mb-4" size={28} />
-                  <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                  <p className="text-foreground/70 text-[15px] leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg mb-2">{item.title}</h3>
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -103,24 +103,24 @@ export default function NetworkWifi() {
       <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
-            <span className="eyebrow mb-4 inline-block">What's Included</span>
+            <span className="eyebrow mb-5 inline-block">What's Included</span>
             <h2 className="text-3xl mb-6">Everything You Need for a Rock-Solid Network</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
               From initial survey to ongoing support, I handle every part of the process so you don't have to.
             </p>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             <StaggerItem>
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover">
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Network className="text-accent mb-6" size={32} />
-                <h3 className="text-xl font-bold mb-4">Network Design & Planning</h3>
-                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4">
+                <h3 className="text-xl mb-4">Network Design & Planning</h3>
+                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   I survey your premises and design a network that fits your space — proper cabling, switch placement, and access point positioning for full coverage.
                 </p>
                 <ul className="space-y-2">
                   {["Site survey & coverage mapping", "Structured cabling plans", "VLAN segmentation", "Capacity planning for growth"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -130,15 +130,15 @@ export default function NetworkWifi() {
             </StaggerItem>
 
             <StaggerItem>
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover">
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Wifi className="text-accent mb-6" size={32} />
-                <h3 className="text-xl font-bold mb-4">Wi&#8209;Fi Setup & Optimisation</h3>
-                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4">
+                <h3 className="text-xl mb-4">Wi&#8209;Fi Setup & Optimisation</h3>
+                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Professional mesh Wi&#8209;Fi and access point placement to eliminate dead spots across offices, multi-story buildings, or tricky workshop layouts.
                 </p>
                 <ul className="space-y-2">
                   {["Mesh Wi‑Fi & access point deployment", "Channel optimisation", "Guest network separation", "Seamless roaming between zones"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -148,15 +148,15 @@ export default function NetworkWifi() {
             </StaggerItem>
 
             <StaggerItem>
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover">
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <ShieldAlert className="text-accent mb-6" size={32} />
-                <h3 className="text-xl font-bold mb-4">Security & Firewalls</h3>
-                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4">
+                <h3 className="text-xl mb-4">Security & Firewalls</h3>
+                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Business-grade security to protect your data and keep your customers' information safe — without making things complicated for your team.
                 </p>
                 <ul className="space-y-2">
                   {["Business-grade firewall setup", "Intrusion detection", "Guest Wi‑Fi isolation", "Security policy configuration"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -166,15 +166,15 @@ export default function NetworkWifi() {
             </StaggerItem>
 
             <StaggerItem>
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover">
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Server className="text-accent mb-6" size={32} />
-                <h3 className="text-xl font-bold mb-4">Health Checks & Remote Access</h3>
-                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4">
+                <h3 className="text-xl mb-4">Health Checks & Remote Access</h3>
+                <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Ongoing network health checks plus secure VPN and remote access — so your team can work from anywhere without compromising security.
                 </p>
                 <ul className="space-y-2">
                   {["Network health audit & reporting", "VPN setup for remote access", "Performance troubleshooting", "Ongoing monitoring & support"].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -187,12 +187,12 @@ export default function NetworkWifi() {
       </section>
 
       {/* Why This Saves You Money */}
-      <section className="py-28 section-gradient border-t border-gray-100">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
-            <span className="eyebrow mb-4 inline-block">Why It Pays Off</span>
+            <span className="eyebrow mb-5 inline-block">Why It Pays Off</span>
             <h2 className="text-3xl mb-6">Why Getting Your Network Right Saves You Money</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
               A poorly set up network doesn't just cause frustration — it costs you real money in lost productivity, missed sales, and emergency call-outs.
             </p>
           </FadeIn>
@@ -204,9 +204,9 @@ export default function NetworkWifi() {
               { title: "Built to Grow With You", desc: "Adding new staff, devices, or locations is simple when your network is designed with growth in mind — no expensive rip-and-replace later." },
             ].map((item, i) => (
               <StaggerItem key={i}>
-                <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white card-hover" data-testid={`card-savings-${i}`}>
-                  <h3 className="text-lg font-bold mb-3">{item.title}</h3>
-                  <p className="text-foreground/70 text-[15px] leading-relaxed">{item.desc}</p>
+                <div className="bg-white p-8 rounded-2xl card-hover shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-savings-${i}`}>
+                  <h3 className="text-lg mb-3">{item.title}</h3>
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -218,18 +218,18 @@ export default function NetworkWifi() {
       <section className="py-28 bg-white" id="pricing">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
-            <PoundSterling className="text-accent mx-auto mb-4" size={32} />
-            <span className="eyebrow mb-4 inline-block">Pricing Guidance</span>
+            <PiggyBank className="text-accent mx-auto mb-4" size={32} />
+            <span className="eyebrow mb-5 inline-block">Pricing Guidance</span>
             <h2 className="text-3xl mb-6">What Affects the Price</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
               Every premises is different, so I quote after a proper survey. Here's what typically influences the cost:
             </p>
           </FadeIn>
 
           <FadeIn>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white">
-                <h3 className="text-lg font-bold mb-4">Factors That Affect Cost</h3>
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl">
+                <h3 className="text-lg mb-4">Factors That Affect Cost</h3>
                 <ul className="space-y-3">
                   {[
                     "Size and layout of the premises",
@@ -239,7 +239,7 @@ export default function NetworkWifi() {
                     "Security requirements (firewall, VPN, guest isolation)",
                     "Whether remote access or VPN is needed",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
                       <span>{item}</span>
                     </li>
@@ -247,8 +247,8 @@ export default function NetworkWifi() {
                 </ul>
               </div>
 
-              <div className="border border-gray-200/80 p-8 rounded-[4px] bg-white">
-                <h3 className="text-lg font-bold mb-4">Typical Starting Points</h3>
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl">
+                <h3 className="text-lg mb-4">Typical Starting Points</h3>
                 <ul className="space-y-4">
                   {[
                     { label: "Wi‑Fi health check & optimisation", range: "From €150" },
@@ -256,13 +256,13 @@ export default function NetworkWifi() {
                     { label: "Full network design & install", range: "From €800" },
                     { label: "Firewall & security configuration", range: "From €300" },
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center justify-between text-sm border-b border-gray-100 pb-3 last:border-0 last:pb-0" data-testid={`text-pricing-${i}`}>
-                      <span className="text-foreground/70">{item.label}</span>
-                      <span className="font-semibold text-primary">{item.range}</span>
+                    <li key={i} className="flex items-center justify-between text-sm border-b border-white pb-3 last:border-0 last:pb-0" data-testid={`text-pricing-${i}`}>
+                      <span className="text-foreground/70 font-sans">{item.label}</span>
+                      <span className="font-headline font-bold text-primary">{item.range}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-foreground/50 mt-4">
+                <p className="text-xs text-foreground/50 mt-4 font-sans">
                   All prices are indicative. I'll provide a clear, fixed quote after an initial chat.
                 </p>
               </div>
@@ -272,11 +272,11 @@ export default function NetworkWifi() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-28 section-gradient border-t border-gray-100">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
             <HelpCircle className="text-accent mx-auto mb-4" size={32} />
-            <span className="eyebrow mb-4 inline-block">FAQ</span>
+            <span className="eyebrow mb-5 inline-block">FAQ</span>
             <h2 className="text-3xl mb-6">Frequently Asked Questions</h2>
           </FadeIn>
 
@@ -309,10 +309,10 @@ export default function NetworkWifi() {
                 },
               ].map((faq, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} data-testid={`faq-item-${i}`}>
-                  <AccordionTrigger className="text-left text-[15px] font-semibold">
+                  <AccordionTrigger className="text-left text-[15px] font-headline font-bold">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-foreground/70 text-[15px] leading-relaxed">
+                  <AccordionContent className="text-foreground/70 text-[15px] leading-relaxed font-sans">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -323,11 +323,11 @@ export default function NetworkWifi() {
       </section>
 
       {/* Internal Links */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-2xl font-bold mb-4">Other Services You Might Need</h2>
-            <p className="text-foreground/70 leading-relaxed">
+            <h2 className="text-2xl mb-4">Other Services You Might Need</h2>
+            <p className="text-foreground/70 leading-relaxed font-sans font-normal">
               Most businesses need more than just a network. Here's how else I can help.
             </p>
           </FadeIn>
@@ -335,9 +335,9 @@ export default function NetworkWifi() {
           <StaggerContainer className="grid md:grid-cols-2 gap-6">
             <StaggerItem>
               <Link href="/web-design">
-                <div className="border border-gray-200/80 p-6 rounded-[4px] bg-white card-hover cursor-pointer group" data-testid="link-web-design">
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors">Website Design</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed">
+                <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover cursor-pointer group" data-testid="link-web-design">
+                  <h3 className="text-lg mb-2 group-hover:text-accent transition-colors">Website Design</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed font-sans">
                     Professional websites that help your business get found online and win more customers.
                   </p>
                 </div>
@@ -345,9 +345,9 @@ export default function NetworkWifi() {
             </StaggerItem>
             <StaggerItem>
               <Link href="/microsoft-365">
-                <div className="border border-gray-200/80 p-6 rounded-[4px] bg-white card-hover cursor-pointer group" data-testid="link-microsoft-365">
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors">Microsoft 365 Setup</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed">
+                <div className="bg-[#f3f4f5] p-6 rounded-2xl card-hover cursor-pointer group" data-testid="link-microsoft-365">
+                  <h3 className="text-lg mb-2 group-hover:text-accent transition-colors">Microsoft 365 Setup</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed font-sans">
                     Professional email, Teams, and cloud storage — set up properly so your team can collaborate from day one.
                   </p>
                 </div>
@@ -358,15 +358,15 @@ export default function NetworkWifi() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 section-gradient border-t border-gray-100 text-center">
+      <section className="py-24 bg-primary dot-matrix-bg text-center">
         <div className="container mx-auto px-4">
           <FadeIn>
-            <h2 className="text-3xl mb-4">Ready to Fix Your Network for Good?</h2>
-            <p className="text-foreground/70 mb-8 max-w-xl mx-auto leading-relaxed">
+            <h2 className="text-3xl text-white mb-4">Ready to Fix Your Network for Good?</h2>
+            <p className="text-white/70 mb-8 max-w-xl mx-auto leading-relaxed font-sans font-normal">
               Book a free, no-obligation network review. I'll assess your setup, identify the problems, and give you a clear plan to sort it out.
             </p>
             <Link href="/contact#send-message">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-[4px] font-semibold h-12 px-8 text-sm transition-all duration-200" data-testid="button-cta-bottom">
+              <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-bottom">
                 Book a Free Network Review
               </Button>
             </Link>

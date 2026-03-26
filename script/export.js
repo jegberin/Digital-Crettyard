@@ -39,7 +39,7 @@ function stripReactBundle(html) {
 }
 
 function fixOgImages(html) {
-  html = html.replace(/content="https?:\/\/[^"]*?\/opengraph\.jpg"/g, 'content="https://digital.crettyard.com/opengraph.jpg"');
+  html = html.replace(/content="https?:\/\/[^"]*?\/opengraph\.jpg"/g, 'content="https://digital.crettyard.ie/opengraph.jpg"');
   return html;
 }
 

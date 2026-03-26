@@ -13,39 +13,39 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-white py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-[#f3f4f5] py-24 md:py-32 overflow-hidden dot-matrix-bg">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn direction="up" className="max-w-xl">
-              <span className="eyebrow mb-4 inline-block" data-testid="text-eyebrow">Crettyard Digital</span>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-6" data-testid="text-hero-heading">
+              <span className="eyebrow mb-5 inline-block" data-testid="text-eyebrow">Crettyard Digital</span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-hero-heading">
                 Help Your Business Get Found, Look Professional, and Win More Customers
               </h1>
-              <p className="text-lg text-foreground/80 mb-10 leading-relaxed" data-testid="text-hero-subheading">
+              <p className="text-lg text-foreground/70 mb-10 leading-relaxed font-sans font-normal" data-testid="text-hero-subheading">
                 Websites, Microsoft 365 and network solutions built for small businesses across Laois, Carlow, Kilkenny and the surrounding counties. No jargon, no hassle — just technology that works for your business.
               </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link href="/contact#send-message">
-                  <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold w-full sm:w-auto h-12 px-8 text-sm transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-book-consultation">
+                  <Button size="lg" className="px-10" data-testid="button-book-consultation">
                     Book a Free Consultation
                   </Button>
                 </Link>
-                <Link href="#services" className="text-accent font-semibold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-services">
+                <Link href="#services" className="text-accent font-headline font-bold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-services">
                   View Services <ArrowRight size={14} />
                 </Link>
               </div>
             </FadeIn>
             <FadeIn direction="up" delay={0.2} className="relative">
-              <div className="aspect-[4/3] rounded-[4px] overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
                 <img src={heroImg} alt="Digital services professional helping small businesses" className="object-cover w-full h-full" />
               </div>
-              <div className="absolute -bottom-5 -left-5 bg-white py-4 px-5 rounded-[4px] shadow-lg border border-gray-100/60 hidden md:flex items-center gap-3">
+              <div className="absolute -bottom-5 -left-5 bg-white py-4 px-5 rounded-xl shadow-lg hidden md:flex items-center gap-3">
                 <div className="w-10 h-10 bg-accent/10 flex items-center justify-center rounded-full text-accent">
                   <CheckCircle2 size={20} />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary text-sm" data-testid="text-trust-badge">Trusted Local Partner</p>
-                  <p className="text-xs text-foreground/60">Laois, Carlow & Kilkenny</p>
+                  <p className="font-headline font-bold text-primary text-sm" data-testid="text-trust-badge">Trusted Local Partner</p>
+                  <p className="text-xs text-foreground/60 font-sans">Laois, Carlow & Kilkenny</p>
                 </div>
               </div>
             </FadeIn>
@@ -54,12 +54,12 @@ export default function Home() {
       </section>
 
       {/* Why Your Online Presence Matters */}
-      <section className="section-gradient py-28">
+      <section className="bg-white py-28">
         <div className="container mx-auto px-4 max-w-3xl">
           <FadeIn className="text-center">
-            <span className="eyebrow mb-4 inline-block">Why It Matters</span>
+            <span className="eyebrow mb-5 inline-block">Why It Matters</span>
             <h2 className="text-3xl md:text-4xl mb-6" data-testid="text-presence-heading">Why Your Online Presence Matters</h2>
-            <p className="text-lg text-foreground/70 mb-10 leading-relaxed">
+            <p className="text-lg text-foreground/70 mb-10 leading-relaxed font-sans font-normal">
               You might think "I already have Facebook" or "I'm too small for a website." But your customers are searching Google right now for the services you offer. If they can't find you — or if your site looks outdated — they'll go to a competitor who looks more professional.
             </p>
           </FadeIn>
@@ -73,7 +73,7 @@ export default function Home() {
             ].map((point, i) => (
               <StaggerItem key={i} className="flex items-start gap-3">
                 <CheckCircle2 className="text-accent shrink-0 mt-1" size={18} />
-                <span className="text-foreground/80 font-medium text-[15px]">{point}</span>
+                <span className="text-foreground/80 font-medium text-[15px] font-sans">{point}</span>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -81,18 +81,18 @@ export default function Home() {
       </section>
 
       {/* Without vs With Comparison */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-5xl">
           <FadeIn className="text-center mb-16">
-            <span className="eyebrow mb-4 inline-block">The Difference</span>
+            <span className="eyebrow mb-5 inline-block">The Difference</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-comparison-heading">Without a Proper Site vs With a Proper Site</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto">See how a professional online presence changes everything for your business.</p>
+            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">See how a professional online presence changes everything for your business.</p>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8">
             <FadeIn delay={0.1}>
-              <div className="border border-red-200/80 rounded-[4px] p-8 bg-red-50/30 h-full">
-                <h3 className="text-xl mb-6 text-red-800 font-semibold flex items-center gap-2">
+              <div className="rounded-2xl p-8 bg-red-50/60 h-full">
+                <h3 className="text-xl mb-6 text-red-800 flex items-center gap-2">
                   <XCircle size={22} className="text-red-500" />
                   Without a Proper Site
                 </h3>
@@ -105,7 +105,7 @@ export default function Home() {
                     "Losing leads to businesses with better websites",
                     "No professional email — using Gmail or Yahoo"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px]">
+                    <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px] font-sans">
                       <XCircle className="text-red-400 shrink-0 mt-0.5" size={16} />
                       {item}
                     </li>
@@ -115,8 +115,8 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="border border-green-200/80 rounded-[4px] p-8 bg-green-50/30 h-full">
-                <h3 className="text-xl mb-6 text-green-800 font-semibold flex items-center gap-2">
+              <div className="rounded-2xl p-8 bg-green-50/60 h-full">
+                <h3 className="text-xl mb-6 text-green-800 flex items-center gap-2">
                   <CheckCircle2 size={22} className="text-green-600" />
                   With a Proper Site
                 </h3>
@@ -129,7 +129,7 @@ export default function Home() {
                     "You compete — and win — against bigger businesses",
                     "Professional @yourbusiness.ie email address"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px]">
+                    <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px] font-sans">
                       <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={16} />
                       {item}
                     </li>
@@ -142,12 +142,12 @@ export default function Home() {
       </section>
 
       {/* Why Investing Properly Now Saves Money Later */}
-      <section className="py-28 section-gradient">
+      <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           <FadeIn className="text-center mb-16">
-            <span className="eyebrow mb-4 inline-block">Smart Investment</span>
+            <span className="eyebrow mb-5 inline-block">Smart Investment</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-investment-heading">Why Investing Properly Now Saves Money Later</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">
               A cheap website or DIY setup might save you money today, but it nearly always costs more in the long run.
             </p>
           </FadeIn>
@@ -177,11 +177,11 @@ export default function Home() {
             ].map((item, i) => (
               <StaggerItem key={i}>
                 <div className="text-center">
-                  <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-[4px] mb-5 mx-auto">
+                  <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-5 mx-auto">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-foreground/70 text-[15px] leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg mb-2">{item.title}</h3>
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -190,55 +190,55 @@ export default function Home() {
       </section>
 
       {/* Services Grid */}
-      <section id="services" className="py-28 bg-white">
+      <section id="services" className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4">
           <FadeIn className="text-center mb-16">
-            <span className="eyebrow mb-4 inline-block">What I Do</span>
+            <span className="eyebrow mb-5 inline-block">What I Do</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-services-heading">Services That Help Your Business Grow</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto">Practical technology solutions that deliver real results — not just features on a spec sheet.</p>
+            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">Practical technology solutions that deliver real results — not just features on a spec sheet.</p>
           </FadeIn>
-          
+
           <StaggerContainer className="grid md:grid-cols-3 gap-8">
             <StaggerItem>
-              <div className="border border-gray-200/80 rounded-[4px] p-8 bg-white card-hover group flex flex-col h-full" data-testid="card-service-webdesign">
-                <div className="w-12 h-12 bg-accent/8 text-accent flex items-center justify-center rounded-[4px] mb-6 group-hover:bg-accent/15 transition-colors duration-300">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-webdesign">
+                <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <MonitorSmartphone size={24} />
                 </div>
                 <h3 className="text-xl mb-3">Web Design</h3>
-                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed">
+                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed font-sans font-normal">
                   Get a professional website that makes you easy to find on Google, builds trust with visitors, and turns them into paying customers.
                 </p>
-                <Link href="/web-design" className="text-accent font-semibold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-webdesign">
+                <Link href="/web-design" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-webdesign">
                   Learn more <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>
 
             <StaggerItem>
-              <div className="border border-gray-200/80 rounded-[4px] p-8 bg-white card-hover group flex flex-col h-full" data-testid="card-service-microsoft365">
-                <div className="w-12 h-12 bg-accent/8 text-accent flex items-center justify-center rounded-[4px] mb-6 group-hover:bg-accent/15 transition-colors duration-300">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-microsoft365">
+                <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Cloud size={24} />
                 </div>
                 <h3 className="text-xl mb-3">Microsoft 365</h3>
-                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed">
+                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed font-sans font-normal">
                   Professional email, file sharing, and collaboration tools — set up properly so your team can work from anywhere without headaches.
                 </p>
-                <Link href="/microsoft-365" className="text-accent font-semibold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-microsoft365">
+                <Link href="/microsoft-365" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-microsoft365">
                   Learn more <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>
 
             <StaggerItem>
-              <div className="border border-gray-200/80 rounded-[4px] p-8 bg-white card-hover group flex flex-col h-full" data-testid="card-service-network">
-                <div className="w-12 h-12 bg-accent/8 text-accent flex items-center justify-center rounded-[4px] mb-6 group-hover:bg-accent/15 transition-colors duration-300">
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full" data-testid="card-service-network">
+                <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Wifi size={24} />
                 </div>
                 <h3 className="text-xl mb-3">Network & Wi&#8209;Fi</h3>
-                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed">
+                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed font-sans font-normal">
                   Reliable, secure connectivity for your office or workshop — so you're never left without internet when you need it most.
                 </p>
-                <Link href="/network-wifi-security" className="text-accent font-semibold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-network">
+                <Link href="/network-wifi-security" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-network">
                   Learn more <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
@@ -248,10 +248,10 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-28 section-gradient">
+      <section className="py-28 bg-white">
         <div className="container mx-auto px-4">
           <FadeIn className="text-center mb-16">
-            <span className="eyebrow mb-4 inline-block">How It Works</span>
+            <span className="eyebrow mb-5 inline-block">How It Works</span>
             <h2 className="text-3xl md:text-4xl" data-testid="text-process-heading">Four simple steps to get started</h2>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.08}>
@@ -262,24 +262,24 @@ export default function Home() {
               { num: "04", title: "Support", desc: "Ongoing help whenever you need it. I'm always just a call or message away." }
             ].map((step, i) => (
               <StaggerItem key={i} className="text-center">
-                <div className="text-4xl font-light text-primary/15 mb-4 tracking-tight">{step.num}</div>
-                <h4 className="font-semibold text-primary text-sm mb-2">{step.title}</h4>
-                <p className="text-foreground/60 text-xs leading-relaxed">{step.desc}</p>
+                <div className="text-5xl font-headline font-extrabold text-primary/10 mb-4 tracking-tight">{step.num}</div>
+                <h4 className="text-sm mb-2">{step.title}</h4>
+                <p className="text-foreground/60 text-xs leading-relaxed font-sans">{step.desc}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* Featured Projects — kept as-is */}
-      <section className="py-28 bg-white">
+      {/* Featured Projects */}
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4">
           <FadeIn className="flex justify-between items-end mb-14">
             <div>
-              <span className="eyebrow mb-4 inline-block">Featured Projects</span>
+              <span className="eyebrow mb-5 inline-block">Featured Projects</span>
               <h2 className="text-3xl md:text-4xl mb-3" data-testid="text-projects-heading">Recent websites built for local businesses</h2>
             </div>
-            <Link href="/portfolio" className="hidden md:inline-flex text-accent font-semibold items-center hover:text-primary transition-colors text-sm" data-testid="link-view-all-projects">
+            <Link href="/portfolio" className="hidden md:inline-flex text-accent font-headline font-bold items-center hover:text-primary transition-colors text-sm" data-testid="link-view-all-projects">
               View all projects <ArrowRight size={14} className="ml-1" />
             </Link>
           </FadeIn>
@@ -287,51 +287,51 @@ export default function Home() {
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <StaggerItem>
               <a href="https://bmcustomfurniture.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-bm">
-                <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
+                <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
                   <img src={project1} alt="BM Custom Furniture website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">BM Custom Furniture</h3>
+                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">BM Custom Furniture</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">bmcustomfurniture.ie</p>
-                <p className="text-sm text-foreground/70 mb-3">Bespoke fitted furniture showcase</p>
-                <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
+                <p className="text-sm text-foreground/70 mb-3 font-sans">Bespoke fitted furniture showcase</p>
+                <span className="text-accent font-headline font-bold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>
             <StaggerItem>
               <a href="https://gogreensteamclean.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-gogreen">
-                <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
+                <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
                   <img src={project2} alt="Go Green Steam Clean website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">Go Green Steam Clean</h3>
+                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">Go Green Steam Clean</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">gogreensteamclean.ie</p>
-                <p className="text-sm text-foreground/70 mb-3">Service-led eco-friendly cleaning</p>
-                <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
+                <p className="text-sm text-foreground/70 mb-3 font-sans">Service-led eco-friendly cleaning</p>
+                <span className="text-accent font-headline font-bold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>
             <StaggerItem>
               <a href="https://nurneyplantandcivil.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-nurney">
-                <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
+                <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
                   <img src={project3} alt="Nurney Plant and Civil website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">Nurney Plant and Civil</h3>
+                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">Nurney Plant and Civil</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">nurneyplantandcivil.ie</p>
-                <p className="text-sm text-foreground/70 mb-3">Professional plant hire services</p>
-                <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
+                <p className="text-sm text-foreground/70 mb-3 font-sans">Professional plant hire services</p>
+                <span className="text-accent font-headline font-bold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>
             <StaggerItem>
               <a href="https://morethanpoints.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-morethanpoints">
-                <div className="aspect-[4/3] bg-gray-50 mb-5 overflow-hidden rounded-[4px] shadow-sm">
+                <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
                   <img src={project4} alt="More Than Points website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors font-semibold">More Than Points</h3>
+                <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">More Than Points</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">morethanpoints.ie</p>
-                <p className="text-sm text-foreground/70 mb-3">Teen & parent coaching for Irish families</p>
-                <span className="text-accent font-semibold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
+                <p className="text-sm text-foreground/70 mb-3 font-sans">Teen & parent coaching for Irish families</p>
+                <span className="text-accent font-headline font-bold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>
           </StaggerContainer>
           <div className="mt-8 text-center md:hidden">
-            <Link href="/portfolio" className="text-accent font-semibold items-center hover:text-primary transition-colors text-sm" data-testid="link-view-all-projects-mobile">
+            <Link href="/portfolio" className="text-accent font-headline font-bold items-center hover:text-primary transition-colors text-sm" data-testid="link-view-all-projects-mobile">
               View all projects <ArrowRight size={14} className="inline ml-1" />
             </Link>
           </div>
@@ -339,67 +339,67 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-28 section-gradient">
+      <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <FadeIn className="text-center mb-14">
-            <span className="eyebrow mb-4 inline-block">Common Questions</span>
+            <span className="eyebrow mb-5 inline-block">Common Questions</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-faq-heading">Frequently Asked Questions</h2>
-            <p className="text-foreground/70">Answers to the questions I hear most from small business owners.</p>
+            <p className="text-foreground/70 font-sans font-normal">Answers to the questions I hear most from small business owners.</p>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <Accordion type="single" collapsible className="w-full" data-testid="accordion-faq">
               <AccordionItem value="faq-1">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-1">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-1">
                   I already have a Facebook page — do I really need a website?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-1">
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-1">
                   Facebook is great for social engagement, but it won't help you rank on Google when someone searches "plumber near me" or "furniture maker Carlow." A website gives you a professional presence you own and control, and it works around the clock to bring you new customers.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-2">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-2">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-2">
                   I'm not very technical — will this be complicated?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-2">
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-2">
                   Not at all. That's exactly why I exist. I handle all the technical work and explain everything in plain English. You don't need to know anything about hosting, DNS, or code — I take care of it all.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-3">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-3">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-3">
                   How much does a website cost?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-3">
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-3">
                   It depends on what you need, but most small business websites start from around €800. I always provide a clear, fixed quote upfront — no hidden fees, no surprises. Book a free consultation and I'll give you honest advice on what makes sense for your budget.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-4">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-4">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-4">
                   How long does it take to build a website?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-4">
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-4">
                   A typical small business website takes 2–4 weeks from start to launch. The exact timeline depends on how quickly you can provide content (photos, text) and how many revisions are needed. I keep you updated throughout.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-5">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-5">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-5">
                   Can you help with just email or networking, without a website?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-5">
-                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently — pick what your business needs.
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-5">
+                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-6">
-                <AccordionTrigger className="text-left text-base font-semibold" data-testid="faq-trigger-6">
+                <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-6">
                   What happens after my website is live?
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 leading-relaxed" data-testid="faq-content-6">
-                  I don't disappear after launch. I offer optional ongoing support so your site stays updated, secure, and performing well. If something breaks or you need changes, I'm just a call away — no call centres, no ticket queues.
+                <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-6">
+                  I don't disappear after launch. I offer optional ongoing support so your site stays updated, secure, and performing well.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -407,18 +407,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-28 bg-primary text-white text-center">
-        <div className="container mx-auto px-4 max-w-3xl">
+      {/* Bottom CTA */}
+      <section className="py-24 bg-primary dot-matrix-bg text-center">
+        <div className="container mx-auto px-4 max-w-2xl">
           <FadeIn>
-            <h2 className="text-3xl md:text-[2.75rem] text-white mb-6 leading-tight" data-testid="text-cta-heading">
-              Ready to get more customers and look more professional online?
-            </h2>
-            <p className="text-lg text-white/60 mb-10 leading-relaxed">
-              Book a free, no-obligation consultation. I'll give you honest advice on what your business needs — whether that's a website, email setup, or better Wi-Fi.
+            <h2 className="text-3xl md:text-4xl text-white mb-6" data-testid="text-cta-heading">Ready to grow your business online?</h2>
+            <p className="text-white/70 text-lg mb-10 font-sans font-normal max-w-xl mx-auto">
+              No jargon, no pressure — just honest advice on how technology can help your business win more customers.
             </p>
             <Link href="/contact#send-message">
-              <Button size="lg" className="bg-accent text-white hover:bg-[#0fa079] rounded-[4px] font-semibold h-12 px-10 text-sm border-0 transition-all duration-200 shadow-sm hover:shadow-lg" data-testid="button-cta-contact">
+              <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-bottom-cta">
                 Book a Free Consultation
               </Button>
             </Link>
