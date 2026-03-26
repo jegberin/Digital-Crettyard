@@ -1,0 +1,1124 @@
+You are updating the existing website at digital.crettyard.ie. Do not invent a new brand, do not change the business model, do not replace the tone with corporate jargon, and do not introduce unrelated design trends. Preserve the existing identity of Crettyard Digital as a local, practical, no-jargon technology partner for small businesses in Laois, Carlow, Kilkenny, and surrounding areas.
+​
+
+Your job is to improve the site’s UX, UI, accessibility, conversion performance, on-page SEO, technical SEO, internal linking, semantic HTML structure, and legal/compliance implementation without losing the current straightforward local-business positioning.
+
+You must work only within the current sitemap structure unless absolutely necessary for technical reasons. The current site already includes core commercial messaging on the homepage and service-led positioning around web design, Microsoft 365, and network solutions, so this is a refinement and strengthening project, not a total reinvention.
+​
+
+Before making changes, inspect the existing codebase and confirm:
+
+Current page templates and shared layout structure.
+
+Current CSS organization.
+
+Current navigation and footer reuse.
+
+Current metadata and schema coverage.
+
+Current image handling.
+
+Current mobile responsiveness.
+
+Current form handling and validation.
+
+Current cookie/privacy/legal implementation.
+
+Current internal linking and heading structure.
+
+Do not proceed by making random edits. Follow the phases below in order. Complete each phase fully before moving to the next. At the end, provide a page-by-page changelog of what was changed.
+​
+
+Core rules
+Follow these rules exactly:
+
+Do not change the business name from Crettyard Digital.
+​
+
+Do not remove the “No jargon, no hassle” positioning; strengthen it.
+​
+
+Do not hide service pricing where it is already commercially useful; keep transparent starting prices where appropriate.
+
+Do not replace practical copy with vague marketing language.
+
+Do not add heavy frameworks or bloated libraries if the current stack can handle the changes.
+
+Do not break existing routes or filenames unless absolutely necessary.
+
+Do not leave placeholder lorem ipsum, fake testimonials, fake case study metrics, or fake trust badges.
+
+Do not create duplicate H1s.
+
+Do not add intrusive animations or anything that harms performance.
+
+Do not index legal pages in search results.
+
+Do not run non-essential analytics or marketing scripts before cookie consent is granted.
+
+Keep the current local-business, owner-led tone throughout the site.
+​
+
+Primary objectives
+The website must do these jobs better after the update:
+
+Help local small businesses understand what Crettyard Digital does within seconds.
+​
+
+Show that the business provides practical outcomes, not technical complexity.
+​
+
+Increase contact and consultation enquiries.
+
+Improve local SEO relevance for Laois, Carlow, Kilkenny, and nearby counties.
+​
+
+Improve internal linking between service pages so the site reads as one connected business infrastructure offering.
+
+Improve trust through stronger portfolio presentation, local positioning, transparent process, and accessible design.
+
+Improve Core Web Vitals through better media handling, leaner scripts, and more stable layouts.
+
+Improve mobile usability and form completion rates.
+
+Sitewide implementation
+Apply these sitewide changes before page-specific changes.
+
+1. Global layout system
+Create or standardize a shared design system using root CSS variables.
+
+Implement:
+
+Color tokens.
+
+Spacing scale.
+
+Border radius scale.
+
+Shadow scale.
+
+Container widths.
+
+Fluid typography using clamp().
+
+Button styles.
+
+Form field styles.
+
+Card styles.
+
+Focus state styles.
+
+Consistent section padding and vertical rhythm.
+
+Requirements:
+
+High contrast, accessible color combinations.
+
+WCAG 2.1 AA compliant text contrast.
+
+Clear hover, focus, active, disabled, and error states.
+
+Buttons and links must have visible keyboard focus.
+
+Use consistent spacing between headings, body copy, lists, cards, and CTAs.
+
+Do not make the site look flashy. Make it look professional, trustworthy, and local. The feel should be polished and modern, but grounded and clear.
+​
+
+2. Global header
+Refactor the header into a reusable semantic component using:
+
+<header>
+
+<nav>
+
+<ul>
+
+<li>
+
+Requirements:
+
+Sticky header on scroll.
+
+Background becomes more solid once the user scrolls.
+
+Mobile nav must be accessible.
+
+Use aria-current="page" on active nav items.
+
+Include a high-visibility CTA button in the header for consultation/contact.
+
+Ensure tab order is logical.
+
+If using a mobile menu, prefer accessible native patterns, ideally a <dialog>-based menu or a robust accessible alternative.
+
+Navigation should include only key pages and not overwhelm users. Focus on:
+
+Home
+
+Web Design
+
+Microsoft 365
+
+Network & Wi‑Fi
+
+Portfolio
+
+About
+
+Contact
+
+3. Global footer
+Create a reusable structured footer using:
+
+<footer>
+
+<section>
+
+<nav>
+
+Footer layout:
+
+Brand/about summary.
+
+Core services links.
+
+Service area/location references.
+
+Contact details.
+
+Legal links.
+
+Requirements:
+
+Include consistent NAP/contact information.
+
+Include links to privacy policy, terms and conditions, and cookie policy.
+
+Include copyright line.
+
+Include a small designer/developer credit only if already appropriate and consistent with current branding.
+
+Maintain a clean, multi-column layout on desktop and stacked layout on mobile.
+
+4. Trust badges component
+Create a reusable trust marker row near important CTA sections.
+
+Badges can include:
+
+Locally owned.
+
+No jargon.
+
+Practical support.
+
+Small business focused.
+
+Use SVG or lightweight icon treatment. Do not make these look like fake certification logos. They should feel like plain-language business assurances, not fabricated authority symbols.
+​
+
+5. Accessibility baseline
+Implement these accessibility rules sitewide:
+
+One H1 per page.
+
+Logical heading order with no skipped structure unless necessary.
+
+All interactive elements keyboard accessible.
+
+Visible focus states everywhere.
+
+Sufficient label association on forms.
+
+Use aria-live or role="alert" for form feedback where needed.
+
+All decorative images marked appropriately.
+
+All meaningful images have descriptive alt text.
+
+Accordion components built with native semantic elements where possible.
+
+Dialogs and menus trap focus correctly and close correctly.
+
+Touch targets large enough for mobile.
+
+6. Performance baseline
+Implement these performance rules sitewide:
+
+Convert suitable images to WebP or AVIF.
+
+Use <picture> where appropriate.
+
+Add width and height attributes to all content images.
+
+Prevent layout shift with fixed aspect ratios.
+
+Preload only truly critical assets.
+
+Use fetchpriority="high" on hero imagery only where it materially helps LCP.
+
+Lazy-load below-the-fold images.
+
+Defer non-critical JavaScript.
+
+Remove unused CSS and redundant JS.
+
+Avoid large animation libraries.
+
+Prefer CSS transitions and IntersectionObserver over heavy JS.
+
+Do not over-preload assets. Keep the critical path lean.
+
+7. Technical SEO baseline
+Implement these on every relevant page:
+
+Unique <title>.
+
+Unique meta description.
+
+Canonical tag.
+
+Proper viewport meta tag.
+
+Open Graph and Twitter card tags where appropriate.
+
+Clean semantic HTML5 landmarks.
+
+Descriptive internal links.
+
+Structured heading hierarchy.
+
+Descriptive image alt text.
+
+Clean URL references.
+
+Schema markup relevant to page type.
+
+Also:
+
+Ensure sitemap references only canonical pages.
+
+Ensure robots behavior is correct.
+
+Add noindex, follow to legal pages only.
+
+Avoid thin duplicate copy between service pages.
+
+8. Internal linking system
+Build internal linking intentionally. Do not leave pages isolated.
+
+Requirements:
+
+Homepage links to each main service page, portfolio, about, and contact.
+
+Each service page links naturally to related services.
+
+Portfolio items link back to related services.
+
+About page links to services and contact.
+
+Contact page links back to relevant services if useful.
+
+Footer supports broad crawlability but body content links should do the real semantic work.
+
+Anchor text must be descriptive and natural, not spammy.
+
+Page-by-page implementation
+Homepage /
+This page must remain the strongest sales page on the site. The existing homepage already uses the core message “Help Your Business Get Found, Look Professional, and Win More Customers,” positions services across websites, Microsoft 365, and networks, highlights the “Without a Proper Site vs With a Proper Site” contrast, includes the 82% online-search statistic, and presents the four-step process, service summaries, and FAQ themes. Keep that structure, but strengthen its UX, hierarchy, conversion flow, and semantic structure.
+​
+
+Homepage content structure
+Implement this structure in order:
+
+Hero section
+
+Why online presence matters
+
+Without vs with comparison
+
+Why investing properly saves money later
+
+Service overview cards
+
+Four-step process
+
+Featured portfolio/projects
+
+FAQ
+
+Final CTA section
+
+Homepage hero
+Requirements:
+
+Keep one strong H1:
+Help Your Business Get Found, Look Professional, and Win More Customers
+
+Supporting copy must mention:
+
+Websites
+
+Microsoft 365
+
+Network solutions
+
+Laois
+
+Carlow
+
+Kilkenny
+
+Include two CTAs:
+
+Primary: book consultation / get in touch
+
+Secondary: view services or view portfolio
+
+Add trust markers below or beside the CTA row.
+
+Use a layout that balances message and visual proof.
+
+Visual direction:
+
+Use a professional mockup or service-oriented visual, not cheesy stock imagery.
+
+If no real custom visual exists, use a tasteful device mockup or interface montage.
+
+Ensure hero media is optimized for LCP and has explicit dimensions.
+​
+
+Homepage proof and persuasion
+Strengthen the existing comparison section:
+
+“Without a Proper Site”
+
+“With a Proper Site”
+
+Use visually distinct cards or columns.
+Make benefits concrete, not abstract.
+Keep the language practical and local-business focused.
+​
+
+Strengthen the “save money later” section with:
+
+Cost of cheap rebuilds.
+
+Cost of missed leads.
+
+Cost of unreliable setups.
+
+Cost of patchwork technical fixes.
+
+Do not overstate or invent financial claims. Frame this as practical long-term value.
+
+Homepage SEO
+Implement:
+
+Optimized title tag centered on Crettyard Digital and primary services.
+
+Meta description summarizing web design, Microsoft 365, and network solutions for small businesses in Laois, Carlow, and Kilkenny.
+
+Organization / ProfessionalService schema with area served.
+
+Clear internal links from service snippets to their full service pages.
+​
+
+Web Design page /web-design.html
+This page should sell outcomes, not “nice looking websites.” The current site already positions web design as a way to get found on Google, build trust, and turn visitors into paying customers, with small-business site pricing starting from around €800. Preserve that commercial framing and make it more structured and persuasive.
+​
+
+Required structure
+Hero with direct commercial promise.
+
+Outcome-led benefits.
+
+Who it is for.
+
+Four-step process.
+
+Investment/pricing section.
+
+Portfolio proof or relevant examples.
+
+FAQ.
+
+CTA.
+
+Copy requirements
+The page must emphasize:
+
+Easy to find on Google.
+
+Builds trust.
+
+Turns visitors into enquiries/customers.
+
+Designed for small businesses, not vanity projects.
+
+Clear process from discovery to support.
+
+Starting price from around €800, presented professionally and without apology.
+​
+
+UI requirements
+Use polished service cards or benefit blocks.
+
+Add subtle micro-interactions only if lightweight.
+
+Investment section should be highly readable and responsive.
+
+Include example deliverables, such as:
+
+mobile-friendly site
+
+contact forms
+
+local SEO foundations
+
+fast-loading pages
+
+easy-to-update content
+
+Do not create a bloated pricing table with too many tiers unless the current business model clearly supports it.
+
+SEO requirements
+Strong page title for local web design intent.
+
+Service schema for Web Design / Professional Service.
+
+Internal links to portfolio and contact.
+
+Internal references from this page to Microsoft 365 or network support only where it helps users understand broader business infrastructure support.
+
+Microsoft 365 page /microsoft-365.html
+This page should reassure non-technical business owners that they can get proper business email, file sharing, and collaboration without stress. The current site already positions this service around professional email, file sharing, and collaboration tools that let teams work from anywhere without headaches. Keep that wording style and make the page more complete.
+​
+
+Required structure
+Hero.
+
+Common business pain points.
+
+Benefits of proper Microsoft 365 setup.
+
+What is included.
+
+Migration/setup reassurance.
+
+Related infrastructure links.
+
+FAQ.
+
+CTA.
+
+Copy requirements
+Focus on:
+
+Professional email.
+
+Shared files and collaboration.
+
+Proper setup for small businesses.
+
+Clear migration help.
+
+Reduced confusion and downtime.
+
+Plain English, no technical overload.
+
+Avoid unexplained acronyms unless necessary. If you mention technical terms, explain them simply.
+​
+
+Design requirements
+Use icon-and-benefit blocks for:
+
+professional email
+
+cloud file access
+
+collaboration
+
+shared calendars
+
+remote work
+
+proper setup and support
+
+Consider a feature-to-benefit table:
+
+feature on the left
+
+business benefit on the right
+
+SEO requirements
+Target natural-language intent such as:
+
+Microsoft 365 setup for small business
+
+business email setup
+
+professional email Ireland
+
+cloud migration help
+
+Add internal links to:
+
+network and Wi‑Fi page, where secure connectivity supports cloud working
+
+contact page
+
+homepage service overview
+
+Network, Wi‑Fi and Security page /network-wifi-security.html
+This page should be practical and highly credible. Search results already show this page positioned around reliable network design, Wi‑Fi setup, security, and support for offices, workshops, and retail spaces in Laois, Carlow, and surrounding areas. Build on that and make it the most structured technical service page on the site.
+​
+
+Required structure
+Hero.
+
+Business pain points.
+
+Audience segments.
+
+Service categories.
+
+Pricing guide.
+
+Trusted hardware/approach.
+
+FAQ accordion.
+
+CTA.
+​
+
+Preserve and enhance these topics
+Pain points:
+
+dead spots
+
+dropped calls
+
+poor coverage
+
+unreliable connectivity
+
+security concerns
+
+Audience segments:
+
+offices and co-working
+
+workshops and warehouses
+
+retail and hospitality
+
+home offices
+
+Service categories:
+
+network design and planning
+
+Wi‑Fi setup and optimisation
+
+security and firewalls
+
+health checks and remote access
+
+Pricing guide:
+
+health check from €150
+
+small office setup from €400
+
+full network design from €800
+
+firewall/security setup from €300
+
+Only show prices if these are still current in the codebase/content source. If the values already exist in the site or current materials, keep them and present them cleanly. If not confirmed in code, create a “starting from” structure that can be edited easily.
+
+UI requirements
+Use a structured grid for service categories and pricing.
+
+Make the page look precise and reliable.
+
+Use icons, diagrams, or hardware visuals sparingly and professionally.
+
+FAQ must use native <details> and <summary>.
+
+Keep scans easy on mobile.
+
+SEO requirements
+Include relevant copy for:
+
+business Wi‑Fi setup
+
+office network setup
+
+secure firewall setup
+
+Wi‑Fi troubleshooting
+
+network design for workshops/offices
+
+If real brands are already part of the offering, mention them in natural copy where appropriate. Do not keyword-stuff.
+
+Implement FAQPage schema if the FAQ content qualifies and is genuinely useful.
+
+Portfolio page /portfolio.html
+This page should move beyond a gallery and become proof. The homepage already highlights BM Custom Furniture, Go Green Steam Clean, and Nurney Plant and Civil as featured projects, so expand that evidence into proper project storytelling.
+​
+
+Required structure
+Intro explaining what the portfolio shows.
+
+Filter or categorized project layout if lightweight.
+
+Project cards.
+
+Expanded project details via modal or dedicated detail sections/pages.
+
+CTA to enquire.
+​
+
+For each project include
+Business name.
+
+Sector/category.
+
+The problem or challenge.
+
+The solution provided.
+
+The result or outcome description.
+
+Services involved.
+
+Link to live site if appropriate.
+
+Do not invent metrics such as “300% growth” unless those numbers are verified and available. Use qualitative outcomes where necessary, such as:
+
+stronger credibility
+
+clearer service presentation
+
+easier enquiries
+
+more professional local presence
+
+Design requirements
+Use a responsive card or masonry grid.
+
+Include clean screenshots/device mockups.
+
+Optimize images carefully.
+
+Make portfolio items easy to scan.
+
+Add industry tags if useful: construction, services, trades, furniture, etc.
+
+SEO requirements
+Descriptive image alt text.
+
+Internal links from projects to relevant service pages.
+
+Strong introductory copy describing the type of work Crettyard Digital delivers for local businesses.
+
+About page /about.html
+This page should humanize the business and deepen local trust. The site positioning already emphasizes straightforward support and local service coverage; build this into a strong “trusted local partner” page.
+​
+
+Required structure
+Hero with local trust emphasis.
+
+Story / philosophy.
+
+What “No jargon, no hassle” means in practice.
+
+Areas served.
+
+How Crettyard Digital works with clients.
+
+CTA.
+​
+
+Copy requirements
+Explain:
+
+Why the business exists.
+
+Why plain-language support matters.
+
+Why local accountability matters.
+
+Why small businesses benefit from practical digital help.
+
+That the service area includes Laois, Carlow, Kilkenny, and nearby counties.
+
+Keep tone personal and grounded, not overly formal. Do not expose unnecessary personal private details. The public-facing brand should remain business-first and privacy-conscious.
+​
+
+Design requirements
+If suitable assets exist, include authentic imagery of work, workspace, or on-site support.
+If not, keep the page strong through layout, typography, iconography, and manifesto-style statements.
+
+SEO requirements
+AboutPage schema.
+
+Internal links to services and contact.
+
+Natural local area references.
+
+Contact page /contact.html
+This page is one of the most important conversion pages and should minimize friction. The business contact details already include info@crettyard.com and the public phone number held for Crettyard Digital, so ensure the page presents contact options clearly and consistently.
+
+Required structure
+Strong conversion-focused heading.
+
+Short reassurance copy.
+
+Contact form.
+
+Alternative contact details.
+
+Service area reminder.
+
+Privacy reassurance.
+
+Copy requirements
+Replace weak generic framing with action-driven copy such as:
+
+Book your free consultation.
+
+Tell me what your business needs.
+
+Get honest advice with no pressure.
+
+Add microcopy:
+
+response time expectation
+
+no-obligation consultation
+
+privacy reassurance
+
+Form requirements
+Implement:
+
+Proper labels.
+
+Appropriate input types.
+
+Required fields clearly marked.
+
+Inline validation.
+
+Accessible error messaging.
+
+Success and error message regions with role="alert" where appropriate.
+
+Mobile-friendly field spacing and controls.
+
+Anti-spam protection if not already present.
+
+Suggested fields:
+
+Name
+
+Business name
+
+Email
+
+Phone (optional or preferred depending on current flow)
+
+Service needed
+
+Message
+
+Do not make the form too long.
+
+Contact details requirements
+Show:
+
+email address
+
+phone number if current public number is intended for the site
+
+regions served
+
+optional operating-hours or response-time note
+
+Ensure contact details are consistent with sitewide NAP usage.
+
+SEO requirements
+ContactPage schema.
+
+Strong title/meta description.
+
+Consistent business identity data.
+
+Legal pages
+Applies to:
+
+/privacy-policy.html
+
+/terms-and-conditions.html
+
+/cookie-policy.html
+
+These pages should be easy to read but not SEO landing pages.
+
+Shared requirements
+Implement:
+
+Narrow readable content width.
+
+Good heading structure.
+
+Anchor-linked table of contents if content length justifies it.
+
+Clear spacing between clauses.
+
+No heavy visuals or distracting hero sections.
+
+meta robots="noindex, follow" on each legal page.
+
+Privacy policy
+Focus on:
+
+clean structure
+
+readable headings
+
+plain formatting
+
+clear cookie/tracking sections if applicable
+
+Terms and conditions
+Focus on:
+
+numbered sections
+
+readable legal structure
+
+payment and service clauses if provided in source content
+
+liability and scope wording as supplied by the business/legal source
+
+Cookie policy
+This page must pair with actual cookie consent behavior.
+
+Implement a consent banner that:
+
+appears on first visit
+
+allows at minimum:
+
+Accept all
+
+Reject non-essential
+
+View cookie policy
+
+stores user preference
+
+does not run non-essential tracking before consent
+
+is accessible
+
+does not heavily hurt performance
+
+Schema implementation
+Implement structured data cleanly and validate it.
+
+Use relevant schema per page:
+
+Homepage: ProfessionalService and/or Organization
+
+About: AboutPage
+
+Contact: ContactPage
+
+Services: Service nested appropriately
+
+FAQ sections: FAQPage only where content is truly FAQ content and rendered for users
+
+Breadcrumbs if the site structure supports them cleanly
+
+Include:
+
+business name
+
+website URL
+
+logo if available
+
+area served
+
+contact point where appropriate
+
+Do not add fake reviews, fake aggregate ratings, or unsupported claims.
+
+Content style rules
+All rewritten or refined copy must follow these rules:
+
+Plain English.
+
+Short paragraphs.
+
+Specific outcomes.
+
+Local-business relevance.
+
+No empty buzzwords.
+
+No overly technical phrasing unless explained simply.
+
+No corporate clichés like “innovative digital transformation ecosystem.”
+
+Use direct benefits and practical reassurance.
+​
+
+Use the existing tone as the foundation:
+
+helpful
+
+practical
+
+local
+
+honest
+
+technically capable without sounding intimidating
+​
+
+Image and media rules
+Use real project screenshots wherever available.
+
+Prefer local, relevant, business-appropriate visuals.
+
+Avoid generic smiling-office stock photos where possible.
+
+Every meaningful image needs useful alt text.
+
+Set dimensions to prevent CLS.
+
+Compress everything properly.
+
+Lazy-load below the fold.
+
+Do not autoplay heavy media.
+
+QA checklist
+Before considering the project complete, verify all of the following:
+
+UX and UI
+Navigation is clear on desktop and mobile.
+
+Every page has a visible CTA.
+
+Service pages are easy to scan.
+
+Contact page is friction-light.
+
+Footer is complete and useful.
+
+Visual hierarchy is consistent.
+
+Pages feel connected, not fragmented.
+
+Accessibility
+Keyboard navigation works.
+
+Focus states are visible.
+
+Color contrast is sufficient.
+
+Forms announce errors clearly.
+
+Dialog/menu behavior is accessible.
+
+Headings are structured correctly.
+
+SEO
+Unique titles and meta descriptions exist.
+
+H1/H2/H3 structure is logical.
+
+Canonicals are correct.
+
+Legal pages are noindex/follow.
+
+Internal linking is improved.
+
+Schema is valid.
+
+Images have good alt text.
+
+Local intent is present naturally.
+
+Performance
+Hero media is optimized.
+
+Images are modern formats where practical.
+
+CLS is controlled.
+
+Non-critical JS is deferred.
+
+No unnecessary animation libraries.
+
+Mobile performance remains strong.
+
+Conversion
+Homepage makes the offer obvious.
+
+Web design page sells outcomes.
+
+Microsoft 365 page reduces anxiety.
+
+Network page builds practical trust.
+
+Portfolio proves capability.
+
+About page builds local credibility.
+
+Contact page encourages action.
+
+Final deliverables
+When complete, provide:
+
+A page-by-page changelog.
+
+A list of any content that still needs human approval.
+
+A list of all schema types added.
+
+A list of performance optimizations made.
+
+A list of any assumptions made.
+
+Any remaining items that need legal review, especially privacy/cookies/terms wording.
+
+Do not say the work is complete if any of the following remain:
+
+duplicate headings
+
+broken internal links
+
+placeholder copy
+
+missing meta descriptions
+
+missing canonical tags
+
+inaccessible form feedback
+
+non-functional cookie preferences
+
+unoptimized oversized images
+
+generic alt text like “image1” or “project screenshot”
+
+service pages that still read as thin or vague
