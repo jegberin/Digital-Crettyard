@@ -1,5 +1,22 @@
 import { FadeIn } from "@/components/FadeIn";
 
+const tocItems = [
+  { id: "section-1", label: "1. Who we are" },
+  { id: "section-2", label: "2. What personal data we collect" },
+  { id: "section-3", label: "3. How we collect your data" },
+  { id: "section-4", label: "4. How we use your data" },
+  { id: "section-5", label: "5. Legal basis for processing" },
+  { id: "section-6", label: "6. Cookies and similar technologies" },
+  { id: "section-7", label: "7. Sharing your data" },
+  { id: "section-8", label: "8. International transfers" },
+  { id: "section-9", label: "9. Data retention" },
+  { id: "section-10", label: "10. Your rights" },
+  { id: "section-11", label: "11. Third-party websites" },
+  { id: "section-12", label: "12. Security" },
+  { id: "section-13", label: "13. Changes to this policy" },
+  { id: "section-14", label: "14. Contact us" },
+];
+
 export default function PrivacyPolicy() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -15,6 +32,24 @@ export default function PrivacyPolicy() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
+
+          {/* Table of Contents */}
+          <nav aria-label="Privacy Policy table of contents" className="mb-12 p-6 bg-[#f3f4f5] rounded-2xl" data-testid="section-toc">
+            <h2 className="text-base font-headline font-bold mb-4 text-foreground">Contents</h2>
+            <ol className="space-y-1.5">
+              {tocItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="text-sm text-accent hover:underline font-sans"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
           <div className="prose prose-lg max-w-none text-foreground/80 space-y-10" data-testid="text-privacy-policy">
             <p>
               Crettyard Digital ("we", "us", "our") respects your privacy and is committed to protecting your personal data.
@@ -23,7 +58,7 @@ export default function PrivacyPolicy() {
               This Privacy Policy explains how we collect, use, store, and protect personal data when you visit our website or contact us.
             </p>
 
-            <div>
+            <div id="section-1">
               <h2 className="text-2xl font-bold text-foreground mb-4">1. Who we are</h2>
               <ul className="list-none space-y-1 pl-0">
                 <li><strong>Business name:</strong> Crettyard Digital</li>
@@ -37,7 +72,7 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <div>
+            <div id="section-2">
               <h2 className="text-2xl font-bold text-foreground mb-4">2. What personal data we collect</h2>
               <p>We may collect and process the following personal data:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -50,7 +85,7 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-3">
               <h2 className="text-2xl font-bold text-foreground mb-4">3. How we collect your data</h2>
               <p>We collect data:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -61,7 +96,7 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-4">
               <h2 className="text-2xl font-bold text-foreground mb-4">4. How we use your data</h2>
               <p>We use your personal data to:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -75,7 +110,7 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-5">
               <h2 className="text-2xl font-bold text-foreground mb-4">5. Legal basis for processing</h2>
               <p>We process your personal data on one or more of the following legal bases:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -86,7 +121,7 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-6">
               <h2 className="text-2xl font-bold text-foreground mb-4">6. Cookies and similar technologies</h2>
               <p>Our website may use cookies and similar technologies, including for:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -114,7 +149,7 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <div>
+            <div id="section-7">
               <h2 className="text-2xl font-bold text-foreground mb-4">7. Sharing your data</h2>
               <p>We may share personal data with trusted third-party service providers where necessary to operate the website or respond to enquiries. These may include:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -128,21 +163,21 @@ export default function PrivacyPolicy() {
               <p className="mt-4">We do not sell your personal data.</p>
             </div>
 
-            <div>
+            <div id="section-8">
               <h2 className="text-2xl font-bold text-foreground mb-4">8. International transfers</h2>
               <p>
                 Some third-party providers may process data outside Ireland or the European Economic Area. Where this happens, we will take reasonable steps to ensure appropriate safeguards are in place as required by applicable law.
               </p>
             </div>
 
-            <div>
+            <div id="section-9">
               <h2 className="text-2xl font-bold text-foreground mb-4">9. Data retention</h2>
               <p>
                 We retain personal data only for as long as reasonably necessary for the purposes for which it was collected, including responding to enquiries, maintaining business records, complying with legal obligations, and resolving disputes.
               </p>
             </div>
 
-            <div>
+            <div id="section-10">
               <h2 className="text-2xl font-bold text-foreground mb-4">10. Your rights</h2>
               <p>Subject to applicable law, you may have the right to:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -158,28 +193,28 @@ export default function PrivacyPolicy() {
               <p>You also have the right to make a complaint to the Data Protection Commission in Ireland.</p>
             </div>
 
-            <div>
+            <div id="section-11">
               <h2 className="text-2xl font-bold text-foreground mb-4">11. Third-party websites</h2>
               <p>
                 Our website may contain links to third-party websites or services. We are not responsible for the privacy practices or content of those third-party sites.
               </p>
             </div>
 
-            <div>
+            <div id="section-12">
               <h2 className="text-2xl font-bold text-foreground mb-4">12. Security</h2>
               <p>
                 We take reasonable technical and organisational measures to protect personal data, but no method of transmission over the internet or electronic storage is completely secure.
               </p>
             </div>
 
-            <div>
+            <div id="section-13">
               <h2 className="text-2xl font-bold text-foreground mb-4">13. Changes to this policy</h2>
               <p>
                 We may update this Privacy Policy from time to time. Any updates will be posted on this page with a revised effective date.
               </p>
             </div>
 
-            <div>
+            <div id="section-14">
               <h2 className="text-2xl font-bold text-foreground mb-4">14. Contact us</h2>
               <p>If you have any questions about this Privacy Policy or how your personal data is handled, please contact:</p>
               <div className="mt-4 space-y-1">

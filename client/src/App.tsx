@@ -27,7 +27,7 @@ const pageSEO: Record<string, { title: string; description: string; noindex?: bo
   },
   "/web-design": {
     title: "Professional Website Design for Small Businesses in Laois & Carlow | Crettyard Digital",
-    description: "Custom website design for tradespeople, contractors, and small businesses in Laois, Carlow, and Kilkenny. From €500. Mobile-friendly, SEO-optimised, and built to win customers."
+    description: "Custom website design for tradespeople, contractors, and small businesses in Laois, Carlow, and Kilkenny. From €800. Mobile-friendly, SEO-optimised, and built to win customers."
   },
   "/microsoft-365": {
     title: "Microsoft 365 Setup & Business Email for Small Businesses in Ireland | Crettyard Digital",

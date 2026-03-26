@@ -31,17 +31,24 @@ export default function Home() {
                     Book a Free Consultation
                   </Button>
                 </Link>
-                <Link href="#services" className="text-accent font-headline font-bold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-services">
-                  View Services <ArrowRight size={14} />
+                <Link href="/portfolio" className="text-accent font-headline font-bold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-portfolio">
+                  View Our Work <ArrowRight size={14} />
                 </Link>
               </div>
-              <div className="mt-8">
+              <div className="mt-8" data-testid="section-trust-badges">
                 <TrustBadges />
               </div>
             </FadeIn>
             <FadeIn direction="up" delay={0.2} className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-                <img src={heroImg} alt="Digital services professional helping small businesses" className="object-cover w-full h-full" />
+                <img
+                  src={heroImg}
+                  alt="Digital services professional helping small businesses in Laois, Carlow and Kilkenny"
+                  className="object-cover w-full h-full"
+                  width="800"
+                  height="600"
+                  fetchPriority="high"
+                />
               </div>
               <div className="absolute -bottom-5 -left-5 bg-white py-4 px-5 rounded-xl shadow-lg hidden md:flex items-center gap-3">
                 <div className="w-10 h-10 bg-accent/10 flex items-center justify-center rounded-full text-accent">
@@ -49,7 +56,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-headline font-bold text-primary text-sm" data-testid="text-trust-badge">Trusted Local Partner</p>
-                  <p className="text-sm text-foreground/70 font-sans">Laois, Carlow & Kilkenny</p>
+                  <p className="text-sm text-foreground/70 font-sans">Laois, Carlow &amp; Kilkenny</p>
                 </div>
               </div>
             </FadeIn>
@@ -69,7 +76,7 @@ export default function Home() {
           </FadeIn>
           <StaggerContainer className="grid sm:grid-cols-2 gap-6 text-left">
             {[
-              "82% of consumers search online before contacting a local business",
+              "Most consumers search online before contacting a local business",
               "A professional website builds instant trust and credibility",
               "Facebook alone won't help you rank on Google for local searches",
               "Your website works 24/7, even when you're on a job",
@@ -90,7 +97,7 @@ export default function Home() {
           <FadeIn className="text-center mb-16">
             <span className="eyebrow mb-5 inline-block">The Difference</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-comparison-heading">Without a Proper Site vs With a Proper Site</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">See how a professional online presence changes everything for your business.</p>
+            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">A professional online presence changes everything for a local business.</p>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -102,12 +109,12 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Customers can't find you on Google",
-                    "You look less professional than competitors",
-                    "No way to showcase your work or services",
-                    "Relying on word of mouth alone",
-                    "Losing leads to businesses with better websites",
-                    "No professional email — using Gmail or Yahoo"
+                    "Customers searching Google find your competitors, not you",
+                    "Potential clients see a Gmail address and question your professionalism",
+                    "No way to show off your best work or explain what makes you different",
+                    "Every new customer comes from word-of-mouth — which eventually dries up",
+                    "Spending money on jobs while missing enquiries that could fill your calendar",
+                    "No professional email — stuck using a personal Gmail or Yahoo address"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px] font-sans">
                       <XCircle className="text-red-400 shrink-0 mt-0.5" size={16} />
@@ -126,12 +133,12 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "You appear on page one for local searches",
-                    "Professional image that builds instant trust",
-                    "Your best work and services on display 24/7",
-                    "Enquiries come in while you're on the job",
-                    "You compete — and win — against bigger businesses",
-                    "Professional @yourbusiness.ie email address"
+                    "You appear in local Google searches for 'plumber Laois' or 'cleaner Carlow'",
+                    "A professional site and @yourbusiness.ie email builds instant trust",
+                    "Your best work and services on display 24/7 — even while you sleep",
+                    "New enquiries arrive while you're out on the job",
+                    "You compete — and win — against bigger, better-known businesses",
+                    "Professional @yourbusiness.ie email address at no extra hassle"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-foreground/70 text-[15px] font-sans">
                       <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={16} />
@@ -152,7 +159,7 @@ export default function Home() {
             <span className="eyebrow mb-5 inline-block">Smart Investment</span>
             <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-investment-heading">Why Investing Properly Now Saves Money Later</h2>
             <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">
-              A cheap website or DIY setup might save you money today, but it nearly always costs more in the long run.
+              Going cheap upfront is tempting, but it nearly always costs more in the long run — in wasted money, missed customers, and the cost of starting over.
             </p>
           </FadeIn>
 
@@ -161,22 +168,22 @@ export default function Home() {
               {
                 icon: <Clock size={24} />,
                 title: "Avoid Costly Rebuilds",
-                desc: "A properly built site won't need replacing in 12 months. Get it right the first time."
+                desc: "A cheap website often needs rebuilding within 12 months. Getting it right from the start means a site that lasts and grows with your business."
               },
               {
                 icon: <TrendingUp size={24} />,
                 title: "Stop Missing Leads",
-                desc: "Every month without a proper site is another month of lost enquiries and revenue."
+                desc: "Every month without a proper online presence is another month of lost enquiries going to a competitor who bothered to invest."
               },
               {
                 icon: <Shield size={24} />,
-                title: "Prevent Security Issues",
-                desc: "Cheap setups often have security gaps that lead to expensive fixes down the line."
+                title: "Avoid Security Headaches",
+                desc: "Cheap, poorly configured setups often leave security gaps. Fixing a breach or recovering lost data costs far more than doing it right first time."
               },
               {
                 icon: <MessageCircle size={24} />,
                 title: "No More Patchwork Fixes",
-                desc: "Stop paying different people to fix the same problems. One expert, one solution."
+                desc: "Stop paying different people to bodge the same problems. One properly built solution replaces years of expensive firefighting."
               }
             ].map((item, i) => (
               <StaggerItem key={i}>
@@ -213,7 +220,7 @@ export default function Home() {
                   Get a professional website that makes you easy to find on Google, builds trust with visitors, and turns them into paying customers.
                 </p>
                 <Link href="/web-design" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-webdesign">
-                  Learn more <ArrowRight size={14} className="ml-1" />
+                  See what's included in a web design project <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>
@@ -228,7 +235,7 @@ export default function Home() {
                   Professional email, file sharing, and collaboration tools — set up properly so your team can work from anywhere without headaches.
                 </p>
                 <Link href="/microsoft-365" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-microsoft365">
-                  Learn more <ArrowRight size={14} className="ml-1" />
+                  Learn how Microsoft 365 setup works <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>
@@ -238,12 +245,12 @@ export default function Home() {
                 <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Wifi size={24} />
                 </div>
-                <h3 className="text-xl mb-3">Network & Wi&#8209;Fi</h3>
+                <h3 className="text-xl mb-3">Network &amp; Wi&#8209;Fi</h3>
                 <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed font-sans font-normal">
                   Reliable, secure connectivity for your office or workshop — so you're never left without internet when you need it most.
                 </p>
                 <Link href="/network-wifi-security" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-network">
-                  Learn more <ArrowRight size={14} className="ml-1" />
+                  Explore network and Wi-Fi solutions <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>
@@ -292,7 +299,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://bmcustomfurniture.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-bm">
                 <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
-                  <img src={project1} alt="BM Custom Furniture website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project1} alt="BM Custom Furniture bespoke fitted furniture website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="400" height="300" loading="lazy" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">BM Custom Furniture</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">bmcustomfurniture.ie</p>
@@ -303,7 +310,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://gogreensteamclean.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-gogreen">
                 <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
-                  <img src={project2} alt="Go Green Steam Clean website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project2} alt="Go Green Steam Clean eco-friendly steam cleaning business website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="400" height="300" loading="lazy" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">Go Green Steam Clean</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">gogreensteamclean.ie</p>
@@ -314,7 +321,7 @@ export default function Home() {
             <StaggerItem>
               <a href="https://nurneyplantandcivil.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-nurney">
                 <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
-                  <img src={project3} alt="Nurney Plant and Civil website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project3} alt="Nurney Plant and Civil plant hire and civil engineering website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="400" height="300" loading="lazy" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">Nurney Plant and Civil</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">nurneyplantandcivil.ie</p>
@@ -325,11 +332,11 @@ export default function Home() {
             <StaggerItem>
               <a href="https://morethanpoints.ie" target="_blank" rel="noopener noreferrer" className="group cursor-pointer block" data-testid="card-project-morethanpoints">
                 <div className="aspect-[4/3] bg-white mb-5 overflow-hidden rounded-xl shadow-sm">
-                  <img src={project4} alt="More Than Points website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={project4} alt="More Than Points teen and parent coaching website designed by Crettyard Digital" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="400" height="300" loading="lazy" />
                 </div>
                 <h3 className="text-lg mb-1 group-hover:text-accent transition-colors">More Than Points</h3>
                 <p className="text-xs font-medium text-muted-foreground mb-2">morethanpoints.ie</p>
-                <p className="text-sm text-foreground/70 mb-3 font-sans">Teen & parent coaching for Irish families</p>
+                <p className="text-sm text-foreground/70 mb-3 font-sans">Teen &amp; parent coaching for Irish families</p>
                 <span className="text-accent font-headline font-bold inline-flex items-center text-sm">View project <ArrowRight size={14} className="ml-1" /></span>
               </a>
             </StaggerItem>
@@ -382,28 +389,28 @@ export default function Home() {
 
               <AccordionItem value="faq-4">
                 <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-4">
-                  How long does it take to build a website?
+                  How long does it take?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-4">
-                  A typical small business website takes 2–4 weeks from start to launch. The exact timeline depends on how quickly you can provide content (photos, text) and how many revisions are needed. I keep you updated throughout.
+                  A typical small business website takes 2–4 weeks from start to launch. I'll give you a clear timeline before we start — no open-ended waits.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-5">
                 <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-5">
-                  Can you help with just email or networking, without a website?
+                  Can you help with just email or networking — without a website?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-5">
-                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently — pick what your business needs.
+                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently — just tell me what you need.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="faq-6">
                 <AccordionTrigger className="text-left text-base font-headline font-bold" data-testid="faq-trigger-6">
-                  What happens after my website is live?
+                  What happens after my website goes live?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-6">
-                  I don't disappear after launch. I offer optional ongoing support so your site stays updated, secure, and performing well. If something breaks or you need changes, I'm just a call away — no call centres, no ticket queues.
+                  I don't disappear after launch. I offer optional ongoing support plans so your site stays updated, secure, and performing well — and you always have someone to call when something comes up.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -411,19 +418,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* CTA Section */}
       <section className="py-24 bg-primary dot-matrix-bg text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <FadeIn>
-            <h2 className="text-3xl md:text-[2.75rem] text-white mb-6 leading-tight" data-testid="text-cta-heading">Ready to get more customers and look more professional online?</h2>
-            <p className="text-lg text-white/60 mb-10 leading-relaxed font-sans font-normal">
-              Book a free, no-obligation consultation. I'll give you honest advice on what your business needs — whether that's a website, email setup, or better Wi-Fi.
-            </p>
-            <Link href="/contact#send-message">
-              <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-contact">
-                Book a Free Consultation
-              </Button>
-            </Link>
+            <h2 className="text-3xl text-white mb-4" data-testid="text-cta-heading">Ready to grow your business online?</h2>
+            <p className="text-white/70 mb-8 font-sans font-normal max-w-xl mx-auto leading-relaxed">Book a free, no-obligation consultation. I'll give you honest advice — whether you're just starting out or want to improve what you already have.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/contact#send-message">
+                <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-consultation">
+                  Book a Free Consultation
+                </Button>
+              </Link>
+              <Link href="/portfolio">
+                <Button size="lg" variant="outline" className="px-10 border-white/30 text-white hover:bg-white/10" data-testid="button-cta-portfolio">
+                  See Our Work
+                </Button>
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>

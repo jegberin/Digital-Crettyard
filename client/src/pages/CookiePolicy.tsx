@@ -1,6 +1,18 @@
 import { Link } from "wouter";
 import { FadeIn } from "@/components/FadeIn";
 
+const tocItems = [
+  { id: "section-1", label: "1. Who we are" },
+  { id: "section-2", label: "2. What are cookies?" },
+  { id: "section-3", label: "3. Types of cookies we may use" },
+  { id: "section-4", label: "4. Third-party cookies" },
+  { id: "section-5", label: "5. Why we use cookies" },
+  { id: "section-6", label: "6. Your choices" },
+  { id: "section-7", label: "7. Consent" },
+  { id: "section-8", label: "8. Changes to this policy" },
+  { id: "section-9", label: "9. Contact" },
+];
+
 export default function CookiePolicy() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -16,6 +28,24 @@ export default function CookiePolicy() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
+
+          {/* Table of Contents */}
+          <nav aria-label="Cookie Policy table of contents" className="mb-12 p-6 bg-[#f3f4f5] rounded-2xl" data-testid="section-toc">
+            <h2 className="text-base font-headline font-bold mb-4 text-foreground">Contents</h2>
+            <ol className="space-y-1.5">
+              {tocItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="text-sm text-accent hover:underline font-sans"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
           <div className="prose prose-lg max-w-none text-foreground/80 space-y-10" data-testid="text-cookie-policy">
             <p>
               This Cookie Policy explains how Crettyard Digital ("we", "us", "our") uses cookies and similar technologies on our website.
@@ -24,7 +54,7 @@ export default function CookiePolicy() {
               By continuing to use our website, you may consent to the use of cookies where permitted by law. Where required, we will request your consent before placing non-essential cookies on your device.
             </p>
 
-            <div>
+            <div id="section-1">
               <h2 className="text-2xl font-bold text-foreground mb-4">1. Who we are</h2>
               <ul className="list-none space-y-1 pl-0">
                 <li><strong>Business name:</strong> Crettyard Digital</li>
@@ -34,14 +64,14 @@ export default function CookiePolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-2">
               <h2 className="text-2xl font-bold text-foreground mb-4">2. What are cookies?</h2>
               <p>Cookies are small text files placed on your device when you visit a website. They help websites function properly, remember preferences, improve performance, and collect information about how visitors use the site.</p>
               <p className="mt-2">Some cookies are set by us, and others may be set by third-party services that appear on or support the website.</p>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">3. What types of cookies we may use</h2>
+            <div id="section-3">
+              <h2 className="text-2xl font-bold text-foreground mb-4">3. Types of cookies we may use</h2>
 
               <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">A. Strictly necessary cookies</h3>
               <p>These cookies are essential for the website to function properly. They may be used for:</p>
@@ -93,7 +123,7 @@ export default function CookiePolicy() {
               <p>We may use tools such as Google reCAPTCHA or similar security services to protect forms and prevent spam or abuse.</p>
             </div>
 
-            <div>
+            <div id="section-4">
               <h2 className="text-2xl font-bold text-foreground mb-4">4. Third-party cookies</h2>
               <p>Some cookies on our website may be placed by third-party providers. We do not control these cookies directly. Their use is governed by the privacy or cookie policies of those third parties.</p>
               <p className="mt-2">Third-party services used on our website may include:</p>
@@ -108,7 +138,7 @@ export default function CookiePolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-5">
               <h2 className="text-2xl font-bold text-foreground mb-4">5. Why we use cookies</h2>
               <p>We use cookies and similar technologies to:</p>
               <ul className="list-disc pl-6 space-y-1">
@@ -121,24 +151,24 @@ export default function CookiePolicy() {
               </ul>
             </div>
 
-            <div>
+            <div id="section-6">
               <h2 className="text-2xl font-bold text-foreground mb-4">6. Your choices</h2>
               <p>You can control or delete cookies through your browser settings. You may also be able to manage your preferences through any cookie banner or settings tool available on the website.</p>
               <p className="mt-2">Please note that disabling some cookies may affect how the website functions.</p>
             </div>
 
-            <div>
+            <div id="section-7">
               <h2 className="text-2xl font-bold text-foreground mb-4">7. Consent</h2>
               <p>Where required by law, we will ask for your consent before using non-essential cookies such as analytics, advertising, or certain third-party functional cookies.</p>
               <p className="mt-2">You can withdraw or change your cookie preferences at any time, subject to the functionality available on the website.</p>
             </div>
 
-            <div>
+            <div id="section-8">
               <h2 className="text-2xl font-bold text-foreground mb-4">8. Changes to this Cookie Policy</h2>
               <p>We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
             </div>
 
-            <div>
+            <div id="section-9">
               <h2 className="text-2xl font-bold text-foreground mb-4">9. Contact</h2>
               <p>If you have any questions about this Cookie Policy, please contact:</p>
               <div className="mt-4 space-y-1">

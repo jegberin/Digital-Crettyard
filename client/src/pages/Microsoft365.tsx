@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Cloud, ShieldCheck, Mail, Users, FileLock, CheckCircle, XCircle, ArrowRight, Monitor, Wrench } from "lucide-react";
+import { Cloud, ShieldCheck, Mail, Users, FileLock, CheckCircle, XCircle, ArrowRight, Monitor, Wrench, Calendar, Globe, HardDrive } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import {
   Accordion,
@@ -18,7 +18,7 @@ export default function Microsoft365() {
           <FadeIn>
             <span className="eyebrow mb-5 inline-block">Microsoft 365</span>
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
-              Microsoft 365 Setup & Business Email for Small Businesses in Ireland
+              Microsoft 365 Setup &amp; Business Email for Small Businesses in Ireland
             </h1>
             <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal" data-testid="text-hero-description">
               Stop losing emails, sharing files by USB stick, or paying for tools you don't understand. I set up Microsoft 365 properly so your business email, file sharing, and collaboration just work — securely, from anywhere.
@@ -29,9 +29,9 @@ export default function Microsoft365() {
                   Book a Free Consultation
                 </Button>
               </Link>
-              <Link href="/web-design">
-                <Button variant="outline" size="lg" className="px-8" data-testid="link-web-design">
-                  View Web Design Services <ArrowRight className="ml-2" size={16} />
+              <Link href="/network-wifi-security">
+                <Button variant="outline" size="lg" className="px-8" data-testid="link-network">
+                  Network &amp; Wi-Fi Services <ArrowRight className="ml-2" size={16} />
                 </Button>
               </Link>
             </div>
@@ -39,8 +39,64 @@ export default function Microsoft365() {
         </div>
       </section>
 
-      {/* Who This Is For */}
+      {/* Key Benefits — Icon + Benefit Blocks */}
       <section className="py-28 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <FadeIn className="text-center mb-14">
+            <span className="eyebrow mb-5 inline-block">Key Benefits</span>
+            <h2 className="text-3xl">What Microsoft 365 Does for Your Business</h2>
+            <p className="text-foreground/70 mt-4 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
+              Six ways a properly configured Microsoft 365 subscription makes your business run better every day.
+            </p>
+          </FadeIn>
+
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-0">
+            {[
+              {
+                icon: <Mail className="text-accent" size={28} />,
+                title: "Professional Email",
+                benefit: "Send emails from you@yourbusiness.ie — not a personal Gmail. Instantly builds credibility and trust with every client you contact."
+              },
+              {
+                icon: <HardDrive className="text-accent" size={28} />,
+                title: "Cloud File Storage",
+                benefit: "All your files in one secure, organised place. Access quotes, invoices, and photos from any device — no more USB sticks or lost attachments."
+              },
+              {
+                icon: <Users className="text-accent" size={28} />,
+                title: "Team Collaboration",
+                benefit: "Microsoft Teams lets your team chat, share files, and join video calls — whether they're in the office, on-site, or working from home."
+              },
+              {
+                icon: <Calendar className="text-accent" size={28} />,
+                title: "Shared Calendars",
+                benefit: "Everyone sees the same schedule. Book meetings, set reminders, and share availability without endless back-and-forth messages."
+              },
+              {
+                icon: <Globe className="text-accent" size={28} />,
+                title: "Work from Anywhere",
+                benefit: "Whether your team is in the office, on a job, or at home — they can access everything they need securely from any device."
+              },
+              {
+                icon: <ShieldCheck className="text-accent" size={28} />,
+                title: "Expert Setup &amp; Support",
+                benefit: "I configure everything correctly from day one — including security policies, MFA, and migration of existing emails — so you're protected and productive immediately."
+              },
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-[#f3f4f5] p-7 rounded-2xl card-hover h-full" data-testid={`card-benefit-${i}`}>
+                  <div className="mb-4">{item.icon}</div>
+                  <h3 className="text-lg mb-2">{item.title}</h3>
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.benefit}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Who This Is For */}
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-14">
             <span className="eyebrow mb-5 inline-block">Is This for You?</span>
@@ -49,14 +105,14 @@ export default function Microsoft365() {
 
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Tradespeople & Contractors", desc: "You need a professional email address and a simple way to share quotes, invoices, and site photos — not a personal Gmail." },
-              { title: "Small Offices & Teams", desc: "You have 2–20 staff and need email, shared calendars, and file storage that everyone can access without IT headaches." },
+              { title: "Tradespeople &amp; Contractors", desc: "You need a professional email address and a simple way to share quotes, invoices, and site photos — not a personal Gmail." },
+              { title: "Small Offices &amp; Teams", desc: "You have 2–20 staff and need email, shared calendars, and file storage that everyone can access without IT headaches." },
               { title: "Professional Services", desc: "Accountants, solicitors, consultants — you handle sensitive client data and need proper security, not consumer-grade email." },
               { title: "Growing Businesses", desc: "You've outgrown free email and ad-hoc file sharing. You need a system that scales as you hire." },
-            ].map((item) => (
-              <StaggerItem key={item.title}>
-                <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover" data-testid={`card-who-for-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <h3 className="text-lg mb-2">{item.title}</h3>
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-white p-8 rounded-2xl card-hover" data-testid={`card-who-for-${i}`}>
+                  <h3 className="text-lg mb-2" dangerouslySetInnerHTML={{ __html: item.title }} />
                   <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -65,12 +121,54 @@ export default function Microsoft365() {
         </div>
       </section>
 
+      {/* Feature-to-Benefit Table */}
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <FadeIn className="text-center mb-14">
+            <span className="eyebrow mb-5 inline-block">Features vs Benefits</span>
+            <h2 className="text-3xl">What the Features Actually Mean for You</h2>
+            <p className="text-foreground/70 mt-4 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
+              Microsoft 365 has a lot of features. Here's what the key ones do in plain English.
+            </p>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm" data-testid="table-features-benefits">
+              <table className="w-full text-[15px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="text-left px-6 py-4 font-headline font-bold">Feature</th>
+                    <th className="text-left px-6 py-4 font-headline font-bold">What It Does for You</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { feature: "Exchange Online (Business Email)", benefit: "Professional @yourbusiness.ie email, 50 GB+ mailbox, shared calendars and contacts" },
+                    { feature: "OneDrive", benefit: "Personal cloud storage — access your files from any device, never lose them again" },
+                    { feature: "SharePoint", benefit: "Shared team file storage — everyone works from the same up-to-date documents" },
+                    { feature: "Microsoft Teams", benefit: "Chat, video calls, and file sharing — your office communication in one app" },
+                    { feature: "Microsoft 365 Apps (Word, Excel, etc.)", benefit: "Full Office apps on up to 5 devices — desktop, laptop, tablet, and phone" },
+                    { feature: "Multi-Factor Authentication (MFA)", benefit: "Stops hackers even if they get your password — essential for any business email" },
+                    { feature: "Admin Centre", benefit: "Add or remove staff accounts, reset passwords, and manage everything from one place" },
+                  ].map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#f3f4f5]/50"}>
+                      <td className="px-6 py-4 font-headline font-bold text-primary">{row.feature}</td>
+                      <td className="px-6 py-4 text-foreground/70 font-sans">{row.benefit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* What's Included */}
       <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-14">
             <span className="eyebrow mb-5 inline-block">Full Service</span>
-            <h2 className="text-3xl">What's Included</h2>
+            <h2 className="text-3xl">What's Included in My Setup Service</h2>
             <p className="text-foreground/70 mt-4 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
               I don't just hand you a licence key and wish you luck. Every setup includes hands-on configuration, migration, and training so your team is productive from day one.
             </p>
@@ -79,17 +177,17 @@ export default function Microsoft365() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {[
               { icon: <Mail className="text-accent shrink-0" size={32} />, title: "Professional Business Email", desc: "Custom domain email (you@yourbusiness.ie) with 50 GB+ mailboxes, shared calendars, and contacts on Exchange Online." },
-              { icon: <Cloud className="text-accent shrink-0" size={32} />, title: "Licensing & Subscription Advice", desc: "I recommend the right Microsoft 365 plan for your needs — no upselling, no unnecessary features you'll never use." },
-              { icon: <Users className="text-accent shrink-0" size={32} />, title: "Teams & Collaboration Setup", desc: "Microsoft Teams configured for chat, video calls, and team channels so your staff can work together — in the office or remotely." },
-              { icon: <FileLock className="text-accent shrink-0" size={32} />, title: "OneDrive & SharePoint", desc: "Cloud file storage that replaces USB sticks and local servers. Version-controlled, accessible from anywhere, properly organised." },
-              { icon: <ShieldCheck className="text-accent shrink-0" size={32} />, title: "Security & Compliance", desc: "Multi-Factor Authentication (MFA), tenant hardening, and security policies to protect your business against phishing and data breaches." },
-              { icon: <Wrench className="text-accent shrink-0" size={32} />, title: "Email Migration", desc: "Safe migration from POP/IMAP, Gmail, or legacy Exchange — zero data loss, minimal downtime, and clear communication throughout." },
-            ].map((item) => (
-              <StaggerItem key={item.title}>
-                <div className="bg-white p-8 rounded-2xl flex gap-6 card-hover shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-included-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
+              { icon: <Cloud className="text-accent shrink-0" size={32} />, title: "Licensing &amp; Subscription Advice", desc: "I recommend the right Microsoft 365 plan for your needs — no upselling, no unnecessary features you'll never use." },
+              { icon: <Users className="text-accent shrink-0" size={32} />, title: "Teams &amp; Collaboration Setup", desc: "Microsoft Teams configured for chat, video calls, and team channels so your staff can work together — in the office or remotely." },
+              { icon: <FileLock className="text-accent shrink-0" size={32} />, title: "OneDrive &amp; SharePoint", desc: "Cloud file storage that replaces USB sticks and local servers. Version-controlled, accessible from anywhere, properly organised." },
+              { icon: <ShieldCheck className="text-accent shrink-0" size={32} />, title: "Security &amp; Compliance", desc: "Multi-Factor Authentication (MFA), tenant hardening, and security policies to protect your business against phishing and data breaches." },
+              { icon: <Wrench className="text-accent shrink-0" size={32} />, title: "Email Migration", desc: "Safe migration from POP/IMAP, Gmail, or legacy Exchange — zero data loss, minimal downtime, and clear communication throughout. Your old emails, contacts, and calendar entries come with you." },
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-white p-8 rounded-2xl flex gap-6 card-hover shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-included-${i}`}>
                   {item.icon}
                   <div>
-                    <h3 className="text-lg mb-2">{item.title}</h3>
+                    <h3 className="text-lg mb-2" dangerouslySetInnerHTML={{ __html: item.title }} />
                     <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                   </div>
                 </div>
@@ -99,8 +197,44 @@ export default function Microsoft365() {
         </div>
       </section>
 
+      {/* Migration Reassurance */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <FadeIn>
+            <div className="bg-accent/5 border border-accent/20 rounded-2xl p-8 md:p-12" data-testid="section-migration-reassurance">
+              <h2 className="text-2xl mb-6">Worried About Migrating Your Existing Email?</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-foreground/80 leading-relaxed mb-4 font-sans font-normal">
+                    Moving to Microsoft 365 from Gmail, a personal email account, or an older system can sound daunting — but it doesn't have to be. I've migrated dozens of businesses without a single lost email.
+                  </p>
+                  <p className="text-foreground/80 leading-relaxed font-sans font-normal">
+                    I plan every migration carefully, run it in stages if needed, and stay available throughout so any hiccup is fixed immediately. You'll be up and running on your new professional email with everything intact.
+                  </p>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "All existing emails moved across safely",
+                    "Contacts and calendar entries preserved",
+                    "Minimal disruption — often done overnight",
+                    "Clear communication at every step",
+                    "Test run before going live",
+                    "I stay available until you're comfortable",
+                  ].map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-foreground/80 font-sans text-[15px]">
+                      <CheckCircle className="text-accent shrink-0 mt-0.5" size={17} />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Without vs With Comparison */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-14">
             <span className="eyebrow mb-5 inline-block">The Difference</span>
@@ -158,7 +292,7 @@ export default function Microsoft365() {
       </section>
 
       {/* Why Proper Setup Saves You Money */}
-      <section className="py-28 bg-[#f3f4f5]">
+      <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn>
             <div className="text-center mb-14">
@@ -171,12 +305,12 @@ export default function Microsoft365() {
             {[
               { title: "Avoid Costly Mistakes", desc: "A misconfigured tenant can lead to data breaches, lost emails, or compliance failures. Getting it right from the start prevents expensive emergency fixes later." },
               { title: "Stop Paying for What You Don't Need", desc: "Many businesses are on the wrong Microsoft 365 plan — overpaying for features they'll never use. I match the right plan to your actual needs." },
-              { title: "Reduce Downtime & Wasted Hours", desc: "When email goes down or files disappear, your business stops. Professional setup means fewer problems, and when issues arise, someone who knows your system can fix them fast." },
+              { title: "Reduce Downtime &amp; Wasted Hours", desc: "When email goes down or files disappear, your business stops. Professional setup means fewer problems, and when issues arise, someone who knows your system can fix them fast." },
             ].map((item, index) => (
               <FadeIn key={item.title} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-2xl h-full shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-saves-money-${index}`}>
+                <div className="bg-[#f3f4f5] p-8 rounded-2xl h-full" data-testid={`card-saves-money-${index}`}>
                   <h3 className="text-lg mb-3">{item.title}</h3>
-                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
+                  <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal" dangerouslySetInnerHTML={{ __html: item.desc }} />
                 </div>
               </FadeIn>
             ))}
@@ -185,7 +319,7 @@ export default function Microsoft365() {
       </section>
 
       {/* Pricing Guidance */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-14">
             <span className="eyebrow mb-5 inline-block">Pricing</span>
@@ -217,23 +351,23 @@ export default function Microsoft365() {
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <div className="bg-[#f3f4f5] p-8 rounded-2xl" data-testid="card-pricing-guidance">
+              <div className="bg-white p-8 rounded-2xl shadow-sm" data-testid="card-pricing-guidance">
                 <h3 className="text-lg mb-4">Indicative Ranges</h3>
                 <ul className="space-y-4 text-[15px] font-sans">
-                  <li className="flex justify-between border-b border-white pb-3">
+                  <li className="flex justify-between border-b border-gray-100 pb-3">
                     <span className="text-foreground/70">Basic setup (1–5 users)</span>
                     <span className="font-headline font-bold">From €250</span>
                   </li>
-                  <li className="flex justify-between border-b border-white pb-3">
-                    <span className="text-foreground/70">Full migration & setup (5–20 users)</span>
+                  <li className="flex justify-between border-b border-gray-100 pb-3">
+                    <span className="text-foreground/70">Full migration &amp; setup (5–20 users)</span>
                     <span className="font-headline font-bold">From €500</span>
                   </li>
-                  <li className="flex justify-between border-b border-white pb-3">
+                  <li className="flex justify-between border-b border-gray-100 pb-3">
                     <span className="text-foreground/70">Security hardening add-on</span>
                     <span className="font-headline font-bold">From €150</span>
                   </li>
                   <li className="flex justify-between">
-                    <span className="text-foreground/70">Monthly support & admin</span>
+                    <span className="text-foreground/70">Monthly support &amp; admin</span>
                     <span className="font-headline font-bold">From €50/mo</span>
                   </li>
                 </ul>
@@ -247,7 +381,7 @@ export default function Microsoft365() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-28 bg-[#f3f4f5]">
+      <section className="py-28 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="text-center mb-14">
             <span className="eyebrow mb-5 inline-block">Common Questions</span>
@@ -289,8 +423,8 @@ export default function Microsoft365() {
                 </Button>
               </Link>
               <Link href="/network-wifi-security">
-                <Button variant="outline" size="lg" className="px-8 border-white/30 text-white hover:bg-white/10" data-testid="link-network">
-                  Network & Wi-Fi Services <ArrowRight className="ml-2" size={16} />
+                <Button variant="outline" size="lg" className="px-8 border-white/30 text-white hover:bg-white/10" data-testid="link-network-cta">
+                  Network &amp; Wi-Fi Services <ArrowRight className="ml-2" size={16} />
                 </Button>
               </Link>
             </div>

@@ -2,23 +2,47 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Wifi, ShieldAlert, Server, Network, CheckCircle, Users, Building2, Wrench, HelpCircle, ArrowRight, PiggyBank } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { FAQSchema } from "@/components/SEO";
+
+const faqItems = [
+  {
+    q: "How do I know if I need a new network or just a fix?",
+    a: "I'll start with a free review — looking at your current setup, your pain points, and what you need. Sometimes a tweak is all it takes; other times a proper redesign is the smarter long-term move. I'll give you an honest recommendation either way."
+  },
+  {
+    q: "Can you work around our business hours?",
+    a: "Absolutely. I regularly schedule installations and upgrades for evenings or weekends to minimise disruption. Your team shouldn't lose a day's work because of an IT upgrade."
+  },
+  {
+    q: "Do you supply the hardware?",
+    a: "Yes. I source and supply business-grade equipment from trusted brands like Ubiquiti, MikroTik, and TP-Link. I'll recommend the best options for your space and budget — no unnecessary upselling."
+  },
+  {
+    q: "How long does a typical installation take?",
+    a: "A small office setup can often be done in a day. Larger premises with cabling requirements may take 2–3 days. I'll give you a clear timeline before any work begins."
+  },
+  {
+    q: "What about ongoing support?",
+    a: "I offer optional support packages for monitoring, maintenance, and troubleshooting. But even without a package, I'm always just a call or message away if something goes wrong."
+  },
+  {
+    q: "Do you cover areas outside Laois and Carlow?",
+    a: "I'm based in the Laois/Carlow area but regularly work across the Midlands and South-East. Get in touch and we'll figure it out."
+  },
+];
 
 export default function NetworkWifi() {
   return (
     <div className="flex flex-col min-h-screen">
+      <FAQSchema items={faqItems.map(f => ({ question: f.q, answer: f.a }))} />
+
       {/* Hero Section */}
       <section className="bg-[#f3f4f5] py-24 md:py-32 dot-matrix-bg">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn>
-            <span className="eyebrow mb-5 inline-block">Network & Security</span>
+            <span className="eyebrow mb-5 inline-block">Network &amp; Security</span>
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-6" data-testid="text-page-title">
-              Business Network & Wi&#8209;Fi Solutions for Offices and Workshops
+              Business Network &amp; Wi&#8209;Fi Solutions for Offices and Workshops
             </h1>
             <p className="text-xl text-foreground/70 mb-8 leading-relaxed font-sans font-normal">
               Dropped connections, dead spots, and unreliable Wi&#8209;Fi cost your business time and money every day. I design, install, and secure networks that actually work — so your team can focus on the job, not the internet.
@@ -29,9 +53,9 @@ export default function NetworkWifi() {
                   Book a Free Network Review
                 </Button>
               </Link>
-              <Link href="/portfolio">
-                <Button variant="outline" size="lg" className="px-8" data-testid="link-portfolio">
-                  View Our Work <ArrowRight className="ml-2" size={16} />
+              <Link href="/microsoft-365">
+                <Button variant="outline" size="lg" className="px-8" data-testid="link-microsoft365">
+                  Microsoft 365 Setup <ArrowRight className="ml-2" size={16} />
                 </Button>
               </Link>
             </div>
@@ -82,15 +106,15 @@ export default function NetworkWifi() {
 
           <StaggerContainer className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: Building2, title: "Offices & Co-Working Spaces", desc: "Multiple users, video calls, cloud apps — your network needs to handle it all without slowing down." },
-              { icon: Wrench, title: "Workshops & Warehouses", desc: "Card machines, security cameras, and devices that need coverage across large or awkward spaces." },
-              { icon: Users, title: "Retail & Hospitality", desc: "Customer Wi‑Fi, point-of-sale systems, and staff devices all running smoothly on separate, secure networks." },
-              { icon: Server, title: "Home Offices & Remote Workers", desc: "A professional-grade setup so your home office runs as reliably as any corporate network." },
+              { icon: Building2, title: "Offices &amp; Co-Working Spaces", desc: "Multiple users, video calls, cloud apps — your network needs to handle it all without slowing down." },
+              { icon: Wrench, title: "Workshops &amp; Warehouses", desc: "Card machines, security cameras, and devices that need coverage across large or awkward spaces." },
+              { icon: Users, title: "Retail &amp; Hospitality", desc: "Customer Wi‑Fi, point-of-sale systems, and staff devices all running smoothly on separate, secure networks." },
+              { icon: Server, title: "Home Offices &amp; Remote Workers", desc: "A professional-grade setup so your home office runs as reliably as any corporate network." },
             ].map((item, i) => (
               <StaggerItem key={i}>
                 <div className="bg-white p-8 rounded-2xl card-hover shadow-sm hover:shadow-lg transition-all duration-300" data-testid={`card-who-for-${i}`}>
                   <item.icon className="text-accent mb-4" size={28} />
-                  <h3 className="text-lg mb-2">{item.title}</h3>
+                  <h3 className="text-lg mb-2" dangerouslySetInnerHTML={{ __html: item.title }} />
                   <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -114,15 +138,15 @@ export default function NetworkWifi() {
             <StaggerItem>
               <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Network className="text-accent mb-6" size={32} />
-                <h3 className="text-xl mb-4">Network Design & Planning</h3>
+                <h3 className="text-xl mb-4">Network Design &amp; Planning</h3>
                 <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   I survey your premises and design a network that fits your space — proper cabling, switch placement, and access point positioning for full coverage.
                 </p>
                 <ul className="space-y-2">
-                  {["Site survey & coverage mapping", "Structured cabling plans", "VLAN segmentation", "Capacity planning for growth"].map((item, i) => (
+                  {["Site survey &amp; coverage mapping", "Structured cabling plans", "VLAN segmentation", "Capacity planning for growth"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
-                      <span>{item}</span>
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
                     </li>
                   ))}
                 </ul>
@@ -132,15 +156,15 @@ export default function NetworkWifi() {
             <StaggerItem>
               <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Wifi className="text-accent mb-6" size={32} />
-                <h3 className="text-xl mb-4">Wi&#8209;Fi Setup & Optimisation</h3>
+                <h3 className="text-xl mb-4">Wi&#8209;Fi Setup &amp; Optimisation</h3>
                 <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Professional mesh Wi&#8209;Fi and access point placement to eliminate dead spots across offices, multi-story buildings, or tricky workshop layouts.
                 </p>
                 <ul className="space-y-2">
-                  {["Mesh Wi‑Fi & access point deployment", "Channel optimisation", "Guest network separation", "Seamless roaming between zones"].map((item, i) => (
+                  {["Mesh Wi‑Fi &amp; access point deployment", "Channel optimisation", "Guest network separation", "Seamless roaming between zones"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
-                      <span>{item}</span>
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
                     </li>
                   ))}
                 </ul>
@@ -150,7 +174,7 @@ export default function NetworkWifi() {
             <StaggerItem>
               <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <ShieldAlert className="text-accent mb-6" size={32} />
-                <h3 className="text-xl mb-4">Security & Firewalls</h3>
+                <h3 className="text-xl mb-4">Security &amp; Firewalls</h3>
                 <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Business-grade security to protect your data and keep your customers' information safe — without making things complicated for your team.
                 </p>
@@ -168,15 +192,15 @@ export default function NetworkWifi() {
             <StaggerItem>
               <div className="bg-[#f3f4f5] p-8 rounded-2xl card-hover">
                 <Server className="text-accent mb-6" size={32} />
-                <h3 className="text-xl mb-4">Health Checks & Remote Access</h3>
+                <h3 className="text-xl mb-4">Health Checks &amp; Remote Access</h3>
                 <p className="text-foreground/70 text-[15px] leading-relaxed mb-4 font-sans font-normal">
                   Ongoing network health checks plus secure VPN and remote access — so your team can work from anywhere without compromising security.
                 </p>
                 <ul className="space-y-2">
-                  {["Network health audit & reporting", "VPN setup for remote access", "Performance troubleshooting", "Ongoing monitoring & support"].map((item, i) => (
+                  {["Network health audit &amp; reporting", "VPN setup for remote access", "Performance troubleshooting", "Ongoing monitoring &amp; support"].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-[15px] text-foreground/70 font-sans">
                       <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={16} />
-                      <span>{item}</span>
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
                     </li>
                   ))}
                 </ul>
@@ -251,13 +275,13 @@ export default function NetworkWifi() {
                 <h3 className="text-lg mb-4">Typical Starting Points</h3>
                 <ul className="space-y-4">
                   {[
-                    { label: "Wi‑Fi health check & optimisation", range: "From €150" },
+                    { label: "Wi‑Fi health check &amp; optimisation", range: "From €150" },
                     { label: "Small office network setup", range: "From €400" },
-                    { label: "Full network design & install", range: "From €800" },
-                    { label: "Firewall & security configuration", range: "From €300" },
+                    { label: "Full network design &amp; install", range: "From €800" },
+                    { label: "Firewall &amp; security configuration", range: "From €300" },
                   ].map((item, i) => (
                     <li key={i} className="flex items-center justify-between text-sm border-b border-white pb-3 last:border-0 last:pb-0" data-testid={`text-pricing-${i}`}>
-                      <span className="text-foreground/70 font-sans">{item.label}</span>
+                      <span className="text-foreground/70 font-sans" dangerouslySetInnerHTML={{ __html: item.label }} />
                       <span className="font-headline font-bold text-primary">{item.range}</span>
                     </li>
                   ))}
@@ -271,7 +295,7 @@ export default function NetworkWifi() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section — native details/summary for no-JS compatibility */}
       <section className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn className="mb-16 text-center">
@@ -281,43 +305,32 @@ export default function NetworkWifi() {
           </FadeIn>
 
           <FadeIn>
-            <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
-              {[
-                {
-                  q: "How do I know if I need a new network or just a fix?",
-                  a: "I'll start with a free review — looking at your current setup, your pain points, and what you need. Sometimes a tweak is all it takes; other times a proper redesign is the smarter long-term move. I'll give you an honest recommendation either way."
-                },
-                {
-                  q: "Can you work around our business hours?",
-                  a: "Absolutely. I regularly schedule installations and upgrades for evenings or weekends to minimise disruption. Your team shouldn't lose a day's work because of an IT upgrade."
-                },
-                {
-                  q: "Do you supply the hardware?",
-                  a: "Yes. I source and supply business-grade equipment from trusted brands like Ubiquiti, MikroTik, and TP-Link. I'll recommend the best options for your space and budget — no unnecessary upselling."
-                },
-                {
-                  q: "How long does a typical installation take?",
-                  a: "A small office setup can often be done in a day. Larger premises with cabling requirements may take 2–3 days. I'll give you a clear timeline before any work begins."
-                },
-                {
-                  q: "What about ongoing support?",
-                  a: "I offer optional support packages for monitoring, maintenance, and troubleshooting. But even without a package, I'm always just a call or message away if something goes wrong."
-                },
-                {
-                  q: "Do you cover areas outside Laois and Carlow?",
-                  a: "I'm based in the Laois/Carlow area but regularly work across the Midlands and South-East. Get in touch and we'll figure it out."
-                },
-              ].map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} data-testid={`faq-item-${i}`}>
-                  <AccordionTrigger className="text-left text-[15px] font-headline font-bold">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-foreground/70 text-[15px] leading-relaxed font-sans">
+            <div className="max-w-3xl mx-auto space-y-3" data-testid="faq-list">
+              {faqItems.map((faq, i) => (
+                <details
+                  key={i}
+                  className="group bg-white rounded-xl border border-gray-100 overflow-hidden"
+                  data-testid={`faq-item-${i}`}
+                >
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 text-[15px] font-headline font-bold text-primary list-none select-none">
+                    <span>{faq.q}</span>
+                    <svg
+                      className="w-4 h-4 text-accent flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="px-6 pb-5 text-[15px] text-foreground/70 leading-relaxed font-sans">
                     {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
+                  </div>
+                </details>
               ))}
-            </Accordion>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -340,6 +353,7 @@ export default function NetworkWifi() {
                   <p className="text-foreground/70 text-[15px] leading-relaxed font-sans">
                     Professional websites that help your business get found online and win more customers.
                   </p>
+                  <span className="text-accent text-sm font-headline font-bold mt-3 inline-flex items-center gap-1">Learn about web design <ArrowRight size={13} /></span>
                 </div>
               </Link>
             </StaggerItem>
@@ -350,6 +364,7 @@ export default function NetworkWifi() {
                   <p className="text-foreground/70 text-[15px] leading-relaxed font-sans">
                     Professional email, Teams, and cloud storage — set up properly so your team can collaborate from day one.
                   </p>
+                  <span className="text-accent text-sm font-headline font-bold mt-3 inline-flex items-center gap-1">Learn about Microsoft 365 <ArrowRight size={13} /></span>
                 </div>
               </Link>
             </StaggerItem>

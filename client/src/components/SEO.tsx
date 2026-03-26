@@ -42,11 +42,10 @@ export function SEO({ title, description, canonicalPath = "/", noindex = false }
         robotsMeta.name = "robots";
         document.head.appendChild(robotsMeta);
       }
-      robotsMeta.setAttribute("content", "noindex, follow");
+      robotsMeta.setAttribute("content", "noindex,nofollow");
     } else {
       if (robotsMeta) {
-        robotsMeta.removeAttribute("content");
-        robotsMeta.setAttribute("content", "index, follow");
+        robotsMeta.setAttribute("content", "index,follow");
       }
     }
   }, [title, description, canonicalPath, noindex]);
@@ -144,12 +143,16 @@ export function AboutPageSchema() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: "About Crettyard Digital",
-    description: "Run by Joey, Crettyard Digital brings enterprise IT experience to small businesses in Laois, Carlow, and Kilkenny. Plain English, no jargon, direct communication.",
-    url: "https://digital.crettyard.ie/about",
+    description: "Crettyard Digital is run by Joey, bringing enterprise IT experience to small businesses in Laois, Carlow, and Kilkenny. Plain English, no jargon, direct communication.",
+    url: "https://digital.crettyard.ie/about.html",
     mainEntity: {
-      "@type": "LocalBusiness",
-      name: "Crettyard Digital",
-      url: "https://digital.crettyard.ie"
+      "@type": "Person",
+      name: "Joey",
+      jobTitle: "Founder",
+      worksFor: {
+        "@type": "LocalBusiness",
+        name: "Crettyard Digital"
+      }
     }
   };
 
@@ -166,14 +169,15 @@ export function ContactPageSchema() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact Crettyard Digital",
-    description: "Get in touch for a free, no-obligation chat about your website, email, or network needs. Fast response, local support, plain-English advice.",
-    url: "https://digital.crettyard.ie/contact",
+    description: "Book a free, no-obligation consultation about your website, email, or network needs.",
+    url: "https://digital.crettyard.ie/contact.html",
     mainEntity: {
       "@type": "LocalBusiness",
       name: "Crettyard Digital",
       url: "https://digital.crettyard.ie",
       email: "info@crettyard.ie",
-      telephone: "+353879700701"
+      telephone: "+353879700701",
+      areaServed: "Laois, Carlow, Kilkenny, Ireland"
     }
   };
 

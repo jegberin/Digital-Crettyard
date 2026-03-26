@@ -5,7 +5,7 @@ import project3 from "@assets/portfolio-nurney-plant-civil.png";
 import project4 from "@assets/portfolio-more-than-points.png";
 import { Button } from "@/components/ui/button";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
-import { Quote, ArrowRight, Globe, Mail, Wifi, Star } from "lucide-react";
+import { Quote, ArrowRight, Globe, Mail, Wifi, Star, Tag } from "lucide-react";
 
 export default function Portfolio() {
   const projects = [
@@ -13,33 +13,49 @@ export default function Portfolio() {
       title: "BM Custom Furniture",
       url: "https://bmcustomfurniture.ie",
       image: project1,
-      description: "A brochure-style website for bespoke furniture, fitted furniture, wall panelling, and custom cabinetry. Features an image-led presentation and strong local search focus to highlight their craftsmanship.",
-      whatWeDid: "Designed and built a visually rich website showcasing their craftsmanship — fitted furniture, wall panelling, and custom cabinetry. Focused on high-quality imagery, local SEO for Carlow and surrounding areas, and clear calls-to-action for quote requests.",
-      theResult: "A professional online presence that positions BM Custom Furniture as a credible, high-quality provider. The site now generates consistent enquiries from homeowners and businesses across Carlow and Laois looking for bespoke furniture solutions.",
+      imageAlt: "BM Custom Furniture — bespoke fitted furniture and wall panelling website homepage",
+      industry: "Home & Interiors",
+      serviceLink: "/web-design",
+      serviceLabel: "Web Design",
+      challenge: "BM Custom Furniture does outstanding work — bespoke fitted wardrobes, wall panelling, and custom cabinetry — but had no online presence to show for it. New clients came entirely through word-of-mouth, and the business was missing enquiries from homeowners searching Google for furniture makers in Carlow and Laois.",
+      solution: "Designed and built a visually rich, image-led website showcasing their craftsmanship in detail. The site included a portfolio gallery, service pages for each product category, and strong local SEO targeting Carlow, Laois, and surrounding areas, with clear calls-to-action for quote requests.",
+      outcome: "BM Custom Furniture now has a professional online presence that positions them as a credible, high-quality provider. The site generates consistent enquiries from homeowners and businesses across Carlow and Laois who found them through Google — customers who previously wouldn't have known they existed."
     },
     {
       title: "Go Green Steam Clean",
       url: "https://gogreensteamclean.ie",
       image: project2,
-      description: "A service-led site for an eco-friendly steam cleaning business in the Midlands. Built with strong local service pages and clear CTAs to drive enquiries and bookings.",
-      whatWeDid: "Built a service-focused website with dedicated pages for each cleaning service, strong local SEO targeting the Midlands, and conversion-optimised CTAs to drive bookings. Emphasised their eco-friendly approach as a key differentiator.",
-      theResult: "The website now acts as a 24/7 booking engine, bringing in new customers who find the business through Google searches for steam cleaning services in their area. Enquiry volume increased significantly after launch.",
+      imageAlt: "Go Green Steam Clean — eco-friendly steam cleaning business website homepage",
+      industry: "Cleaning Services",
+      serviceLink: "/web-design",
+      serviceLabel: "Web Design",
+      challenge: "Go Green Steam Clean offered a differentiated eco-friendly cleaning service but had no website to communicate their proposition. Without an online presence, they were invisible to the growing number of customers searching for cleaning services in the Midlands — and had no way to showcase what made them different.",
+      solution: "Built a service-focused website with dedicated pages for each cleaning service, strong local SEO targeting the Midlands and surrounding areas, and conversion-optimised CTAs to drive bookings. The eco-friendly angle was emphasised throughout as a key differentiator that resonates with their target customers.",
+      outcome: "The website now acts as a 24/7 booking engine, bringing in new customers who find the business through Google searches for steam cleaning services in their area. Enquiry volume increased significantly in the weeks following launch."
     },
     {
       title: "Nurney Plant and Civil",
       url: "https://nurneyplantandcivil.ie",
       image: project3,
-      description: "A professional corporate site for plant hire and civil engineering services operating in Co. Carlow and nearby areas. Designed to present credibility, capabilities, and ease of contact.",
-      whatWeDid: "Created a professional corporate website that clearly presents their plant hire fleet and civil engineering capabilities. Designed to build trust with potential clients through strong visuals, service breakdowns, and easy-to-find contact information.",
-      theResult: "A credible, modern web presence that helps Nurney Plant and Civil win contracts by demonstrating professionalism and capability to prospective clients, councils, and contractors across the region.",
+      imageAlt: "Nurney Plant and Civil — plant hire and civil engineering website homepage",
+      industry: "Civil Engineering & Plant Hire",
+      serviceLink: "/web-design",
+      serviceLabel: "Web Design",
+      challenge: "Nurney Plant and Civil operate a substantial plant hire and civil engineering business in Co. Carlow, but their online presence didn't reflect the scale or professionalism of their operation. Prospective clients — including councils and main contractors — were making decisions based on a website that undersold the business.",
+      solution: "Created a professional corporate website that clearly presents their plant hire fleet and civil engineering capabilities. Designed to build trust with potential clients through strong imagery, detailed service breakdowns, and easy-to-find contact information. Also set up Microsoft 365 for professional email across the office and site teams, and sorted the Wi-Fi in their premises.",
+      outcome: "A credible, modern web presence that helps Nurney Plant and Civil win contracts by demonstrating professionalism and capability. The team now have professional email and reliable connectivity — and they regularly get compliments from clients about the website."
     },
     {
       title: "More Than Points",
       url: "https://morethanpoints.ie",
       image: project4,
-      description: "A coaching website for teenagers aged 16–19 and their parents, helping families navigate the Irish education system and explore life beyond the CAO points race.",
-      whatWeDid: "Designed and built a warm, grounded website for a teen and parent coaching service. The focus was on empathetic, conversion-focused copy, a clear service structure for different audiences (teens and parents), and a calm visual identity that reflects the coaching approach.",
-      theResult: "A professional, trust-building online presence that clearly communicates the coaching offering, differentiates the service from traditional academic tutoring, and guides parents and teens towards booking a session.",
+      imageAlt: "More Than Points — teen and parent coaching website homepage",
+      industry: "Education & Coaching",
+      serviceLink: "/web-design",
+      serviceLabel: "Web Design",
+      challenge: "More Than Points is a coaching service helping Irish teenagers aged 16–19 and their parents navigate the pressures of the Irish education system. The founder had a clear offering and a compelling message — but no website to communicate it to families who were searching for help.",
+      solution: "Designed and built a warm, grounded website with empathetic, conversion-focused copy and a clear service structure for both audiences: teens and parents. The visual identity was calm and reassuring, reflecting the coaching approach. The site makes it easy for families to understand the service, see who it's for, and take the step of booking a session.",
+      outcome: "A professional, trust-building online presence that clearly communicates the coaching offering and differentiates the service from traditional academic tutoring. The site gives families the confidence to reach out and book — guiding them from curiosity to conversation."
     }
   ];
 
@@ -70,35 +86,58 @@ export default function Portfolio() {
                 <div className="flex flex-col md:flex-row gap-10 items-start border-b border-gray-100 pb-20 last:border-0 last:pb-0" data-testid={`card-project-${index}`}>
                   <div className="w-full md:w-1/2">
                     <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                      <img
+                        src={project.image}
+                        alt={project.imageAlt}
+                        className="w-full h-full object-cover"
+                        width="600"
+                        height="450"
+                        loading="lazy"
+                      />
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
                       <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-sm font-headline font-bold text-muted-foreground hover:text-accent inline-flex items-center gap-1 transition-colors" data-testid={`link-project-url-${index}`}>
                         <Globe className="w-3.5 h-3.5" />
                         {project.url.replace('https://', '')}
                       </a>
+                      <span className="inline-flex items-center gap-1 text-xs font-headline font-bold text-accent/70 bg-accent/10 px-3 py-1 rounded-full" data-testid={`tag-industry-${index}`}>
+                        <Tag className="w-3 h-3" />
+                        {project.industry}
+                      </span>
                     </div>
                   </div>
                   <div className="w-full md:w-1/2">
                     <h3 className="text-2xl mb-4" data-testid={`text-project-title-${index}`}>{project.title}</h3>
 
                     <div className="mb-5">
+                      <h4 className="text-sm font-headline font-bold uppercase tracking-wide text-accent mb-2">The Challenge</h4>
+                      <p className="text-[15px] text-foreground/70 leading-relaxed font-sans">
+                        {project.challenge}
+                      </p>
+                    </div>
+
+                    <div className="mb-5">
                       <h4 className="text-sm font-headline font-bold uppercase tracking-wide text-accent mb-2">What We Did</h4>
                       <p className="text-[15px] text-foreground/70 leading-relaxed font-sans">
-                        {project.whatWeDid}
+                        {project.solution}
                       </p>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-headline font-bold uppercase tracking-wide text-accent mb-2">The Result</h4>
+                      <h4 className="text-sm font-headline font-bold uppercase tracking-wide text-accent mb-2">The Outcome</h4>
                       <p className="text-[15px] text-foreground/70 leading-relaxed font-sans">
-                        {project.theResult}
+                        {project.outcome}
                       </p>
                     </div>
 
-                    <Link href="/contact#send-message" className="text-accent font-headline font-bold inline-flex items-center gap-1 text-sm hover:text-primary transition-colors" data-testid={`link-discuss-project-${index}`}>
-                      Discuss a similar project <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <div className="flex flex-wrap gap-3">
+                      <Link href={project.serviceLink} className="text-accent font-headline font-bold inline-flex items-center gap-1 text-sm hover:text-primary transition-colors" data-testid={`link-service-${index}`}>
+                        Learn about {project.serviceLabel} <ArrowRight className="w-4 h-4" />
+                      </Link>
+                      <Link href="/contact#send-message" className="text-foreground/50 font-headline font-bold inline-flex items-center gap-1 text-sm hover:text-accent transition-colors" data-testid={`link-discuss-project-${index}`}>
+                        Discuss a similar project <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </StaggerItem>
@@ -178,7 +217,7 @@ export default function Portfolio() {
               <Link href="/network-wifi-security" data-testid="link-service-network">
                 <div className="p-6 rounded-2xl bg-[#f3f4f5] hover:shadow-md transition-all cursor-pointer">
                   <Wifi className="w-8 h-8 text-accent mb-3 mx-auto" />
-                  <h3 className="font-headline font-bold mb-1">Network & Wi-Fi</h3>
+                  <h3 className="font-headline font-bold mb-1">Network &amp; Wi-Fi</h3>
                   <p className="text-[15px] text-foreground/70 font-sans">Reliable connectivity for offices and workshops</p>
                 </div>
               </Link>
