@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, Search, Youtube, Ban, Clock, Smartphone, CheckCircle, HelpCircle, ArrowRight, Users, Home } from "lucide-react";
 import shieldVideo from "@assets/service-parental-controls-shield.mp4";
+import relaxedVideo from "@assets/service-parental-controls-relaxed.mp4";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { FAQSchema } from "@/components/SEO";
 
@@ -317,27 +318,40 @@ export default function ParentalControls() {
 
       {/* Why Parents Choose This */}
       <section className="py-28 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <FadeIn className="mb-12 text-center">
-            <Users className="text-accent mx-auto mb-4" size={32} />
-            <span className="eyebrow mb-5 inline-block">Why It Makes Sense</span>
-            <h2 className="text-3xl mb-6">Why Parents Use a Managed Setup</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
-              Most parents do not want to spend hours jumping between device settings, browser controls, app restrictions, and home network options. A managed setup helps you put sensible protections in place properly, with clear support and no technical guesswork.
-            </p>
-          </FadeIn>
-          <FadeIn>
-            <div className="bg-[#f3f4f5] p-8 rounded-2xl max-w-2xl mx-auto">
-              <ul className="space-y-4">
-                {whyReasons.map((r, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/80 font-sans" data-testid={`text-reason-${i}`}>
-                    <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={18} />
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </FadeIn>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <FadeIn>
+              <Users className="text-accent mb-4" size={32} />
+              <span className="eyebrow mb-5 inline-block">Why It Makes Sense</span>
+              <h2 className="text-3xl mb-6">Why Parents Use a Managed Setup</h2>
+              <p className="text-foreground/70 mb-8 leading-relaxed font-sans font-normal">
+                Most parents do not want to spend hours jumping between device settings, browser controls, app restrictions, and home network options. A managed setup helps you put sensible protections in place properly, with clear support and no technical guesswork.
+              </p>
+              <div className="bg-[#f3f4f5] p-8 rounded-2xl">
+                <ul className="space-y-4">
+                  {whyReasons.map((r, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/80 font-sans" data-testid={`text-reason-${i}`}>
+                      <CheckCircle className="text-accent mt-0.5 flex-shrink-0" size={18} />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+            <FadeIn className="hidden md:block">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <video
+                  src={relaxedVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto object-cover"
+                  aria-label="A parent relaxing at home, reassured that their child's internet is safely managed"
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
