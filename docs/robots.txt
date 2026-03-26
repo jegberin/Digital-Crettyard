@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digital.crettyard.com/sitemap.xml
+Sitemap: https://digital.crettyard.ie/sitemap.xml
