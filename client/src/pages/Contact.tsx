@@ -139,27 +139,27 @@ export default function Contact() {
                   <input type="hidden" name="_template" value="table" />
 
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm font-headline font-bold">Name</Label>
-                      <Input id="name" name="name" required placeholder="Your name" className="rounded-xl border-gray-200 focus-visible:ring-accent h-10" data-testid="input-name" />
+                    <div className="space-y-1">
+                      <Label htmlFor="name" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Name</Label>
+                      <Input id="name" name="name" required placeholder="Your name" className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-name" />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-headline font-bold">Email</Label>
-                      <Input id="email" name="email" type="email" required placeholder="you@company.com" className="rounded-xl border-gray-200 focus-visible:ring-accent h-10" data-testid="input-email" />
+                    <div className="space-y-1">
+                      <Label htmlFor="email" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Email</Label>
+                      <Input id="email" name="email" type="email" required placeholder="you@company.com" className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-email" />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-sm font-headline font-bold">Phone (optional)</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="08..." className="rounded-xl border-gray-200 focus-visible:ring-accent h-10" data-testid="input-phone" />
+                    <div className="space-y-1">
+                      <Label htmlFor="phone" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Phone (optional)</Label>
+                      <Input id="phone" name="phone" type="tel" placeholder="08..." className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none" data-testid="input-phone" />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="service" className="text-sm font-headline font-bold">What can I help with?</Label>
+                    <div className="space-y-1">
+                      <Label htmlFor="service" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">What can I help with?</Label>
                       <select
                         id="service"
                         name="service"
-                        className="flex h-10 w-full rounded-xl border border-gray-200 bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 font-sans"
+                        className="flex h-10 w-full rounded-none border-0 border-b border-gray-300 bg-transparent px-0 py-2 text-sm focus:outline-none focus:border-accent font-sans transition-colors"
                         data-testid="select-service"
                         defaultValue=""
                       >
@@ -174,14 +174,14 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-headline font-bold">Message</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="message" className="text-xs font-headline font-bold text-foreground/60 uppercase tracking-wide">Message</Label>
                     <Textarea 
                       id="message" 
                       name="message"
                       required
                       placeholder="Tell me a bit about your business and what you need help with..." 
-                      className="min-h-[120px] rounded-xl border-gray-200 focus-visible:ring-accent font-sans" 
+                      className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent min-h-[120px] bg-transparent px-0 shadow-none resize-none font-sans" 
                       data-testid="input-message"
                     />
                   </div>

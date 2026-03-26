@@ -390,7 +390,7 @@ export default function Home() {
                   Can you help with just email or networking, without a website?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-5">
-                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently.
+                  Absolutely. Many of my clients come to me for Microsoft 365 setup, business email, or network and Wi-Fi solutions without needing a new website. Each service works independently — pick what your business needs.
                 </AccordionContent>
               </AccordionItem>
 
@@ -399,7 +399,7 @@ export default function Home() {
                   What happens after my website is live?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/70 leading-relaxed font-sans" data-testid="faq-content-6">
-                  I don't disappear after launch. I offer optional ongoing support so your site stays updated, secure, and performing well.
+                  I don't disappear after launch. I offer optional ongoing support so your site stays updated, secure, and performing well. If something breaks or you need changes, I'm just a call away — no call centres, no ticket queues.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -411,12 +411,12 @@ export default function Home() {
       <section className="py-24 bg-primary dot-matrix-bg text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl text-white mb-6" data-testid="text-cta-heading">Ready to grow your business online?</h2>
-            <p className="text-white/70 text-lg mb-10 font-sans font-normal max-w-xl mx-auto">
-              No jargon, no pressure — just honest advice on how technology can help your business win more customers.
+            <h2 className="text-3xl md:text-[2.75rem] text-white mb-6 leading-tight" data-testid="text-cta-heading">Ready to get more customers and look more professional online?</h2>
+            <p className="text-lg text-white/60 mb-10 leading-relaxed font-sans font-normal">
+              Book a free, no-obligation consultation. I'll give you honest advice on what your business needs — whether that's a website, email setup, or better Wi-Fi.
             </p>
             <Link href="/contact#send-message">
-              <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-bottom-cta">
+              <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-contact">
                 Book a Free Consultation
               </Button>
             </Link>
