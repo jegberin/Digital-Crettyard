@@ -203,12 +203,6 @@ export default function Home() {
       {/* Services Grid */}
       <section id="services" className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4">
-          <FadeIn className="text-center mb-16">
-            <span className="eyebrow mb-5 inline-block">What I Do</span>
-            <h2 className="text-3xl md:text-4xl mb-4" data-testid="text-services-heading">Services That Help Your Business Grow</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto font-sans font-normal">Practical technology solutions that deliver real results — not just features on a spec sheet.</p>
-          </FadeIn>
-
           <StaggerContainer className="grid md:grid-cols-3 gap-8">
             <StaggerItem>
               <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-webdesign">

@@ -13,9 +13,6 @@ export function Footer() {
                 Crettyard Digital<br />
                 Crettyard, Co. Laois, Ireland
               </p>
-              <p className="text-white/60 text-sm mb-1">
-                <a href="tel:+353879700701" className="hover:text-accent transition-colors" data-testid="link-footer-phone">+353 87 970 0701</a>
-              </p>
               <p className="text-white/60 text-sm">
                 <a href="mailto:info@crettyard.ie" className="hover:text-accent transition-colors" data-testid="link-footer-email">info@crettyard.ie</a>
               </p>
