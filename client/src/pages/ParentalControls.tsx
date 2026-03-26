@@ -157,7 +157,7 @@ export default function ParentalControls() {
                 </a>
               </div>
             </FadeIn>
-            <FadeIn className="hidden md:block">
+            <FadeIn className="block">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <video
                   src={shieldVideo}
@@ -338,7 +338,7 @@ export default function ParentalControls() {
                 </ul>
               </div>
             </FadeIn>
-            <FadeIn className="hidden md:block">
+            <FadeIn className="block">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <video
                   src={relaxedVideo}
