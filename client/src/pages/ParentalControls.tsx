@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, Search, Youtube, Ban, Clock, Smartphone, CheckCircle, HelpCircle, ArrowRight, Users, Home } from "lucide-react";
-import serviceImg from "@assets/service-parental-controls.png";
+import shieldVideo from "@assets/service-parental-controls-shield.mp4";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { FAQSchema } from "@/components/SEO";
 
@@ -158,13 +158,14 @@ export default function ParentalControls() {
             </FadeIn>
             <FadeIn className="hidden md:block">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={serviceImg}
-                  alt="A parent and child using a tablet together in a calm family home setting"
-                  width={800}
-                  height={600}
+                <video
+                  src={shieldVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="w-full h-auto object-cover"
-                  loading="eager"
+                  aria-label="Animated shield protecting connected home devices"
                 />
               </div>
             </FadeIn>
