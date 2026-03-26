@@ -190,7 +190,7 @@ export default function Contact() {
 
               <div className="bg-[#f3f4f5] aspect-video rounded-2xl overflow-hidden shadow-sm" data-testid="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2409!2d-7.119784!3d52.7292498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d836b5390e36855%3A0xace93d928dcf0243!2sCrettyard%20Digital!5e0!3m2!1sen!2sie!4v1743000000000!5m2!1sen!2sie"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d830373.6816004711!2d-7.779090980853563!3d52.72825347087501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d836b5390e36855%3A0xace93d928dcf0243!2sCrettyard%20Digital!5e1!3m2!1sen!2sie!4v1774543257703!5m2!1sen!2sie"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
