@@ -79,7 +79,7 @@ const helpOptions = [
   "Block selected apps or games",
   "Time-based rules",
   "Help across multiple devices",
-  "In-home setup visit",
+  "In-home setup visit (€79 once off)",
 ];
 
 export default function ParentalControls() {
