@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MonitorSmartphone, Cloud, Wifi, CheckCircle2, XCircle, ArrowRight, Shield, Clock, TrendingUp, MessageCircle } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { TrustBadges } from "@/components/TrustBadges";
 import heroImg from "@assets/hero-digital-services.png";
 import project1 from "@assets/portfolio-bm-custom-furniture.png";
 import project2 from "@assets/portfolio-go-green-steam-clean.png";
@@ -33,6 +34,9 @@ export default function Home() {
                 <Link href="#services" className="text-accent font-headline font-bold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-services">
                   View Services <ArrowRight size={14} />
                 </Link>
+              </div>
+              <div className="mt-8">
+                <TrustBadges />
               </div>
             </FadeIn>
             <FadeIn direction="up" delay={0.2} className="relative">

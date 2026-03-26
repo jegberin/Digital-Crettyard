@@ -4,9 +4,10 @@ interface SEOProps {
   title: string;
   description: string;
   canonicalPath?: string;
+  noindex?: boolean;
 }
 
-export function SEO({ title, description, canonicalPath = "/" }: SEOProps) {
+export function SEO({ title, description, canonicalPath = "/", noindex = false }: SEOProps) {
   useEffect(() => {
     document.title = title;
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -33,7 +34,22 @@ export function SEO({ title, description, canonicalPath = "/" }: SEOProps) {
     if (canonical) {
       canonical.setAttribute("href", canonicalUrl);
     }
-  }, [title, description, canonicalPath]);
+
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (noindex) {
+      if (!robotsMeta) {
+        robotsMeta = document.createElement("meta");
+        robotsMeta.name = "robots";
+        document.head.appendChild(robotsMeta);
+      }
+      robotsMeta.setAttribute("content", "noindex, follow");
+    } else {
+      if (robotsMeta) {
+        robotsMeta.removeAttribute("content");
+        robotsMeta.setAttribute("content", "index, follow");
+      }
+    }
+  }, [title, description, canonicalPath, noindex]);
 
   return null;
 }
@@ -113,6 +129,52 @@ export function FAQSchema({ items }: { items: { question: string; answer: string
         text: item.answer
       }
     }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function AboutPageSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Crettyard Digital",
+    description: "Run by Joey, Crettyard Digital brings enterprise IT experience to small businesses in Laois, Carlow, and Kilkenny. Plain English, no jargon, direct communication.",
+    url: "https://digital.crettyard.ie/about",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      name: "Crettyard Digital",
+      url: "https://digital.crettyard.ie"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function ContactPageSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Crettyard Digital",
+    description: "Get in touch for a free, no-obligation chat about your website, email, or network needs. Fast response, local support, plain-English advice.",
+    url: "https://digital.crettyard.ie/contact",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      name: "Crettyard Digital",
+      url: "https://digital.crettyard.ie",
+      email: "info@crettyard.ie",
+      telephone: "+353879700701"
+    }
   };
 
   return (

@@ -18,9 +18,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CookieBanner } from "@/components/CookieBanner";
-import { SEO, LocalBusinessSchema, ServiceSchema, FAQSchema } from "@/components/SEO";
+import { SEO, LocalBusinessSchema, ServiceSchema, FAQSchema, AboutPageSchema, ContactPageSchema } from "@/components/SEO";
 
-const pageSEO: Record<string, { title: string; description: string }> = {
+const pageSEO: Record<string, { title: string; description: string; noindex?: boolean }> = {
   "/": {
     title: "Crettyard Digital — Web Design, Microsoft 365 & Network Solutions for Small Businesses",
     description: "Professional web design, Microsoft 365 setup, and network solutions for small businesses in Laois, Carlow, Kilkenny, and surrounding areas. No jargon, no hassle."
@@ -51,15 +51,18 @@ const pageSEO: Record<string, { title: string; description: string }> = {
   },
   "/privacy-policy": {
     title: "Privacy Policy | Crettyard Digital",
-    description: "How Crettyard Digital collects, uses, stores, and protects your personal data. Read our full privacy policy."
+    description: "How Crettyard Digital collects, uses, stores, and protects your personal data. Read our full privacy policy.",
+    noindex: true
   },
   "/terms-and-conditions": {
     title: "Terms and Conditions | Crettyard Digital",
-    description: "Terms and Conditions governing the use of the Crettyard Digital website and engagement with our services."
+    description: "Terms and Conditions governing the use of the Crettyard Digital website and engagement with our services.",
+    noindex: true
   },
   "/cookie-policy": {
     title: "Cookie Policy | Crettyard Digital",
-    description: "How Crettyard Digital uses cookies and similar technologies on our website. Manage your cookie preferences."
+    description: "How Crettyard Digital uses cookies and similar technologies on our website. Manage your cookie preferences.",
+    noindex: true
   }
 };
 
@@ -107,7 +110,7 @@ function RouteSEO() {
 
   return (
     <>
-      <SEO title={seo.title} description={seo.description} canonicalPath={location} />
+      <SEO title={seo.title} description={seo.description} canonicalPath={location} noindex={seo.noindex} />
       {faq && <FAQSchema items={faq} />}
       {location === "/web-design" && (
         <ServiceSchema name="Professional Website Design" description="Custom website design and development for small businesses in Laois, Carlow, Kilkenny, and surrounding areas. Mobile-friendly, SEO-optimised, and built to win customers." />
@@ -118,6 +121,8 @@ function RouteSEO() {
       {location === "/network-wifi-security" && (
         <ServiceSchema name="Business Network & Wi-Fi Solutions" description="Network design, Wi-Fi setup, security, and ongoing support for offices, workshops, and retail spaces." />
       )}
+      {location === "/about" && <AboutPageSchema />}
+      {location === "/contact" && <ContactPageSchema />}
     </>
   );
 }
