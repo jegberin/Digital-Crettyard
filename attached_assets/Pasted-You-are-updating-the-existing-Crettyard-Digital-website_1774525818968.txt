@@ -1,0 +1,451 @@
+You are updating the existing Crettyard Digital website by creating a new commercial service subpage for parental controls and family internet safety.
+
+IMPORTANT:
+This is not a generic blog post.
+This is a conversion-focused service page for parents.
+The goal is to help concerned parents feel reassured, understood, and ready to enquire.
+Keep the tone practical, calm, trustworthy, and non-technical.
+Do not mention NextDNS anywhere on the page.
+Do not mention underlying architecture, DNS providers, third-party infrastructure, or technical backend tooling unless I explicitly ask for that later.
+Do not use fear-mongering language.
+Do not use jargon.
+Do not make exaggerated child safety claims.
+Do not imply this replaces parenting, conversations, or device supervision.
+Present it as a practical layer of protection that helps families create a safer internet environment.
+
+BUSINESS CONTEXT
+This page belongs to Crettyard Digital, a local Irish technology business with a straightforward, no-jargon tone.
+The page should feel consistent with the rest of the site and the existing service pages.
+The audience is parents and guardians who are worried about what children can access online, but who do not want a complicated technical setup.
+
+PRIMARY OFFER
+Create a service page for a managed parental controls offering.
+
+The offering should be positioned as:
+- A safer internet setup for children at home.
+- A practical way to block harmful or inappropriate online content.
+- A simple way to reduce exposure to adult material, violent content, unsafe websites, and distracting apps or services.
+- A service that helps parents set clear online boundaries without needing to become tech experts.
+
+PRICING TO SHOW CLEARLY
+- €99 per year for the parental controls service.
+- Optional once-off in-home setup: €79 if parents want me to visit and install it on their devices.
+
+Make pricing visible in at least two places:
+1. A short pricing summary near the hero or early on the page.
+2. A fuller pricing section later in the page.
+
+PAGE URL
+Create the page at:
+`/parental-controls.html`
+
+PAGE SEO
+Use:
+Title tag:
+Parental Controls for Families | Safer Internet Setup for Kids | Crettyard Digital
+
+Meta description:
+Simple parental controls for families who want safer internet access at home. Block harmful content, set sensible limits, and protect your children’s devices with plain-English help from Crettyard Digital.
+
+Primary H1:
+Parental Controls That Help Keep Kids Safe Online
+
+Alternative H1 if needed:
+Make the Internet Safer for Your Children Without the Technical Hassle
+
+Use only one H1.
+
+TARGET AUDIENCE
+Write for:
+- Parents of primary school children.
+- Parents of tweens and teenagers.
+- Guardians who feel out of their depth with online safety.
+- Families who want better control over devices, apps, websites, and home internet access.
+- Parents who want help setting up sensible protections without constant stress.
+
+CORE EMOTIONAL GOALS
+The page must make parents feel:
+- understood
+- reassured
+- less overwhelmed
+- more in control
+- supported by a real person
+- able to take action without becoming technical
+
+COPY STYLE RULES
+- Plain English only.
+- Short paragraphs.
+- Speak directly to parents.
+- Focus on peace of mind and practical protection.
+- Keep a warm but professional tone.
+- Avoid sounding preachy, alarmist, or overly salesy.
+- Avoid technical explanations unless they help clarity.
+- Do not use acronyms without explanation.
+- Use Irish/UK English spelling and phrasing naturally.
+
+KEY SERVICE CAPABILITIES TO PRESENT
+Present the service as being able to help families with features such as:
+- Blocking adult content and other harmful website categories.
+- Filtering inappropriate search results.
+- Enabling safer YouTube viewing.
+- Blocking specific apps, games, and websites where needed.
+- Setting sensible time-based access rules for certain platforms or categories.
+- Helping protect children across multiple devices.
+- Helping apply protection whether children are at home or using different networks, where supported by the setup.
+- Giving parents a straightforward, managed setup instead of expecting them to figure everything out alone.
+
+Do not present every feature in an overly technical dashboard style.
+Translate features into parent-friendly benefits.
+
+PAGE STRUCTURE
+Build the page in this order:
+
+1. Hero section
+2. Parent pain points / empathy section
+3. What the service helps with
+4. How it works in simple terms
+5. Pricing section
+6. Why parents choose this instead of trying to do it all alone
+7. FAQ section
+8. Request form
+9. Final CTA section
+
+SECTION 1: HERO
+Create a strong hero section with:
+- H1
+- supportive subheading
+- short bullet list of benefits
+- pricing snapshot
+- primary CTA button linking to the form
+- secondary CTA button linking down to “How it works” or FAQ
+
+Suggested hero copy:
+
+Headline:
+Parental Controls That Help Keep Kids Safe Online
+
+Subheading:
+Protect your children from harmful content, reduce online risks, and put simple internet rules in place — without having to figure it all out on your own.
+
+Hero bullets:
+- Block inappropriate websites and harmful content.
+- Add safer search and YouTube controls.
+- Set sensible limits for apps, games, and online access.
+- Get plain-English setup and support from a real local service.
+
+Pricing snippet in hero:
+€99 per year
+Optional in-home setup: €79 once off
+
+Primary CTA button:
+Request a Setup
+
+Secondary CTA button:
+See How It Works
+
+HERO DESIGN
+Use a reassuring, family-safe visual style.
+Do not use dark cyber-security imagery.
+Do not use hacker imagery.
+Do not use stock photos of children looking distressed.
+
+Recommended visual direction:
+- A calm family home setting with a parent and child using a tablet or laptop together.
+- A modern illustration showing protected devices in a home.
+- A clean isometric home Wi‑Fi/device safety visual.
+- Gentle shield/check/boundary iconography.
+
+SECTION 2: EMPATHY / PAIN POINTS
+Create a section that makes parents feel seen.
+
+Suggested heading:
+The Internet Can Feel Hard to Stay On Top Of
+
+Suggested supporting copy:
+Children are online earlier, more often, and on more devices than ever. Many parents want to keep things safer, but the settings across phones, tablets, laptops, browsers, apps, and home internet can quickly become confusing.
+
+Add 4 to 6 short pain-point cards such as:
+- “I’m worried about what they might come across online.”
+- “I don’t want them stumbling onto adult or harmful content.”
+- “I’m not sure which settings actually make a difference.”
+- “I don’t want a constant battle over apps, games, or screen habits.”
+- “Every device seems to need different setup steps.”
+- “I want help from someone who can just sort it properly.”
+
+Use calm, empathetic design.
+This section should connect emotionally before moving into features.
+
+SECTION 3: WHAT THE SERVICE HELPS WITH
+Create a benefits-led feature section.
+
+Suggested heading:
+What This Setup Helps You Control
+
+Create benefit cards or icon blocks with copy like:
+
+1. Block harmful content
+Help reduce access to adult material, violent content, and other categories most parents do not want children reaching by accident.
+
+2. Safer search results
+Add safer search filtering so explicit search results are reduced across major search engines.
+
+3. Safer YouTube viewing
+Apply stricter YouTube filtering to help reduce access to mature or inappropriate video content.
+
+4. App and website blocking
+Block specific websites, apps, or online platforms where needed, based on what works for your family.
+
+5. Time-based rules
+Put sensible time rules in place for selected apps, games, or categories, especially for evenings, homework time, or bedtime.
+
+6. Multi-device protection
+Help apply the setup across the family’s supported devices so the rules are not limited to just one screen.
+
+Make each card explain the parent benefit, not the technical mechanism.
+
+SECTION 4: HOW IT WORKS
+Keep this simple and reassuring.
+
+Suggested heading:
+How It Works
+
+Use a 4-step process with short copy:
+
+1. Tell me about your family setup
+You send a short request with the devices you use and the kind of controls you want.
+
+2. I recommend a simple setup
+I put together a practical setup based on your household, children’s ages, and the level of control you want.
+
+3. Your protections are configured
+Your family internet protections are set up to block harmful content and apply the rules you’ve asked for.
+
+4. You get a safer, easier setup to manage
+You have a clearer, more controlled home internet environment without needing to become the expert.
+
+Add a reassurance note:
+This is about making the internet safer and easier to manage — not making family life more complicated.
+
+SECTION 5: PRICING
+Create a clean pricing section.
+
+Suggested heading:
+Simple Pricing for Peace of Mind
+
+Use two pricing cards:
+
+Card 1:
+Managed parental controls
+€99 per year
+Includes:
+- Parental controls setup
+- Safer content filtering
+- Search and video safety settings
+- App/site blocking where needed
+- Ongoing service for the year
+
+Card 2:
+Optional in-home setup
+€79 once off
+For parents who want help installing and applying the setup on devices in person.
+
+Add a short note below:
+If you are unsure whether you need the in-home setup, you can ask first and I’ll advise based on your devices and home setup.
+
+SECTION 6: WHY PARENTS CHOOSE THIS
+Suggested heading:
+Why Parents Use a Managed Setup
+
+Suggested copy:
+Most parents do not want to spend hours jumping between device settings, browser controls, app restrictions, and home network options. A managed setup helps you put sensible protections in place properly, with clear support and no technical guesswork.
+
+Use bullets:
+- Easier than trying to piece together settings across different devices.
+- More consistent than relying on one app alone.
+- Built around your family, not a generic one-size-fits-all setup.
+- Plain-English help if you are not technical.
+- Clearer boundaries for children and less stress for parents.
+
+SECTION 7: FAQ
+Create an FAQ using native `<details>` and `<summary>`.
+
+Include these questions and answers:
+
+1. What kinds of things can be blocked?
+Answer:
+The setup can help block categories such as adult content and other inappropriate material, and can also be tailored to block selected sites, apps, or services where needed.
+
+2. Can this work on more than one device?
+Answer:
+Yes, the goal is to help protect the devices your family uses, based on the setup you choose and the devices involved.
+
+3. Can you help with YouTube and search safety?
+Answer:
+Yes, safer search settings and stricter YouTube filtering can be included as part of the setup.
+
+4. Can time limits or schedule rules be added?
+Answer:
+Yes, sensible time-based rules can be set for selected services, apps, or categories where appropriate.
+
+5. Do I need an in-home visit?
+Answer:
+Not always. Some families may be fine with a remote or simpler setup, while others may prefer an in-home visit if they want help applying the setup on multiple devices.
+
+6. Is this a guarantee that my child will never see anything harmful online?
+Answer:
+No. No technical system can guarantee complete protection. This service adds a strong practical layer of safety and control, but open conversations, supervision, and device habits still matter.
+
+7. Is this only for young children?
+Answer:
+No. The setup can be useful for different age groups, from younger children to teenagers, depending on the type of controls a parent wants in place.
+
+SECTION 8: REQUEST FORM
+This section is mandatory.
+Build a strong conversion form.
+
+Suggested heading:
+Request a Parental Controls Setup
+
+Add reassurance copy:
+Tell me a little about your home setup and what kind of help you need. I’ll review it and come back to you with the best next step.
+
+Form fields:
+- Parent / Guardian Name
+- Email Address
+- Phone Number
+- County / Area
+- Number of children (optional)
+- Main devices used at home (checkboxes or multi-select):
+  - iPhone / iPad
+  - Android phone / tablet
+  - Windows laptop / PC
+  - MacBook / iMac
+  - Smart TV
+  - Games console
+  - Home Wi‑Fi / router
+  - Other
+- What would you like help with? (checkboxes)
+  - Block inappropriate websites
+  - Safer Google and search results
+  - Safer YouTube setup
+  - Block selected apps or games
+  - Time-based rules
+  - Help across multiple devices
+  - In-home setup visit
+- Message / Notes
+- Preferred contact method
+- Preferred time to be contacted
+
+Form behavior requirements:
+- Use proper labels and accessible markup.
+- Use HTML5 validation.
+- Use inline validation where helpful.
+- Show clear success and error states.
+- Use `role="alert"` for important form feedback.
+- Keep mobile spacing generous.
+- Add a short privacy note below the submit button.
+
+Suggested privacy note:
+Your details are only used to respond to your enquiry and arrange the service you request.
+
+Submit button:
+Request My Setup
+
+SECTION 9: FINAL CTA
+Create a warm final call-to-action.
+
+Suggested heading:
+A Safer Internet Setup Starts with One Simple Step
+
+Suggested copy:
+You do not need to figure all of this out alone. If you want a calmer, more practical way to protect your children online, request a setup and I’ll help you choose the right approach for your home.
+
+CTA button:
+Request a Setup
+
+INTERNAL LINKING
+Add natural internal links from this page to:
+- Contact page
+- About page
+- Network / Wi‑Fi service page if relevant
+- Homepage
+
+Do not overdo links.
+
+DESIGN DIRECTION
+The page should feel:
+- family-friendly
+- calm
+- clean
+- trustworthy
+- modern
+- emotionally reassuring
+
+Color and style guidance:
+- Use soft but professional colours.
+- Avoid aggressive reds.
+- Use clean cards, good spacing, and readable typography.
+- Include subtle trust icons like shield, home, devices, checkmarks, and family-safe symbols.
+- Keep the page visually lighter than the business networking page.
+
+IMAGE SUGGESTIONS
+Use images or illustrations that show:
+- A parent helping a child with a tablet or laptop.
+- A tidy home environment with family devices.
+- A simple protected-home internet concept.
+- Gentle device-control or family-safety illustrations.
+- Optional UI mockups showing “safe browsing”, “blocked site”, or “family protection” concepts without referencing any real third-party dashboard.
+
+Avoid:
+- Frightening cyber attack imagery
+- Overly technical dashboards
+- Obvious stock photos with fake smiles
+- Images that make children look endangered or distressed
+
+SEO KEYWORDS TO WEAVE IN NATURALLY
+Use naturally, not spammy:
+- parental controls for kids
+- internet safety for children
+- safer internet for families
+- block harmful websites
+- safe internet setup for kids
+- family internet protection
+- parental controls Ireland
+- online safety for children
+- home internet safety
+- safer YouTube and search settings
+
+SCHEMA
+Add appropriate schema if relevant:
+- Service schema for parental controls / family internet safety support
+- FAQPage schema if FAQ content is rendered visibly on the page
+- Keep schema truthful and simple
+
+IMPORTANT COMPLIANCE NOTE
+Do not position this as a medical, educational, or legal safeguarding service.
+Do not promise complete protection.
+Do not imply active surveillance of children.
+Frame it as practical internet filtering, safer defaults, and parent-led boundaries.
+
+FINAL QUALITY CHECK
+Before finishing, confirm:
+- one H1 only
+- mobile responsive layout
+- strong CTA above the fold
+- pricing visible
+- form working and accessible
+- copy speaks to parents, not IT professionals
+- no mention of NextDNS
+- no jargon-heavy explanations
+- page design matches the rest of the Crettyard Digital website
+- all images optimized with proper dimensions and alt text
+- meta title and meta description completed
+- internal links added
+- no placeholder text left behind
+
+When complete, provide:
+1. The final page structure
+2. The final copy inserted into each section
+3. Any image placeholders used
+4. Any assumptions made
+5. Any items that still need my approval

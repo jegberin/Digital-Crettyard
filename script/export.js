@@ -21,12 +21,13 @@ const routes = [
   { path: '/contact', file: 'contact.html' },
   { path: '/privacy-policy', file: 'privacy-policy.html' },
   { path: '/terms-and-conditions', file: 'terms-and-conditions.html' },
-  { path: '/cookie-policy', file: 'cookie-policy.html' }
+  { path: '/cookie-policy', file: 'cookie-policy.html' },
+  { path: '/parental-controls', file: 'parental-controls.html' }
 ];
 
 function rewriteLinks(html) {
-  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)#([^"]*)"/g, 'href="/$1.html#$2"');
-  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)"/g, 'href="/$1.html"');
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|parental-controls|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)#([^"]*)"/g, 'href="/$1.html#$2"');
+  html = html.replace(/href="\/(web-design|microsoft-365|network-wifi-security|parental-controls|portfolio|about|contact|privacy-policy|terms-and-conditions|cookie-policy)"/g, 'href="/$1.html"');
   html = html.replace(/href="\/"/g, 'href="/index.html"');
   html = html.replace(/href="\/#services"/g, 'href="/index.html#services"');
   return html;

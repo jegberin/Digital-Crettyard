@@ -26,6 +26,7 @@ export function Footer() {
                 <li><Link href="/web-design" className="text-white/60 hover:text-white transition-colors text-sm">Web Design</Link></li>
                 <li><Link href="/microsoft-365" className="text-white/60 hover:text-white transition-colors text-sm">Microsoft 365</Link></li>
                 <li><Link href="/network-wifi-security" className="text-white/60 hover:text-white transition-colors text-sm">Network &amp; Wi-Fi</Link></li>
+                <li><Link href="/parental-controls" className="text-white/60 hover:text-white transition-colors text-sm">Parental Controls</Link></li>
               </ul>
             </nav>
           </section>

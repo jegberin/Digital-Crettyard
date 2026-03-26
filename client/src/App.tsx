@@ -14,6 +14,7 @@ import Contact from "@/pages/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsAndConditions from "@/pages/TermsAndConditions";
 import CookiePolicy from "@/pages/CookiePolicy";
+import ParentalControls from "@/pages/ParentalControls";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -63,6 +64,10 @@ const pageSEO: Record<string, { title: string; description: string; noindex?: bo
     title: "Cookie Policy | Crettyard Digital",
     description: "How Crettyard Digital uses cookies and similar technologies on our website. Manage your cookie preferences.",
     noindex: true
+  },
+  "/parental-controls": {
+    title: "Parental Controls for Families | Safer Internet Setup for Kids | Crettyard Digital",
+    description: "Simple parental controls for families who want safer internet access at home. Block harmful content, set sensible limits, and protect your children's devices with plain-English help from Crettyard Digital."
   }
 };
 
@@ -98,6 +103,15 @@ const faqData: Record<string, { question: string; answer: string }[]> = {
     { question: "How long does a network installation take?", answer: "A small office setup can be done in a day. Larger installations may take 2–3 days depending on complexity." },
     { question: "Do you provide ongoing network support?", answer: "Yes. I offer remote monitoring and support plans so issues are caught early, often before you even notice them." },
     { question: "What area do you cover?", answer: "I cover Laois, Carlow, Kilkenny, Kildare, and surrounding counties. Remote support is available across Ireland." }
+  ],
+  "/parental-controls": [
+    { question: "What kinds of things can be blocked?", answer: "The setup can help block categories such as adult content and other inappropriate material, and can also be tailored to block selected sites, apps, or services where needed." },
+    { question: "Can this work on more than one device?", answer: "Yes, the goal is to help protect the devices your family uses, based on the setup you choose and the devices involved." },
+    { question: "Can you help with YouTube and search safety?", answer: "Yes, safer search settings and stricter YouTube filtering can be included as part of the setup." },
+    { question: "Can time limits or schedule rules be added?", answer: "Yes, sensible time-based rules can be set for selected services, apps, or categories where appropriate." },
+    { question: "Do I need an in-home visit?", answer: "Not always. Some families may be fine with a remote or simpler setup, while others may prefer an in-home visit if they want help applying the setup on multiple devices." },
+    { question: "Is this a guarantee that my child will never see anything harmful online?", answer: "No. No technical system can guarantee complete protection. This service adds a strong practical layer of safety and control, but open conversations, supervision, and device habits still matter." },
+    { question: "Is this only for young children?", answer: "No. The setup can be useful for different age groups, from younger children to teenagers, depending on the type of controls a parent wants in place." }
   ]
 };
 
@@ -121,6 +135,9 @@ function RouteSEO() {
       {location === "/network-wifi-security" && (
         <ServiceSchema name="Business Network & Wi-Fi Solutions" description="Network design, Wi-Fi setup, security, and ongoing support for offices, workshops, and retail spaces." />
       )}
+      {location === "/parental-controls" && (
+        <ServiceSchema name="Parental Controls & Family Internet Safety" description="Managed parental controls setup for families in Ireland. Block harmful content, add safer search and YouTube settings, and apply sensible internet rules across home devices." />
+      )}
       {location === "/about" && <AboutPageSchema />}
       {location === "/contact" && <ContactPageSchema />}
     </>
@@ -143,6 +160,7 @@ function Router() {
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />
           <Route path="/cookie-policy" component={CookiePolicy} />
+          <Route path="/parental-controls" component={ParentalControls} />
           <Route component={NotFound} />
         </Switch>
       </main>
