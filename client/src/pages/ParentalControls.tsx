@@ -105,7 +105,10 @@ export default function ParentalControls() {
     try {
       const res = await fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: data });
       setSubmitted(res.ok ? "success" : "error");
-      if (res.ok) form.reset();
+      if (res.ok) {
+        form.reset();
+        (window as any).gtag?.("event", "conversion", { send_to: "AW-18044040603/aBUrCJPXsZAcEJvriJxD" });
+      }
     } catch {
       setSubmitted("error");
     }

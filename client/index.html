@@ -24,6 +24,18 @@
       gtag('js', new Date());
       gtag('config', 'G-F31MN0XL4T');
       gtag('config', 'AW-18044040603');
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18044040603/aBUrCJPXsZAcEJvriJxD',
+          'event_callback': callback
+        });
+        return false;
+      }
     </script>
 
     <link rel="icon" type="image/png" href="/favicon.png" />

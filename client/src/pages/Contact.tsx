@@ -71,6 +71,7 @@ export default function Contact() {
 
       if (response.ok) {
         setSubmitted("success");
+        (window as any).gtag?.("event", "conversion", { send_to: "AW-18044040603/aBUrCJPXsZAcEJvriJxD" });
       } else {
         setSubmitted("error");
       }
