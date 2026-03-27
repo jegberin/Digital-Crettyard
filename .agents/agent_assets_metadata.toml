@@ -24,3 +24,27 @@ id = "9KPgdLDDpR_4NFIecz9GH"
 uri = "file://attached_assets/google-ads-web-design-square-isometric.png"
 type = "image"
 title = "4 — Isometric Build (Square 1:1)"
+
+[[outputs]]
+id = "2mAowMPpzPm262hqATaIm"
+uri = "file://attached_assets/google-ads-branded-1-landscape.png"
+type = "image"
+title = "1 — Dark Navy Monitor (Landscape 1200×628)"
+
+[[outputs]]
+id = "shUEgk95dtTcGQe_yCFQH"
+uri = "file://attached_assets/google-ads-branded-2-landscape.png"
+type = "image"
+title = "2 — Split Layout with Laptop (Landscape 1200×628)"
+
+[[outputs]]
+id = "nFrVs8UJ9392I_OONaMCc"
+uri = "file://attached_assets/google-ads-branded-3-square.png"
+type = "image"
+title = "3 — Dark Teal Orb (Square 1200×1200)"
+
+[[outputs]]
+id = "sQJxVU5JZ6YUrQqoRpJGU"
+uri = "file://attached_assets/google-ads-branded-4-square.png"
+type = "image"
+title = "4 — Light Devices (Square 1200×1200)"
