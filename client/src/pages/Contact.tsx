@@ -231,7 +231,7 @@ export default function Contact() {
                 {submitted !== "success" && (
                   <form
                     className="space-y-5"
-                    action="https://formsubmit.co/a91adc27e1b3a9255f7d031230612b44"
+                    action="https://formsubmit.co/info@crettyard.ie"
                     method="POST"
                     data-testid="form-contact"
                     onSubmit={handleSubmit}

@@ -424,7 +424,7 @@ export default function ParentalControls() {
 
             {submitted !== "success" && (
               <form
-                action="https://formsubmit.co/a91adc27e1b3a9255f7d031230612b44"
+                action="https://formsubmit.co/info@crettyard.ie"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-6 bg-[#f3f4f5] p-8 rounded-2xl"
