@@ -1,0 +1,26 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Vmod9hSlvOn3Fzmg_j3Ax"
+uri = "file://attached_assets/google-ads-web-design-desktop.png"
+type = "image"
+title = "1 — Desktop Website (Landscape 16:9)"
+
+[[outputs]]
+id = "09FZDU8w605M74mAwxDbi"
+uri = "file://attached_assets/google-ads-web-design-responsive.png"
+type = "image"
+title = "2 — Responsive Devices (Landscape 16:9)"
+
+[[outputs]]
+id = "uCrYHVkA-XAcJITIXdezW"
+uri = "file://attached_assets/google-ads-web-design-square-monitor.png"
+type = "image"
+title = "3 — Monitor Glow (Square 1:1)"
+
+[[outputs]]
+id = "9KPgdLDDpR_4NFIecz9GH"
+uri = "file://attached_assets/google-ads-web-design-square-isometric.png"
+type = "image"
+title = "4 — Isometric Build (Square 1:1)"
