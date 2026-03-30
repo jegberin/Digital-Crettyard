@@ -235,6 +235,8 @@ async function exportStatic() {
       });
       const page = await browser.newPage();
 
+      const interactivePages = new Set(['get-a-quote.html', 'contact.html', 'parental-controls.html']);
+
       for (const route of routes) {
         console.log(`Exporting ${route.path} to ${route.file}...`);
         await page.goto(`${baseUrl}${route.path}`, { waitUntil: 'networkidle0' });
@@ -246,9 +248,11 @@ async function exportStatic() {
         let html = await page.content();
         
         html = rewriteLinks(html);
-        html = stripReactBundle(html);
+        if (!interactivePages.has(route.file)) {
+          html = stripReactBundle(html);
+          html = fixFramerMotionStyles(html);
+        }
         html = fixOgImages(html);
-        html = fixFramerMotionStyles(html);
         html = fixAccordionContent(html);
         html = addStaticScripts(html);
         
@@ -256,6 +260,20 @@ async function exportStatic() {
       }
 
       await browser.close();
+
+      const workerSrc = await fs.readFile(path.join(__dirname, 'cloudflare-worker.js'), 'utf8');
+      await fs.writeFile(path.join(docsDir, '_worker.js'), workerSrc);
+
+      const wranglerConfig = {
+        $schema: 'node_modules/wrangler/config-schema.json',
+        name: 'digitalcrettyard',
+        main: '_worker.js',
+        compatibility_date: '2025-09-27',
+        observability: { enabled: true },
+        assets: { directory: '.' },
+        compatibility_flags: ['nodejs_compat'],
+      };
+      await fs.writeFile(path.join(docsDir, 'wrangler.jsonc'), JSON.stringify(wranglerConfig, null, 2));
 
       await fs.writeFile(path.join(docsDir, '.nojekyll'), '');
 
