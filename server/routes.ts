@@ -9,7 +9,7 @@ const BASE_PRICES: Record<string, number> = {
 };
 
 const FEATURE_PRICES: Record<string, { label: string; price: number }> = {
-  copywriting:  { label: "Crettyard Digital writes the text & images", price: 99 },
+  copywriting:  { label: "Let Crettyard Digital write the text & images", price: 99 },
   contactform:  { label: "Advanced contact form", price: 49 },
   blog:         { label: "Blog / news section", price: 249 },
   booking:      { label: "Booking/calendar integration", price: 99 },

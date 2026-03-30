@@ -460,7 +460,7 @@ export default function GetAQuote() {
                   <div className="grid gap-3 mb-6">
                     {[
                       { val: false, label: "No thanks — I already have business email", desc: "Skip this step" },
-                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: "€199 one-time setup · €8.48/mailbox/month (billed by Microsoft) · Includes Teams, OneDrive & Office apps" },
+                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: "€199 one-time setup · €8.48/mailbox/month indicative, billed directly by Microsoft · Includes Teams, OneDrive & Office apps" },
                     ].map((opt) => (
                       <button
                         key={String(opt.val)}
