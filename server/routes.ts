@@ -9,19 +9,21 @@ const BASE_PRICES: Record<string, number> = {
 };
 
 const FEATURE_PRICES: Record<string, { label: string; price: number }> = {
-  gallery:      { label: "Photo gallery / portfolio section", price: 149 },
+  copywriting:  { label: "Crettyard Digital writes the text & images", price: 99 },
+  contactform:  { label: "Advanced contact form", price: 49 },
   blog:         { label: "Blog / news section", price: 249 },
-  booking:      { label: "Online booking / appointments", price: 349 },
-  ecommerce:    { label: "E-commerce shop (up to 20 products)", price: 599 },
-  events:       { label: "Events & classes calendar", price: 199 },
-  testimonials: { label: "Testimonials / reviews slider", price: 99 },
-  livechat:     { label: "Live chat widget integration", price: 79 },
-  gdpr:         { label: "GDPR cookie consent setup", price: 99 },
-  analytics:    { label: "Google Analytics + Search Console", price: 79 },
+  booking:      { label: "Booking/calendar integration", price: 99 },
+  payments:     { label: "Payment gateway integration", price: 199 },
+  ecommerce:    { label: "Full e-commerce setup (up to 20 products)", price: 499 },
+  newsletter:   { label: "Newsletter / email signup", price: 49 },
+  livechat:     { label: "Live chat / WhatsApp widget", price: 49 },
+  multilingual: { label: "Multilingual / second-language version", price: 199 },
+  branding:     { label: "Logo design & brand pack", price: 99 },
 };
 
 const DOMAIN_YEARLY = 24;
-const EMAIL_PER_USER_MONTHLY = 6;
+const EMAIL_PER_USER_MONTHLY = 8.48;
+const EMAIL_SETUP_FEE = 199;
 
 const BUSINESS_TYPE_LABELS: Record<string, string> = {
   tradesperson: "Tradesperson / Contractor",
@@ -82,10 +84,11 @@ function calculatePrice(data: {
     (sum, f) => sum + (FEATURE_PRICES[f]?.price ?? 0),
     0
   );
-  const oneTime = discountedBase + addons;
+  const emailSetup = data.wantsEmail ? EMAIL_SETUP_FEE : 0;
+  const oneTime = discountedBase + addons + emailSetup;
   const yearly = data.hasDomain === false ? DOMAIN_YEARLY : 0;
-  const monthly = data.wantsEmail ? (data.emailUsers ?? 1) * EMAIL_PER_USER_MONTHLY : 0;
-  return { base: discountedBase, addons, oneTime, yearly, monthly };
+  const monthly = data.wantsEmail ? Math.round((data.emailUsers ?? 1) * EMAIL_PER_USER_MONTHLY * 100) / 100 : 0;
+  return { base: discountedBase, addons, emailSetup, oneTime, yearly, monthly };
 }
 
 function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePrice>): string {
@@ -156,7 +159,8 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
           </table>
           ${data.wantsEmail ? `
           <div style="margin-top:12px;padding:12px 16px;background:#f3f4f5;border-radius:6px;font-size:14px;color:#555;">
-            <strong style="color:#0C2366;">Business Email (Microsoft 365):</strong> ${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""} — ${fmt(EMAIL_PER_USER_MONTHLY)}/mailbox/month
+            <strong style="color:#0C2366;">Microsoft 365 Business Email:</strong> ${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""}<br>
+            <span style="font-size:13px;">One-time setup: ${fmt(EMAIL_SETUP_FEE)} · Ongoing: ~${fmt(pricing.monthly)}/month (indicative, billed directly by Microsoft to customer)</span>
           </div>` : ""}
         </td>
       </tr>
@@ -174,13 +178,14 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
               <td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.base)}</td>
             </tr>
             ${pricing.addons > 0 ? `<tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Feature add-ons</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.addons)}</td></tr>` : ""}
+            ${pricing.emailSetup > 0 ? `<tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Microsoft 365 setup (one-off)</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.emailSetup)}</td></tr>` : ""}
             ${pricing.monthly > 0 ? `
             <tr><td colspan="2" style="padding:4px;"></td></tr>
             <tr>
-              <td style="padding:10px 16px;background:#f3f4f5;color:#333;font-size:14px;font-weight:bold;border-radius:6px 6px 0 0;">Monthly</td>
-              <td style="padding:10px 16px;background:#f3f4f5;color:#0C2366;font-size:15px;font-weight:bold;text-align:right;border-radius:6px 6px 0 0;">${fmt(pricing.monthly)}/mo</td>
+              <td style="padding:10px 16px;background:#f3f4f5;color:#333;font-size:14px;font-weight:bold;border-radius:6px 6px 0 0;">Monthly (indicative — billed by Microsoft)</td>
+              <td style="padding:10px 16px;background:#f3f4f5;color:#0C2366;font-size:15px;font-weight:bold;text-align:right;border-radius:6px 6px 0 0;">~${fmt(pricing.monthly)}/mo</td>
             </tr>
-            <tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Microsoft 365 (${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""})</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.monthly)}/mo</td></tr>
+            <tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Microsoft 365 (${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""} × €8.48/mo)</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">~${fmt(pricing.monthly)}/mo</td></tr>
             ` : ""}
             ${pricing.yearly > 0 ? `
             <tr><td colspan="2" style="padding:4px;"></td></tr>

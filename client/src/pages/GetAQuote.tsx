@@ -7,9 +7,10 @@ import { Label } from "@/components/ui/label";
 import type { LucideIcon } from "lucide-react";
 import {
   Hammer, Store, Briefcase, Users, Heart, Building2,
-  Target, Image, Newspaper, CalendarCheck, ShoppingCart, Calendar,
-  Star, MessageSquare, Shield, BarChart3, CheckCircle2, ArrowRight,
-  Mail, ChevronLeft, Clock
+  Target, Newspaper, CalendarCheck, ShoppingCart,
+  MessageSquare, CheckCircle2, ArrowRight,
+  Mail, ChevronLeft, Clock, PenLine, ClipboardList,
+  CreditCard, Globe, Palette, Info
 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
@@ -20,19 +21,21 @@ const BASE_PRICES: Record<string, number> = {
 };
 
 const FEATURE_OPTIONS = [
-  { id: "gallery",      label: "Photo gallery / portfolio",      desc: "Showcase your work with a visual gallery", price: 149, icon: Image },
-  { id: "blog",         label: "Blog / news section",            desc: "Share updates, tips, and news articles",  price: 249, icon: Newspaper },
-  { id: "booking",      label: "Online booking / appointments",  desc: "Let customers book directly online",       price: 349, icon: CalendarCheck },
-  { id: "ecommerce",    label: "E-commerce shop",                desc: "Sell products online (up to 20 items)",   price: 599, icon: ShoppingCart },
-  { id: "events",       label: "Events & classes calendar",      desc: "Display upcoming events or class schedules", price: 199, icon: Calendar },
-  { id: "testimonials", label: "Testimonials / reviews slider",  desc: "Showcase customer reviews with style",    price: 99,  icon: Star },
-  { id: "livechat",     label: "Live chat widget",               desc: "Chat with website visitors in real time",  price: 79,  icon: MessageSquare },
-  { id: "gdpr",         label: "GDPR cookie consent",           desc: "Cookie banner & consent management",      price: 99,  icon: Shield },
-  { id: "analytics",   label: "Google Analytics setup",         desc: "Track visitors & search performance",     price: 79,  icon: BarChart3 },
+  { id: "copywriting",  label: "Let Crettyard Digital write the text & images", desc: "We'll write all your website copy and source images",       price: 99,  icon: PenLine },
+  { id: "contactform",  label: "Advanced contact form",                          desc: "Multi-field form with file upload, dropdowns & auto-reply", price: 49,  icon: ClipboardList },
+  { id: "blog",         label: "Blog / news section",                            desc: "Share updates, tips, and news articles",                    price: 249, icon: Newspaper },
+  { id: "booking",      label: "Booking/calendar integration",                   desc: "Integrate a booking tool like Calendly or similar",          price: 99,  icon: CalendarCheck },
+  { id: "payments",     label: "Payment gateway integration",                    desc: "Accept card payments online (e.g. Stripe)",                  price: 199, icon: CreditCard },
+  { id: "ecommerce",    label: "Full e-commerce setup",                          desc: "Full online shop (up to 20 products)",                       price: 499, icon: ShoppingCart },
+  { id: "newsletter",   label: "Newsletter / email signup",                      desc: "Grow your mailing list with a signup form",                  price: 49,  icon: Mail },
+  { id: "livechat",     label: "Live chat / WhatsApp widget",                    desc: "Chat with website visitors in real time",                    price: 49,  icon: MessageSquare },
+  { id: "multilingual", label: "Multilingual / second-language version",         desc: "Add a second language to your site",                         price: 199, icon: Globe },
+  { id: "branding",     label: "Logo design & brand pack",                       desc: "Logo, colours, fonts — mini brand identity",                 price: 99,  icon: Palette },
 ];
 
 const DOMAIN_YEARLY = 24;
-const EMAIL_PER_USER = 6;
+const EMAIL_PER_USER = 8.48;
+const EMAIL_SETUP_FEE = 199;
 
 interface FormState {
   businessType: string;
@@ -60,10 +63,11 @@ function calcPrice(form: FormState) {
     (sum, f) => sum + (FEATURE_OPTIONS.find((o) => o.id === f)?.price ?? 0),
     0
   );
-  const oneTime = discountedBase + addons;
+  const emailSetup = form.wantsEmail ? EMAIL_SETUP_FEE : 0;
+  const oneTime = discountedBase + addons + emailSetup;
   const yearly = form.hasDomain === false ? DOMAIN_YEARLY : 0;
-  const monthly = form.wantsEmail ? form.emailUsers * EMAIL_PER_USER : 0;
-  return { base: discountedBase, addons, oneTime, yearly, monthly };
+  const monthly = form.wantsEmail ? Math.round(form.emailUsers * EMAIL_PER_USER * 100) / 100 : 0;
+  return { base: discountedBase, addons, emailSetup, oneTime, yearly, monthly };
 }
 
 function fmt(n: number) {
@@ -332,7 +336,7 @@ export default function GetAQuote() {
                   <div className="grid gap-3">
                     {[
                       { id: "enquiries",    label: "Get more enquiries & leads",        desc: "Drive phone calls, emails, and contact form submissions",    icon: Target },
-                      { id: "showcase",     label: "Showcase my work & portfolio",      desc: "Let potential customers see examples of what I do",          icon: Image },
+                      { id: "showcase",     label: "Showcase my work & portfolio",      desc: "Let potential customers see examples of what I do",          icon: Palette },
                       { id: "credibility",  label: "Build credibility & trust",         desc: "Look professional and established when customers search me", icon: CheckCircle2 },
                       { id: "ecommerce",    label: "Sell products or services online",  desc: "Take orders, bookings, or payments through the site",        icon: ShoppingCart },
                       { id: "information",  label: "Provide information & contact",     desc: "Share opening hours, location, services, and contact info",  icon: Building2 },
@@ -456,7 +460,7 @@ export default function GetAQuote() {
                   <div className="grid gap-3 mb-6">
                     {[
                       { val: false, label: "No thanks — I already have business email", desc: "Skip this step" },
-                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: "Includes Teams, OneDrive & Office apps" },
+                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: "€199 one-time setup · €8.48/mailbox/month (billed by Microsoft) · Includes Teams, OneDrive & Office apps" },
                     ].map((opt) => (
                       <button
                         key={String(opt.val)}
@@ -717,6 +721,12 @@ export default function GetAQuote() {
                       <span className="font-headline font-bold text-primary">+{fmt(pricing.addons)}</span>
                     </div>
                   )}
+                  {pricing.emailSetup > 0 && (
+                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                      <span className="text-sm font-sans text-foreground/70">Microsoft 365 setup (one-off)</span>
+                      <span className="font-headline font-bold text-primary">+{fmt(pricing.emailSetup)}</span>
+                    </div>
+                  )}
                   {pricing.yearly > 0 && (
                     <div className="flex justify-between items-center py-2 border-b border-gray-200">
                       <span className="text-sm font-sans text-foreground/70">Domain registration</span>
@@ -725,8 +735,8 @@ export default function GetAQuote() {
                   )}
                   {pricing.monthly > 0 && (
                     <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                      <span className="text-sm font-sans text-foreground/70">Business email ({form.emailUsers} mailbox{form.emailUsers > 1 ? "es" : ""})</span>
-                      <span className="font-headline font-bold text-primary">+{fmt(pricing.monthly)}/mo</span>
+                      <span className="text-sm font-sans text-foreground/70">Microsoft 365 licences ({form.emailUsers} mailbox{form.emailUsers > 1 ? "es" : ""}) — billed by Microsoft</span>
+                      <span className="font-headline font-bold text-primary">~{fmt(pricing.monthly)}/mo</span>
                     </div>
                   )}
                 </div>
@@ -757,6 +767,16 @@ export default function GetAQuote() {
                     </li>
                   ))}
                 </ol>
+              </div>
+
+              <div className="bg-[#f3f4f5] rounded-2xl p-6 mb-8">
+                <h3 className="font-headline font-bold text-primary mb-3 flex items-center gap-2 text-sm">
+                  <Info size={16} className="text-accent shrink-0" />
+                  About Third-Party Integrations
+                </h3>
+                <p className="text-sm font-sans text-foreground/70 leading-relaxed">
+                  This quote covers the Crettyard Digital build and setup only. If your project includes integrations with third-party services — such as Calendly (online booking), Stripe (payment processing), or similar platforms — those services may carry their own monthly subscription or transaction fees depending on your usage and chosen plan. We'll outline any expected costs as part of your full quote.
+                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
