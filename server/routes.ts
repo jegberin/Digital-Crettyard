@@ -284,7 +284,7 @@ export async function registerRoutes(
 
     const resend = new Resend(apiKey);
 
-    const fromEmail = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+    const fromEmail = process.env.RESEND_SENDER ?? "onboarding@resend.dev";
 
     try {
       const { error } = await resend.emails.send({

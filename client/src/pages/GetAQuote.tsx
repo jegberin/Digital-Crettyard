@@ -9,7 +9,7 @@ import {
   Hammer, Store, Briefcase, Users, Heart, Building2,
   Target, Image, Newspaper, CalendarCheck, ShoppingCart, Calendar,
   Star, MessageSquare, Shield, BarChart3, CheckCircle2, ArrowRight,
-  Mail, ChevronLeft, Sparkles, Clock, Pencil
+  Mail, ChevronLeft, Clock
 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
@@ -69,7 +69,7 @@ function fmt(n: number) {
   return `€${n.toLocaleString("en-IE")}`;
 }
 
-const TOTAL_STEPS = 7;
+const TOTAL_STEPS = 6;
 
 function ProgressBar({ step }: { step: number }) {
   const pct = Math.round(((step - 1) / (TOTAL_STEPS - 1)) * 100);
@@ -134,38 +134,6 @@ function SelectCard({
   );
 }
 
-function PriceBar({ form, step }: { form: FormState; step: number }) {
-  if (step < 3 || !form.pageCount) return null;
-  const { oneTime, monthly, yearly } = calcPrice(form);
-  return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-primary text-white shadow-2xl border-t border-white/10">
-      <div className="container mx-auto px-4 max-w-2xl py-3 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
-          <Sparkles size={15} className="text-accent shrink-0" />
-          <span className="text-xs font-headline font-bold text-white/70 uppercase tracking-wider">Guide Price</span>
-        </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="text-right">
-            <span className="text-accent font-headline font-extrabold text-lg">{fmt(oneTime)}</span>
-            <span className="text-white/50 text-xs ml-1">one-off</span>
-          </div>
-          {monthly > 0 && (
-            <div className="text-right">
-              <span className="text-white font-headline font-bold text-base">+ {fmt(monthly)}</span>
-              <span className="text-white/50 text-xs ml-1">/mo</span>
-            </div>
-          )}
-          {yearly > 0 && (
-            <div className="text-right">
-              <span className="text-white font-headline font-bold text-base">+ {fmt(yearly)}</span>
-              <span className="text-white/50 text-xs ml-1">/yr</span>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function GetAQuote() {
   const [step, setStep] = useState(1);
@@ -214,7 +182,6 @@ export default function GetAQuote() {
     if (step === 6) {
       return !!form.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
     }
-    if (step === 7) return !isSubmitting;
     return true;
   }
 
@@ -233,6 +200,9 @@ export default function GetAQuote() {
   }
 
   async function handleSubmit() {
+    setTouched({ all: true, name: true, email: true });
+    if (!canProceed()) return;
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -259,7 +229,6 @@ export default function GetAQuote() {
   }
 
   const pricing = calcPrice(form);
-  const showPriceBar = step >= 3 && step <= 7 && !!form.pageCount && !submitted;
 
   const stepTitles = [
     "About Your Business",
@@ -268,11 +237,10 @@ export default function GetAQuote() {
     "Features & Add-ons",
     "Business Email",
     "Your Details",
-    "Review & Confirm",
   ];
 
   return (
-    <div className={`flex flex-col min-h-screen ${showPriceBar ? "pb-16" : ""}`}>
+    <div className="flex flex-col min-h-screen">
       <noscript>
         <div style={{ padding: "2rem", textAlign: "center" }}>
           <p>This page requires JavaScript to use the interactive quote calculator.</p>
@@ -302,7 +270,7 @@ export default function GetAQuote() {
                 <span className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wider">
                   Step {step} of {TOTAL_STEPS}
                 </span>
-                <span className="text-xs font-sans text-foreground/40">{stepTitles[step - 1]}</span>
+                <span className="text-xs font-sans text-foreground/40">{stepTitles[step - 1] ?? ""}</span>
               </div>
               <ProgressBar step={step} />
             </div>
@@ -386,9 +354,9 @@ export default function GetAQuote() {
                   <p className="text-foreground/60 text-sm mb-7 font-sans">How many pages does your website need? Not sure — pick the closest match.</p>
                   <div className="grid gap-3 mb-8">
                     {[
-                      { id: "1-3", label: "1–3 Pages", desc: "Home, About, Contact — great for tradespeople or new businesses needing a fast, clean online presence.", badge: "from €499" },
-                      { id: "4-7", label: "4–7 Pages", desc: "Home, Services, About, Gallery, Contact & more — ideal for most established small businesses.", badge: "from €899", popular: true },
-                      { id: "8+",  label: "8+ Pages",  desc: "Full site with multiple service pages, blog, portfolio, or other sections — for larger needs.", badge: "from €1,399" },
+                      { id: "1-3", label: "1–3 Pages", desc: "Home, About, Contact — great for tradespeople or new businesses needing a fast, clean online presence.", popular: false },
+                      { id: "4-7", label: "4–7 Pages", desc: "Home, Services, About, Gallery, Contact & more — ideal for most established small businesses.", popular: true },
+                      { id: "8+",  label: "8+ Pages",  desc: "Full site with multiple service pages, blog, portfolio, or other sections — for larger needs.", popular: false },
                     ].map((opt) => (
                       <SelectCard
                         key={opt.id}
@@ -396,7 +364,7 @@ export default function GetAQuote() {
                         onClick={() => set("pageCount", opt.id)}
                         label={opt.label}
                         desc={opt.desc}
-                        badge={opt.badge + (opt.popular ? " · Most popular" : "")}
+                        badge={opt.popular ? "Most popular" : undefined}
                         testId={`card-page-count-${opt.id}`}
                       />
                     ))}
@@ -416,12 +384,7 @@ export default function GetAQuote() {
                       </div>
                       <div>
                         <p className="font-headline font-bold text-sm text-primary">This is a redesign of an existing website</p>
-                        <p className="text-xs text-foreground/60 font-sans mt-0.5">Saves 20% on the base build price — we're working from an existing foundation.</p>
-                        {form.isRedesign && form.pageCount && (
-                          <p className="text-xs text-accent font-bold mt-1">
-                            Base price: {fmt(BASE_PRICES[form.pageCount])} → {fmt(Math.round(BASE_PRICES[form.pageCount] * 0.8))} (saving {fmt(Math.round(BASE_PRICES[form.pageCount] * 0.2))})
-                          </p>
-                        )}
+                        <p className="text-xs text-foreground/60 font-sans mt-0.5">We already have a site — we're looking to update or rebuild it.</p>
                       </div>
                     </div>
 
@@ -429,8 +392,8 @@ export default function GetAQuote() {
                       <p className="font-headline font-bold text-sm text-primary mb-3">Do you already have a domain name? <span className="text-red-500">*</span></p>
                       <div className="grid grid-cols-2 gap-3">
                         {[
-                          { val: true,  label: "Yes, I have one",       desc: "e.g. mybusiness.ie" },
-                          { val: false, label: "No, I need one",        desc: `+${fmt(DOMAIN_YEARLY)}/year` },
+                          { val: true,  label: "Yes, I have one", desc: "e.g. mybusiness.ie" },
+                          { val: false, label: "No, I need one",  desc: "We'll register one for you" },
                         ].map((opt) => (
                           <button
                             key={String(opt.val)}
@@ -455,10 +418,10 @@ export default function GetAQuote() {
               {step === 4 && (
                 <FadeIn key="step4">
                   <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Features & Add-ons</h2>
-                  <p className="text-foreground/60 text-sm mb-2 font-sans">Select any extra features you'd like. All prices are one-off additions to the base cost.</p>
+                  <p className="text-foreground/60 text-sm mb-2 font-sans">Select any extra features you'd like included in your website.</p>
                   <div className="flex items-center gap-2 mb-6 p-3 bg-accent/5 rounded-xl">
                     <CheckCircle2 size={16} className="text-accent shrink-0" />
-                    <span className="text-sm font-sans text-foreground/70"><strong className="text-primary">Included free:</strong> Contact form with email notifications</span>
+                    <span className="text-sm font-sans text-foreground/70"><strong className="text-primary">Included:</strong> Contact form with email notifications</span>
                   </div>
                   <div className="grid gap-3">
                     {FEATURE_OPTIONS.map((opt) => (
@@ -469,13 +432,12 @@ export default function GetAQuote() {
                         icon={opt.icon}
                         label={opt.label}
                         desc={opt.desc}
-                        badge={`+${fmt(opt.price)}`}
                         testId={`card-feature-${opt.id}`}
                       />
                     ))}
                   </div>
                   {form.features.length === 0 && (
-                    <p className="text-foreground/40 text-xs mt-4 text-center font-sans italic">No extra features selected — the base build is still included.</p>
+                    <p className="text-foreground/40 text-xs mt-4 text-center font-sans italic">No extra features selected — you can always add them later.</p>
                   )}
                 </FadeIn>
               )}
@@ -488,7 +450,7 @@ export default function GetAQuote() {
                   <div className="grid gap-3 mb-6">
                     {[
                       { val: false, label: "No thanks — I already have business email", desc: "Skip this step" },
-                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: `€${EMAIL_PER_USER}/mailbox/month · Includes Teams, OneDrive & Office apps` },
+                      { val: true,  label: "Yes — set up Microsoft 365 business email", desc: "Includes Teams, OneDrive & Office apps" },
                     ].map((opt) => (
                       <button
                         key={String(opt.val)}
@@ -527,13 +489,7 @@ export default function GetAQuote() {
                         >+</button>
                         <span className="text-sm text-foreground/60 font-sans">mailbox{form.emailUsers !== 1 ? "es" : ""}</span>
                       </div>
-                      <div className="pt-2 border-t border-gray-200">
-                        <p className="text-sm font-sans text-foreground/70">
-                          <span className="font-bold text-accent text-base">{fmt(form.emailUsers * EMAIL_PER_USER)}/month</span>
-                          <span className="text-foreground/50 ml-1">({fmt(EMAIL_PER_USER)} × {form.emailUsers} mailbox{form.emailUsers !== 1 ? "es" : ""})</span>
-                        </p>
-                        <p className="text-xs text-foreground/50 mt-1 font-sans">Billed directly by Microsoft. Setup assistance included.</p>
-                      </div>
+                      <p className="text-xs text-foreground/50 pt-2 border-t border-gray-200 font-sans">Billed directly by Microsoft. Setup assistance included.</p>
                     </div>
                   )}
                 </FadeIn>
@@ -541,8 +497,14 @@ export default function GetAQuote() {
 
               {step === 6 && (
                 <FadeIn key="step6">
-                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Your Details</h2>
-                  <p className="text-foreground/60 text-sm mb-7 font-sans">Just a few details so we can send you your guide quote and get in touch.</p>
+                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Almost There</h2>
+                  <p className="text-foreground/60 text-sm mb-7 font-sans">Just a few details and we'll calculate your guide price and send it across.</p>
+
+                  {submitStatus === "error" && (
+                    <div role="alert" className="mb-5 p-4 bg-red-50 border border-red-200 rounded-xl text-red-800 text-sm font-sans">
+                      <strong>Something went wrong.</strong> {errorMsg} Please email <a href="mailto:info@crettyard.ie" className="underline">info@crettyard.ie</a> directly if the problem persists.
+                    </div>
+                  )}
 
                   <div className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -653,67 +615,13 @@ export default function GetAQuote() {
                 </FadeIn>
               )}
 
-              {step === 7 && (
-                <FadeIn key="step7">
-                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Review & Confirm</h2>
-                  <p className="text-foreground/60 text-sm mb-7 font-sans">Check your details below, then click Send to get your guide quote.</p>
-
-                  {submitStatus === "error" && (
-                    <div role="alert" className="mb-5 p-4 bg-red-50 border border-red-200 rounded-xl text-red-800 text-sm font-sans">
-                      <strong>Something went wrong.</strong> {errorMsg} Please email <a href="mailto:info@crettyard.ie" className="underline">info@crettyard.ie</a> directly if the problem persists.
-                    </div>
-                  )}
-
-                  <div className="space-y-3 mb-6">
-                    {[
-                      { label: "Business Type", value: form.businessType || "—", step: 1 },
-                      { label: "Website Goals", value: form.websiteGoals.join(", ") || "—", step: 2 },
-                      { label: "Pages", value: form.pageCount ? `${form.pageCount} pages${form.isRedesign ? " (redesign — 20% off)" : ""}` : "—", step: 3 },
-                      { label: "Domain", value: form.hasDomain === true ? "I have a domain" : form.hasDomain === false ? "Need a domain (+€24/yr)" : "—", step: 3 },
-                      { label: "Features", value: form.features.length ? form.features.map(f => FEATURE_OPTIONS.find(o => o.id === f)?.label ?? f).join(", ") : "None selected", step: 4 },
-                      { label: "Business Email", value: form.wantsEmail ? `Microsoft 365 — ${form.emailUsers} mailbox${form.emailUsers > 1 ? "es" : ""} (€${form.emailUsers * EMAIL_PER_USER}/mo)` : "No thanks", step: 5 },
-                      { label: "Your Name", value: form.name || "—", step: 6 },
-                      { label: "Email", value: form.email || "—", step: 6 },
-                      ...(form.phone ? [{ label: "Phone", value: form.phone, step: 6 }] : []),
-                      ...(form.launchDate ? [{ label: "Ideal Launch", value: form.launchDate, step: 6 }] : []),
-                      ...(form.budget ? [{ label: "Budget Range", value: form.budget, step: 6 }] : []),
-                    ].map((row) => (
-                      <div key={row.label} className="flex items-start gap-3 py-2.5 border-b border-gray-100 last:border-0">
-                        <div className="w-32 shrink-0 text-xs font-headline font-bold text-foreground/40 uppercase tracking-wide pt-0.5">{row.label}</div>
-                        <div className="flex-1 text-sm text-primary font-sans">{row.value}</div>
-                        <button
-                          type="button"
-                          onClick={() => { setTouched({}); setStep(row.step); }}
-                          className="shrink-0 text-accent hover:text-accent/70 transition-colors"
-                          aria-label={`Edit ${row.label}`}
-                          data-testid={`button-edit-${row.label.toLowerCase().replace(/\s+/g, "-")}`}
-                        >
-                          <Pencil size={13} />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="p-5 bg-accent/5 rounded-2xl border border-accent/10 flex flex-wrap items-center justify-between gap-3 mb-2">
-                    <div>
-                      <p className="text-xs font-headline font-bold text-foreground/40 uppercase tracking-wide mb-1">Estimated One-time Cost</p>
-                      <p className="text-2xl font-headline font-extrabold text-accent" data-testid="text-review-price">{fmt(pricing.oneTime)}</p>
-                    </div>
-                    <div className="text-right text-xs text-foreground/50 font-sans">
-                      {pricing.monthly > 0 && <p>+ {fmt(pricing.monthly)}/mo (email)</p>}
-                      {pricing.yearly > 0 && <p>+ {fmt(pricing.yearly)}/yr (domain)</p>}
-                      <p className="italic mt-1">Guide price only — fixed quote follows</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              )}
-
               <div className="mt-8 flex items-center gap-3">
                 {step > 1 && (
                   <Button
                     type="button"
                     variant="outline"
                     onClick={back}
+                    disabled={isSubmitting}
                     className="gap-1"
                     data-testid="button-back"
                   >
@@ -721,7 +629,7 @@ export default function GetAQuote() {
                     Back
                   </Button>
                 )}
-                {step < 7 && (
+                {step < 6 && (
                   <Button
                     type="button"
                     onClick={next}
@@ -731,7 +639,7 @@ export default function GetAQuote() {
                     Continue <ArrowRight size={16} className="ml-1" />
                   </Button>
                 )}
-                {step === 7 && (
+                {step === 6 && (
                   <Button
                     type="button"
                     onClick={handleSubmit}
@@ -739,7 +647,7 @@ export default function GetAQuote() {
                     className="flex-1 sm:flex-none sm:min-w-[200px]"
                     data-testid="button-submit"
                   >
-                    {isSubmitting ? "Sending…" : "Send My Quote Request →"}
+                    {isSubmitting ? "Calculating…" : "Get My Guide Quote →"}
                   </Button>
                 )}
               </div>
@@ -838,7 +746,6 @@ export default function GetAQuote() {
         </section>
       )}
 
-      <PriceBar form={form} step={step} />
     </div>
   );
 }
