@@ -226,6 +226,7 @@ export default function GetAQuote() {
       if (res.ok && data.success) {
         setSubmitStatus("success");
         setSubmitted(true);
+        (window as any).gtag?.("event", "conversion", { send_to: "AW-18044040603/zWI0CKOPspIcEJvriJxD" });
       } else {
         setErrorMsg(data.error ?? "Something went wrong.");
         setSubmitStatus("error");
