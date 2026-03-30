@@ -53,6 +53,10 @@ function fixFramerMotionStyles(html) {
 function fixAccordionContent(html) {
   html = html.replace(/data-\[state=closed\]:animate-accordion-up/g, '');
   html = html.replace(/data-\[state=open\]:animate-accordion-down/g, '');
+  // Inject a CSS rule that hides closed accordion content before JS runs.
+  // Radix relies on animation CSS to hide [data-state=closed] regions;
+  // that animation is absent on stripped static pages so answers show by default.
+  html = html.replace('</head>', '<style>div[role="region"][data-state="closed"]{display:none!important;}div[role="region"][data-state="open"]{display:block!important;}</style></head>');
   return html;
 }
 
