@@ -297,14 +297,16 @@ function buildQuoteEmail(data, pricing) {
 </html>`;
 }
 
-async function sendEmail(apiKey, from, to, subject, html) {
+async function sendEmail(apiKey, from, to, subject, html, replyTo) {
+  const body = { from, to, subject, html };
+  if (replyTo) body.reply_to = replyTo;
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ from, to, subject, html }),
+    body: JSON.stringify(body),
   });
   return res;
 }
@@ -335,22 +337,26 @@ async function handleContact(request, env) {
   if (!apiKey) return jsonResponse({ error: "Email service not configured." }, 500);
 
   try {
-    const [notifRes, thankRes] = await Promise.all([
-      sendEmail(apiKey, from, "info@crettyard.ie", `New contact enquiry from ${data.name}`, buildContactNotification(data)),
-      sendEmail(apiKey, from, data.email, "Thanks for getting in touch \u2014 Crettyard Digital", buildThankYou(
-        data.name,
-        "I\u2019ve received your message and will get back to you within one business day with straightforward, plain-English advice.",
-        "In the meantime, if your enquiry is urgent you\u2019re welcome to reply directly to this email or call/WhatsApp on <a href=\"tel:+353879700701\" style=\"color:#12B388;\">+353 87 970 0701</a>."
-      )),
+    const [notifRes] = await Promise.all([
+      sendEmail(apiKey, `Crettyard Digital Website <${from}>`, "info@crettyard.ie",
+        `New Contact Enquiry \u2014 ${data.name}${data.businessName ? ` (${data.businessName})` : ""}`,
+        buildContactNotification(data), data.email),
+      sendEmail(apiKey, `Crettyard Digital <${from}>`, data.email,
+        "Thanks for getting in touch \u2014 Crettyard Digital",
+        buildThankYou(
+          data.name,
+          "Thanks for reaching out. I\u2019ve received your message and will get back to you within one business day.",
+          "In the meantime, feel free to reply to this email if you have anything to add. If your need is urgent, you can also reach me on WhatsApp at 087 970 0701."
+        )),
     ]);
     if (!notifRes.ok) {
       console.error("[contact] Resend notification error:", await notifRes.text());
-      return jsonResponse({ error: "Failed to send notification email." }, 500);
+      return jsonResponse({ error: "Failed to send. Please contact info@crettyard.ie directly." }, 500);
     }
     return jsonResponse({ success: true });
   } catch (err) {
     console.error("[contact] Error:", err);
-    return jsonResponse({ error: "Internal server error." }, 500);
+    return jsonResponse({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." }, 500);
   }
 }
 
@@ -373,21 +379,25 @@ async function handleParentalEnquiry(request, env) {
 
   try {
     const [notifRes] = await Promise.all([
-      sendEmail(apiKey, from, "info@crettyard.ie", `New parental controls enquiry from ${data.name}`, buildParentalNotification(data)),
-      sendEmail(apiKey, from, data.email, "Thanks for your parental controls enquiry \u2014 Crettyard Digital", buildThankYou(
-        data.name,
-        "I\u2019ve received your parental controls enquiry and will be in touch shortly to discuss the best setup for your family.",
-        "In the meantime, if you have any questions feel free to reply directly to this email or call/WhatsApp on <a href=\"tel:+353879700701\" style=\"color:#12B388;\">+353 87 970 0701</a>."
-      )),
+      sendEmail(apiKey, `Crettyard Digital Website <${from}>`, "info@crettyard.ie",
+        `New Parental Controls Enquiry \u2014 ${data.name}${data.county ? `, ${data.county}` : ""}`,
+        buildParentalNotification(data), data.email),
+      sendEmail(apiKey, `Crettyard Digital <${from}>`, data.email,
+        "Thanks for your parental controls enquiry \u2014 Crettyard Digital",
+        buildThankYou(
+          data.name,
+          "Thanks for getting in touch about parental controls. I\u2019ve received your enquiry and will review your setup details and come back to you shortly with the best next step.",
+          "If you have any extra questions in the meantime, just reply to this email or reach me on WhatsApp at 087 970 0701."
+        )),
     ]);
     if (!notifRes.ok) {
       console.error("[parental-enquiry] Resend error:", await notifRes.text());
-      return jsonResponse({ error: "Failed to send notification email." }, 500);
+      return jsonResponse({ error: "Failed to send. Please contact info@crettyard.ie directly." }, 500);
     }
     return jsonResponse({ success: true });
   } catch (err) {
     console.error("[parental-enquiry] Error:", err);
-    return jsonResponse({ error: "Internal server error." }, 500);
+    return jsonResponse({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." }, 500);
   }
 }
 
@@ -435,21 +445,25 @@ async function handleQuote(request, env) {
 
   try {
     const [notifRes] = await Promise.all([
-      sendEmail(apiKey, from, "info@crettyard.ie", `New quote request from ${body.name} \u2014 ${fmt(pricing.oneTime)} one-time`, buildQuoteEmail(sanitised, pricing)),
-      sendEmail(apiKey, from, body.email, "Your website quote \u2014 Crettyard Digital", buildThankYou(
-        body.name,
-        `Thanks for using the quote calculator. Based on what you\u2019ve selected, a guide price for your project is <strong style="color:#0C2366;">${fmt(pricing.oneTime)}</strong> one-time${pricing.monthly > 0 ? ` + ~${fmt(pricing.monthly)}/month (Microsoft 365 billed by Microsoft)` : ""}${pricing.yearly > 0 ? ` + ${fmt(pricing.yearly)}/year (domain)` : ""}.`,
-        "This is a <em>guide price only</em> \u2014 a firm fixed quote will be provided after a free, no-obligation consultation. I\u2019ll be in touch within one business day to discuss the next steps."
-      )),
+      sendEmail(apiKey, `Crettyard Digital Quote Tool <${from}>`, "info@crettyard.ie",
+        `New Quote Request \u2014 ${sanitised.businessName || sanitised.name} (${sanitised.pageCount} pages, ${pricing.oneTime > 0 ? fmt(pricing.oneTime) : "TBD"})`,
+        buildQuoteEmail(sanitised, pricing), body.email),
+      sendEmail(apiKey, `Crettyard Digital <${from}>`, body.email,
+        "Your website quote \u2014 Crettyard Digital",
+        buildThankYou(
+          body.name,
+          `Thanks for using the quote calculator. Based on what you\u2019ve selected, a guide price for your project is <strong style="color:#0C2366;">${fmt(pricing.oneTime)}</strong> one-time${pricing.monthly > 0 ? ` + ~${fmt(pricing.monthly)}/month (Microsoft 365 billed by Microsoft)` : ""}${pricing.yearly > 0 ? ` + ${fmt(pricing.yearly)}/year (domain)` : ""}.`,
+          "This is a <em>guide price only</em> \u2014 a firm fixed quote will be provided after a free, no-obligation consultation. I\u2019ll be in touch within one business day to discuss the next steps."
+        )),
     ]);
     if (!notifRes.ok) {
       console.error("[quote] Resend error:", await notifRes.text());
-      return jsonResponse({ error: "Failed to send quote email." }, 500);
+      return jsonResponse({ error: "Failed to send quote. Please contact info@crettyard.ie directly." }, 500);
     }
     return jsonResponse({ success: true });
   } catch (err) {
     console.error("[quote] Error:", err);
-    return jsonResponse({ error: "Internal server error." }, 500);
+    return jsonResponse({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." }, 500);
   }
 }
 
