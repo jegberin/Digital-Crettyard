@@ -275,6 +275,8 @@ async function exportStatic() {
       };
       await fs.writeFile(path.join(docsDir, 'wrangler.jsonc'), JSON.stringify(wranglerConfig, null, 2));
 
+      await fs.writeFile(path.join(docsDir, '.assetsignore'), '_worker.js\nwrangler.jsonc\n.assetsignore\n.nojekyll\n');
+
       await fs.writeFile(path.join(docsDir, '.nojekyll'), '');
 
       console.log('Export complete! Files are in the /docs directory.');

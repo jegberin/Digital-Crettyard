@@ -1,0 +1,84 @@
+2026-03-30T14:44:57.323Z	Initializing build environment...
+2026-03-30T14:45:00.401Z	Success: Finished initializing build environment
+2026-03-30T14:44:57.323Z	Initializing build environment...
+2026-03-30T14:45:00.401Z	Success: Finished initializing build environment
+2026-03-30T14:45:09.202Z	Cloning repository...
+2026-03-30T14:45:13.972Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-03-30T14:45:13.974Z	Restoring from dependencies cache
+2026-03-30T14:45:13.976Z	Restoring from build output cache
+2026-03-30T14:45:18.438Z	Success: Dependencies restored from build cache.
+2026-03-30T14:45:18.440Z	Installing project dependencies: npm clean-install --progress=false
+2026-03-30T14:45:23.019Z	npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2026-03-30T14:45:23.274Z	npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2026-03-30T14:45:40.392Z	
+2026-03-30T14:45:40.392Z	added 470 packages, and audited 471 packages in 21s
+2026-03-30T14:45:40.392Z	
+2026-03-30T14:45:40.392Z	58 packages are looking for funding
+2026-03-30T14:45:40.392Z	  run `npm fund` for details
+2026-03-30T14:45:40.411Z	
+2026-03-30T14:45:40.412Z	9 vulnerabilities (1 low, 5 moderate, 3 high)
+2026-03-30T14:45:40.412Z	
+2026-03-30T14:45:40.412Z	To address issues that do not require attention, run:
+2026-03-30T14:45:40.412Z	  npm audit fix
+2026-03-30T14:45:40.412Z	
+2026-03-30T14:45:40.412Z	To address all issues (including breaking changes), run:
+2026-03-30T14:45:40.412Z	  npm audit fix --force
+2026-03-30T14:45:40.412Z	
+2026-03-30T14:45:40.412Z	Run `npm audit` for details.
+2026-03-30T14:45:41.197Z	Executing user build command: npm run build
+2026-03-30T14:45:41.661Z	
+2026-03-30T14:45:41.662Z	> rest-express@1.0.0 build
+2026-03-30T14:45:41.662Z	> tsx script/build.ts
+2026-03-30T14:45:41.663Z	
+2026-03-30T14:45:42.779Z	building client...
+2026-03-30T14:45:43.054Z	vite v7.3.1 building client environment for production...
+2026-03-30T14:45:43.382Z	transforming...
+2026-03-30T14:45:48.484Z	✓ 2202 modules transformed.
+2026-03-30T14:45:48.978Z	rendering chunks...
+2026-03-30T14:45:48.993Z	[meta-images] no Replit deployment domain found, skipping meta tag updates
+2026-03-30T14:45:49.016Z	computing gzip size...
+2026-03-30T14:45:49.046Z	../dist/public/index.html                                                 3.54 kB │ gzip:   1.37 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/crettyard-digital-logo-DjTs2S6D.png                90.35 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/service-parental-controls-relaxed-v-dcJHP3.mp4    446.24 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/portfolio-more-than-points-BjWduno1.png           562.23 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/portfolio-go-green-steam-clean-CA1uLS44.png       796.35 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/service-parental-controls-shield-DuDPjqVo.mp4     822.52 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/portfolio-bm-custom-furniture-zzbL9L1o.png      1,139.03 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/service-web-design-DjureHuC.png                 1,192.72 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/service-microsoft-365-DT7TdJfX.png              1,217.14 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/service-network-wifi-CQ4t0HVS.png               1,475.85 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/portfolio-nurney-plant-civil-BWig1zfb.png       1,505.34 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/hero-digital-services-ndiKDwlQ.png              5,700.09 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/joey-profile-photo-DPMvM79D.png                 6,415.41 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/index-CpcBZEnM.css                                108.56 kB │ gzip:  18.00 kB
+2026-03-30T14:45:49.046Z	../dist/public/assets/index-DjFd6p_h.js                                 731.53 kB │ gzip: 206.82 kB
+2026-03-30T14:45:49.047Z	
+2026-03-30T14:45:49.047Z	(!) Some chunks are larger than 500 kB after minification. Consider:
+2026-03-30T14:45:49.047Z	- Using dynamic import() to code-split the application
+2026-03-30T14:45:49.047Z	- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-03-30T14:45:49.047Z	- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2026-03-30T14:45:49.047Z	✓ built in 5.72s
+2026-03-30T14:45:49.047Z	building server...
+2026-03-30T14:45:49.170Z	
+2026-03-30T14:45:49.170Z	  dist/index.cjs  813.3kb
+2026-03-30T14:45:49.170Z	
+2026-03-30T14:45:49.170Z	⚡ Done in 104ms
+2026-03-30T14:45:49.328Z	Success: Build command completed
+2026-03-30T14:45:50.279Z	Executing user deploy command: npx wrangler deploy
+2026-03-30T14:45:53.114Z	
+2026-03-30T14:45:53.115Z	 ⛅️ wrangler 4.78.0
+2026-03-30T14:45:53.115Z	───────────────────
+2026-03-30T14:45:55.604Z	🌀 Building list of assets...
+2026-03-30T14:45:55.605Z	✨ Read 41 files from the assets directory /opt/buildhome/repo/docs
+2026-03-30T14:45:55.619Z	
+2026-03-30T14:45:55.620Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-03-30T14:45:55.621Z	
+2026-03-30T14:45:55.691Z	✘ [ERROR] Uploading a Pages _worker.js file as an asset.
+2026-03-30T14:45:55.691Z	
+2026-03-30T14:45:55.691Z	  This could expose your private server-side code to the public Internet. Is this intended?
+2026-03-30T14:45:55.691Z	  If you do not want to upload this file, either remove it or add an ".assetsignore" file, to the root of your asset directory, containing "_worker.js" to avoid uploading.
+2026-03-30T14:45:55.691Z	  If you do want to upload this file, you can add an empty ".assetsignore" file, to the root of your asset directory, to hide this error.
+2026-03-30T14:45:55.691Z	
+2026-03-30T14:45:55.692Z	
+2026-03-30T14:45:55.938Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-03-30_14-45-52_456.log"
+2026-03-30T14:45:56.021Z	Failed: error occurred while running deploy command
