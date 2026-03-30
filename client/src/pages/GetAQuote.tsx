@@ -8,7 +8,7 @@ import {
   Hammer, Store, Briefcase, Users, Heart, Building2,
   Target, Image, Newspaper, CalendarCheck, ShoppingCart, Calendar,
   Star, MessageSquare, Shield, BarChart3, CheckCircle2, ArrowRight,
-  Mail, ChevronLeft, Sparkles, Clock
+  Mail, ChevronLeft, Sparkles, Clock, Pencil
 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
@@ -187,6 +187,7 @@ export default function GetAQuote() {
   });
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -212,12 +213,13 @@ export default function GetAQuote() {
     if (step === 6) {
       return !!form.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
     }
+    if (step === 7) return !isSubmitting;
     return true;
   }
 
   function next() {
     if (!canProceed()) {
-      setTouched({ all: true });
+      setTouched({ all: true, name: true, email: true });
       return;
     }
     setTouched({});
@@ -230,9 +232,6 @@ export default function GetAQuote() {
   }
 
   async function handleSubmit() {
-    setTouched({ name: true, email: true });
-    if (!form.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return;
-
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -240,15 +239,12 @@ export default function GetAQuote() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          websiteGoals: form.websiteGoals,
-        }),
+        body: JSON.stringify(form),
       });
       const data = await res.json();
       if (res.ok && data.success) {
         setSubmitStatus("success");
-        setStep(7);
+        setSubmitted(true);
       } else {
         setErrorMsg(data.error ?? "Something went wrong.");
         setSubmitStatus("error");
@@ -262,7 +258,7 @@ export default function GetAQuote() {
   }
 
   const pricing = calcPrice(form);
-  const showPriceBar = step >= 3 && step < 7 && !!form.pageCount;
+  const showPriceBar = step >= 3 && step <= 7 && !!form.pageCount && !submitted;
 
   const stepTitles = [
     "About Your Business",
@@ -271,7 +267,7 @@ export default function GetAQuote() {
     "Features & Add-ons",
     "Business Email",
     "Your Details",
-    "Quote Sent!",
+    "Review & Confirm",
   ];
 
   return (
@@ -297,13 +293,13 @@ export default function GetAQuote() {
         </div>
       </section>
 
-      {step < 7 && (
+      {!submitted && (
         <section className="py-10 bg-white">
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wider">
-                  Step {step} of {TOTAL_STEPS - 1}
+                  Step {step} of {TOTAL_STEPS}
                 </span>
                 <span className="text-xs font-sans text-foreground/40">{stepTitles[step - 1]}</span>
               </div>
@@ -544,14 +540,8 @@ export default function GetAQuote() {
 
               {step === 6 && (
                 <FadeIn key="step6">
-                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Almost There</h2>
+                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Your Details</h2>
                   <p className="text-foreground/60 text-sm mb-7 font-sans">Just a few details so we can send you your guide quote and get in touch.</p>
-
-                  {submitStatus === "error" && (
-                    <div role="alert" className="mb-5 p-4 bg-red-50 border border-red-200 rounded-xl text-red-800 text-sm font-sans">
-                      <strong>Something went wrong.</strong> {errorMsg} Please email <a href="mailto:info@crettyard.ie" className="underline">info@crettyard.ie</a> directly if the problem persists.
-                    </div>
-                  )}
 
                   <div className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
@@ -662,6 +652,61 @@ export default function GetAQuote() {
                 </FadeIn>
               )}
 
+              {step === 7 && (
+                <FadeIn key="step7">
+                  <h2 className="text-2xl mb-1 font-headline font-bold text-primary" data-testid="text-step-heading">Review & Confirm</h2>
+                  <p className="text-foreground/60 text-sm mb-7 font-sans">Check your details below, then click Send to get your guide quote.</p>
+
+                  {submitStatus === "error" && (
+                    <div role="alert" className="mb-5 p-4 bg-red-50 border border-red-200 rounded-xl text-red-800 text-sm font-sans">
+                      <strong>Something went wrong.</strong> {errorMsg} Please email <a href="mailto:info@crettyard.ie" className="underline">info@crettyard.ie</a> directly if the problem persists.
+                    </div>
+                  )}
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      { label: "Business Type", value: form.businessType || "—", step: 1 },
+                      { label: "Website Goals", value: form.websiteGoals.join(", ") || "—", step: 2 },
+                      { label: "Pages", value: form.pageCount ? `${form.pageCount} pages${form.isRedesign ? " (redesign — 20% off)" : ""}` : "—", step: 3 },
+                      { label: "Domain", value: form.hasDomain === true ? "I have a domain" : form.hasDomain === false ? "Need a domain (+€24/yr)" : "—", step: 3 },
+                      { label: "Features", value: form.features.length ? form.features.map(f => FEATURE_OPTIONS.find(o => o.id === f)?.label ?? f).join(", ") : "None selected", step: 4 },
+                      { label: "Business Email", value: form.wantsEmail ? `Microsoft 365 — ${form.emailUsers} mailbox${form.emailUsers > 1 ? "es" : ""} (€${form.emailUsers * EMAIL_PER_USER}/mo)` : "No thanks", step: 5 },
+                      { label: "Your Name", value: form.name || "—", step: 6 },
+                      { label: "Email", value: form.email || "—", step: 6 },
+                      ...(form.phone ? [{ label: "Phone", value: form.phone, step: 6 }] : []),
+                      ...(form.launchDate ? [{ label: "Ideal Launch", value: form.launchDate, step: 6 }] : []),
+                      ...(form.budget ? [{ label: "Budget Range", value: form.budget, step: 6 }] : []),
+                    ].map((row) => (
+                      <div key={row.label} className="flex items-start gap-3 py-2.5 border-b border-gray-100 last:border-0">
+                        <div className="w-32 shrink-0 text-xs font-headline font-bold text-foreground/40 uppercase tracking-wide pt-0.5">{row.label}</div>
+                        <div className="flex-1 text-sm text-primary font-sans">{row.value}</div>
+                        <button
+                          type="button"
+                          onClick={() => { setTouched({}); setStep(row.step); }}
+                          className="shrink-0 text-accent hover:text-accent/70 transition-colors"
+                          aria-label={`Edit ${row.label}`}
+                          data-testid={`button-edit-${row.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        >
+                          <Pencil size={13} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-5 bg-accent/5 rounded-2xl border border-accent/10 flex flex-wrap items-center justify-between gap-3 mb-2">
+                    <div>
+                      <p className="text-xs font-headline font-bold text-foreground/40 uppercase tracking-wide mb-1">Estimated One-time Cost</p>
+                      <p className="text-2xl font-headline font-extrabold text-accent" data-testid="text-review-price">{fmt(pricing.oneTime)}</p>
+                    </div>
+                    <div className="text-right text-xs text-foreground/50 font-sans">
+                      {pricing.monthly > 0 && <p>+ {fmt(pricing.monthly)}/mo (email)</p>}
+                      {pricing.yearly > 0 && <p>+ {fmt(pricing.yearly)}/yr (domain)</p>}
+                      <p className="italic mt-1">Guide price only — fixed quote follows</p>
+                    </div>
+                  </div>
+                </FadeIn>
+              )}
+
               <div className="mt-8 flex items-center gap-3">
                 {step > 1 && (
                   <Button
@@ -675,7 +720,7 @@ export default function GetAQuote() {
                     Back
                   </Button>
                 )}
-                {step < 6 && (
+                {step < 7 && (
                   <Button
                     type="button"
                     onClick={next}
@@ -685,7 +730,7 @@ export default function GetAQuote() {
                     Continue <ArrowRight size={16} className="ml-1" />
                   </Button>
                 )}
-                {step === 6 && (
+                {step === 7 && (
                   <Button
                     type="button"
                     onClick={handleSubmit}
@@ -693,7 +738,7 @@ export default function GetAQuote() {
                     className="flex-1 sm:flex-none sm:min-w-[200px]"
                     data-testid="button-submit"
                   >
-                    {isSubmitting ? "Sending…" : "Get My Guide Quote →"}
+                    {isSubmitting ? "Sending…" : "Send My Quote Request →"}
                   </Button>
                 )}
               </div>
@@ -702,7 +747,7 @@ export default function GetAQuote() {
         </section>
       )}
 
-      {step === 7 && (
+      {submitted && (
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-2xl">
             <FadeIn>

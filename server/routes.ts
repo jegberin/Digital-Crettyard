@@ -171,33 +171,68 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
+  const VALID_PAGE_COUNTS = new Set(["1-3", "4-7", "8+"]);
+  const VALID_FEATURES = new Set(Object.keys(FEATURE_PRICES));
+  const VALID_BUSINESS_TYPES = new Set(["tradesperson", "retail", "professional", "service", "charity", "other"]);
+
   app.post("/api/quote", async (req, res) => {
+    const body = req.body ?? {};
+
+    if (!body?.name?.trim()) {
+      return res.status(400).json({ error: "Name is required." });
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!body?.email?.trim() || !emailRegex.test(body.email)) {
+      return res.status(400).json({ error: "A valid email address is required." });
+    }
+    if (body.pageCount && !VALID_PAGE_COUNTS.has(body.pageCount)) {
+      return res.status(400).json({ error: "Invalid page count value." });
+    }
+    if (!VALID_PAGE_COUNTS.has(body.pageCount)) {
+      return res.status(400).json({ error: "Page count is required (1-3, 4-7, or 8+)." });
+    }
+    if (body.businessType && !VALID_BUSINESS_TYPES.has(body.businessType)) {
+      return res.status(400).json({ error: "Invalid business type." });
+    }
+    if (typeof body.hasDomain !== "boolean") {
+      return res.status(400).json({ error: "Domain ownership selection is required." });
+    }
+    if (body.features !== undefined && !Array.isArray(body.features)) {
+      return res.status(400).json({ error: "Features must be an array." });
+    }
+    const features: string[] = (body.features ?? []).filter(
+      (f: unknown) => typeof f === "string" && VALID_FEATURES.has(f)
+    );
+    const emailUsers = typeof body.emailUsers === "number"
+      ? Math.min(Math.max(Math.round(body.emailUsers), 1), 20)
+      : 1;
+    const wantsEmail = body.wantsEmail === true;
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("[quote] RESEND_API_KEY is not set.");
       return res.status(500).json({ error: "Email service is not configured. Please contact info@crettyard.ie directly." });
     }
 
-    const body = req.body;
-    if (!body?.name?.trim() || !body?.email?.trim()) {
-      return res.status(400).json({ error: "Name and email are required." });
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return res.status(400).json({ error: "Please provide a valid email address." });
-    }
+    const sanitised = {
+      ...body,
+      features,
+      emailUsers,
+      wantsEmail,
+      isRedesign: body.isRedesign === true,
+      hasDomain: body.hasDomain as boolean,
+    };
 
     const pricing = calculatePrice({
       pageCount: body.pageCount,
-      isRedesign: body.isRedesign,
-      hasDomain: body.hasDomain,
-      features: body.features,
-      wantsEmail: body.wantsEmail,
-      emailUsers: body.emailUsers,
+      isRedesign: sanitised.isRedesign,
+      hasDomain: sanitised.hasDomain,
+      features: sanitised.features,
+      wantsEmail: sanitised.wantsEmail,
+      emailUsers: sanitised.emailUsers,
     });
 
-    const html = buildEmail(body, pricing);
+    const html = buildEmail(sanitised, pricing);
 
     const resend = new Resend(apiKey);
 
