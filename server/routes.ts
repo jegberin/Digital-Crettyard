@@ -221,6 +221,125 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
 </html>`;
 }
 
+function buildContactNotification(d: Record<string, string>): string {
+  const serviceLabels: Record<string, string> = {
+    "new-website": "New website",
+    "website-redesign": "Website redesign",
+    "microsoft-365": "Microsoft 365",
+    "network-wifi": "Network & Wi-Fi",
+    "ongoing-support": "Ongoing support",
+    "not-sure": "Not sure yet",
+  };
+  const serviceLabel = serviceLabels[d.service] ?? esc(d.service ?? "—");
+  return `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>New Contact Enquiry</title></head>
+<body style="margin:0;padding:0;background:#f3f4f5;font-family:Arial,Helvetica,sans-serif;">
+<table cellpadding="0" cellspacing="0" width="100%" style="background:#f3f4f5;padding:40px 20px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <tr><td style="background:#0C2366;padding:28px 40px;">
+        <p style="color:#12B388;margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:2px;">Crettyard Digital</p>
+        <h1 style="color:#ffffff;margin:0;font-size:20px;font-weight:700;">New Contact Enquiry</h1>
+        <p style="color:#ffffff;opacity:0.6;margin:6px 0 0;font-size:13px;">Submitted via the website contact form</p>
+      </td></tr>
+      <tr><td style="padding:32px 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:6px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Name</td><td style="padding:6px 0;color:#555;font-size:14px;">${esc(d.name)}</td></tr>
+          <tr><td style="padding:6px 0;color:#333;font-size:14px;font-weight:bold;">Email</td><td style="padding:6px 0;font-size:14px;"><a href="mailto:${esc(d.email)}" style="color:#12B388;">${esc(d.email)}</a></td></tr>
+          ${d.phone ? `<tr><td style="padding:6px 0;color:#333;font-size:14px;font-weight:bold;">Phone</td><td style="padding:6px 0;color:#555;font-size:14px;">${esc(d.phone)}</td></tr>` : ""}
+          ${d.businessName ? `<tr><td style="padding:6px 0;color:#333;font-size:14px;font-weight:bold;">Business</td><td style="padding:6px 0;color:#555;font-size:14px;">${esc(d.businessName)}</td></tr>` : ""}
+          ${d.service ? `<tr><td style="padding:6px 0;color:#333;font-size:14px;font-weight:bold;">Service</td><td style="padding:6px 0;color:#555;font-size:14px;">${serviceLabel}</td></tr>` : ""}
+        </table>
+      </td></tr>
+      <tr><td style="padding:0 40px 32px;">
+        <p style="margin:0 0 8px;color:#0C2366;font-size:14px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Message</p>
+        <p style="margin:0;color:#555;font-size:14px;line-height:1.7;white-space:pre-wrap;">${esc(d.message)}</p>
+      </td></tr>
+      <tr><td style="padding:16px 40px;background:#f3f4f5;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;font-size:12px;color:#999;">Sent via the Crettyard Digital contact form at digital.crettyard.ie</p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+}
+
+function buildThankYou(name: string, intro: string, extra: string): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Thanks — Crettyard Digital</title></head>
+<body style="margin:0;padding:0;background:#f3f4f5;font-family:Arial,Helvetica,sans-serif;">
+<table cellpadding="0" cellspacing="0" width="100%" style="background:#f3f4f5;padding:40px 20px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <tr><td style="background:#0C2366;padding:28px 40px;">
+        <p style="color:#12B388;margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:2px;">Crettyard Digital</p>
+        <h1 style="color:#ffffff;margin:0;font-size:20px;font-weight:700;">Thanks for getting in touch</h1>
+      </td></tr>
+      <tr><td style="padding:32px 40px;">
+        <p style="margin:0 0 16px;color:#333;font-size:15px;">Hi ${esc(name)},</p>
+        <p style="margin:0 0 16px;color:#555;font-size:15px;line-height:1.7;">${intro}</p>
+        <p style="margin:0 0 24px;color:#555;font-size:15px;line-height:1.7;">${extra}</p>
+        <p style="margin:0 0 4px;color:#333;font-size:14px;">Talk soon,</p>
+        <p style="margin:0 0 4px;color:#333;font-size:14px;font-weight:bold;">Joey</p>
+        <p style="margin:0;color:#555;font-size:13px;">Crettyard Digital</p>
+        <p style="margin:0;font-size:13px;"><a href="mailto:info@crettyard.ie" style="color:#12B388;">info@crettyard.ie</a> &nbsp;·&nbsp; <a href="https://digital.crettyard.ie" style="color:#12B388;">digital.crettyard.ie</a></p>
+      </td></tr>
+      <tr><td style="padding:16px 40px;background:#f3f4f5;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;font-size:12px;color:#999;">You're receiving this because you submitted a form at digital.crettyard.ie. Reply directly to this email if you'd like to add anything.</p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+}
+
+function buildParentalNotification(d: Record<string, unknown>): string {
+  const row = (label: string, val: unknown) =>
+    val ? `<tr><td style="padding:6px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">${esc(label)}</td><td style="padding:6px 0;color:#555;font-size:14px;">${esc(String(val))}</td></tr>` : "";
+
+  const listItems = (items: string[]) =>
+    items.length ? items.map(i => `<li style="font-size:14px;color:#555;padding:2px 0;">${esc(i)}</li>`).join("") : "<li style='font-size:14px;color:#999;'>None selected</li>";
+
+  return `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>New Parental Controls Enquiry</title></head>
+<body style="margin:0;padding:0;background:#f3f4f5;font-family:Arial,Helvetica,sans-serif;">
+<table cellpadding="0" cellspacing="0" width="100%" style="background:#f3f4f5;padding:40px 20px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <tr><td style="background:#0C2366;padding:28px 40px;">
+        <p style="color:#12B388;margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:2px;">Crettyard Digital</p>
+        <h1 style="color:#ffffff;margin:0;font-size:20px;font-weight:700;">New Parental Controls Enquiry</h1>
+        <p style="color:#ffffff;opacity:0.6;margin:6px 0 0;font-size:13px;">Submitted via the website parental controls form</p>
+      </td></tr>
+      <tr><td style="padding:32px 40px 16px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Name", d.name)}
+          <tr><td style="padding:6px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Email</td><td style="padding:6px 0;font-size:14px;"><a href="mailto:${esc(String(d.email ?? ""))}" style="color:#12B388;">${esc(String(d.email ?? ""))}</a></td></tr>
+          ${row("Phone", d.phone)}
+          ${row("County / Area", d.county)}
+          ${row("Children", d.children)}
+          ${row("Preferred Contact", d.contactMethod)}
+          ${row("Preferred Time", d.contactTime)}
+        </table>
+      </td></tr>
+      <tr><td style="padding:0 40px 16px;">
+        <p style="margin:0 0 8px;color:#0C2366;font-size:14px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Devices Used</p>
+        <ul style="margin:0;padding-left:20px;">${listItems(Array.isArray(d.devices) ? d.devices as string[] : [])}</ul>
+      </td></tr>
+      <tr><td style="padding:0 40px 16px;">
+        <p style="margin:0 0 8px;color:#0C2366;font-size:14px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Help Needed</p>
+        <ul style="margin:0;padding-left:20px;">${listItems(Array.isArray(d.help) ? d.help as string[] : [])}</ul>
+      </td></tr>
+      ${d.notes ? `<tr><td style="padding:0 40px 24px;"><p style="margin:0 0 8px;color:#0C2366;font-size:14px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Additional Notes</p><p style="margin:0;color:#555;font-size:14px;line-height:1.7;white-space:pre-wrap;">${esc(String(d.notes))}</p></td></tr>` : ""}
+      <tr><td style="padding:16px 40px;background:#f3f4f5;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;font-size:12px;color:#999;">Sent via the Crettyard Digital parental controls form at digital.crettyard.ie</p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -310,6 +429,128 @@ export async function registerRoutes(
       return res.json({ success: true });
     } catch (err) {
       console.error("[quote] Unexpected error:", err);
+      return res.status(500).json({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." });
+    }
+  });
+
+  app.post("/api/contact", async (req, res) => {
+    const body = req.body ?? {};
+    const name = String(body.name ?? "").trim();
+    const email = String(body.email ?? "").trim();
+    const message = String(body.message ?? "").trim();
+
+    if (!name) return res.status(400).json({ error: "Name is required." });
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: "A valid email address is required." });
+    }
+    if (!message) return res.status(400).json({ error: "A message is required." });
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("[contact] RESEND_API_KEY is not set.");
+      return res.status(500).json({ error: "Email service is not configured. Please contact info@crettyard.ie directly." });
+    }
+
+    const resend = new Resend(apiKey);
+    const fromEmail = process.env.RESEND_SENDER ?? "onboarding@resend.dev";
+
+    try {
+      const { error: notifErr } = await resend.emails.send({
+        from: `Crettyard Digital Website <${fromEmail}>`,
+        to: ["info@crettyard.ie"],
+        replyTo: email,
+        subject: `New Contact Enquiry — ${name}${body.businessName ? ` (${body.businessName})` : ""}`,
+        html: buildContactNotification({
+          name,
+          email,
+          phone: String(body.phone ?? ""),
+          businessName: String(body.businessName ?? ""),
+          service: String(body.service ?? ""),
+          message,
+        }),
+      });
+
+      if (notifErr) {
+        console.error("[contact] Resend notification error:", notifErr);
+        return res.status(500).json({ error: "Failed to send. Please contact info@crettyard.ie directly." });
+      }
+
+      await resend.emails.send({
+        from: `Crettyard Digital <${fromEmail}>`,
+        to: [email],
+        subject: "Thanks for getting in touch — Crettyard Digital",
+        html: buildThankYou(
+          name,
+          "Thanks for reaching out. I've received your message and will get back to you within one business day.",
+          "In the meantime, feel free to reply to this email if you have anything to add. If your need is urgent, you can also reach me on WhatsApp at 087 970 0701."
+        ),
+      });
+
+      return res.json({ success: true });
+    } catch (err) {
+      console.error("[contact] Unexpected error:", err);
+      return res.status(500).json({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." });
+    }
+  });
+
+  app.post("/api/parental-enquiry", async (req, res) => {
+    const body = req.body ?? {};
+    const name = String(body.name ?? "").trim();
+    const email = String(body.email ?? "").trim();
+
+    if (!name) return res.status(400).json({ error: "Name is required." });
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: "A valid email address is required." });
+    }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("[parental] RESEND_API_KEY is not set.");
+      return res.status(500).json({ error: "Email service is not configured. Please contact info@crettyard.ie directly." });
+    }
+
+    const resend = new Resend(apiKey);
+    const fromEmail = process.env.RESEND_SENDER ?? "onboarding@resend.dev";
+
+    try {
+      const { error: notifErr } = await resend.emails.send({
+        from: `Crettyard Digital Website <${fromEmail}>`,
+        to: ["info@crettyard.ie"],
+        replyTo: email,
+        subject: `New Parental Controls Enquiry — ${name}${body.county ? `, ${body.county}` : ""}`,
+        html: buildParentalNotification({
+          name,
+          email,
+          phone: body.phone,
+          county: body.county,
+          children: body.children,
+          contactMethod: body.contactMethod,
+          contactTime: body.contactTime,
+          devices: Array.isArray(body.devices) ? body.devices : [],
+          help: Array.isArray(body.help) ? body.help : [],
+          notes: body.notes,
+        }),
+      });
+
+      if (notifErr) {
+        console.error("[parental] Resend notification error:", notifErr);
+        return res.status(500).json({ error: "Failed to send. Please contact info@crettyard.ie directly." });
+      }
+
+      await resend.emails.send({
+        from: `Crettyard Digital <${fromEmail}>`,
+        to: [email],
+        subject: "Thanks for your parental controls enquiry — Crettyard Digital",
+        html: buildThankYou(
+          name,
+          "Thanks for getting in touch about parental controls. I've received your enquiry and will review your setup details and come back to you shortly with the best next step.",
+          "If you have any extra questions in the meantime, just reply to this email or reach me on WhatsApp at 087 970 0701."
+        ),
+      });
+
+      return res.json({ success: true });
+    } catch (err) {
+      console.error("[parental] Unexpected error:", err);
       return res.status(500).json({ error: "An unexpected error occurred. Please contact info@crettyard.ie directly." });
     }
   });

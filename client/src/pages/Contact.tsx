@@ -60,14 +60,11 @@ export default function Contact() {
 
     if (!isValid) return;
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
 
       if (response.ok) {
@@ -240,7 +237,7 @@ export default function Contact() {
                 <div role="alert" aria-live="polite" aria-atomic="true" data-testid="alert-form-status">
                   {submitted === "success" && (
                     <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 text-sm font-sans">
-                      <strong>Message sent!</strong> I'll get back to you within one business day.
+                      <strong>Message sent!</strong> I'll get back to you within one business day. A confirmation has been sent to your email address.
                     </div>
                   )}
                   {submitted === "error" && (
@@ -253,13 +250,9 @@ export default function Contact() {
                 {submitted !== "success" && (
                   <form
                     className="space-y-5"
-                    action="https://formsubmit.co/info@crettyard.ie"
-                    method="POST"
                     data-testid="form-contact"
                     onSubmit={handleSubmit}
                   >
-                    <input type="hidden" name="_subject" value="New contact form submission from Crettyard Digital" />
-                    <input type="hidden" name="_template" value="table" />
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-1">

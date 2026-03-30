@@ -99,14 +99,30 @@ export default function ParentalControls() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = new FormData(form);
-    checkedDevices.forEach(d => data.append("Devices used", d));
-    checkedHelp.forEach(h => data.append("Help needed", h));
+    const fd = new FormData(form);
+    const payload = {
+      name: fd.get("Name") as string,
+      email: fd.get("Email") as string,
+      phone: fd.get("Phone") as string,
+      county: fd.get("County") as string,
+      children: fd.get("Number of children") as string,
+      contactMethod: fd.get("Preferred contact method") as string,
+      contactTime: fd.get("Preferred time to contact") as string,
+      devices: checkedDevices,
+      help: checkedHelp,
+      notes: fd.get("Message") as string,
+    };
     try {
-      const res = await fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: data });
+      const res = await fetch("/api/parental-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       setSubmitted(res.ok ? "success" : "error");
       if (res.ok) {
         form.reset();
+        setCheckedDevices([]);
+        setCheckedHelp([]);
         (window as any).gtag?.("event", "conversion", { send_to: "AW-18044040603/aBUrCJPXsZAcEJvriJxD" });
       }
     } catch {
@@ -412,7 +428,7 @@ export default function ParentalControls() {
             <div role="alert" aria-live="polite" aria-atomic="true" data-testid="alert-form-status">
               {submitted === "success" && (
                 <div className="bg-accent/10 border border-accent/30 text-accent rounded-xl px-6 py-5 text-center font-sans font-medium">
-                  Thank you — your request has been sent. I'll be in touch shortly.
+                  Thank you — your request has been sent. I'll be in touch shortly. A confirmation has been sent to your email address.
                 </div>
               )}
               {submitted === "error" && (
@@ -424,16 +440,11 @@ export default function ParentalControls() {
 
             {submitted !== "success" && (
               <form
-                action="https://formsubmit.co/info@crettyard.ie"
-                method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-6 bg-[#f3f4f5] p-8 rounded-2xl"
                 data-testid="form-parental-controls"
                 noValidate
               >
-                <input type="hidden" name="_subject" value="New parental controls enquiry from Crettyard Digital" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
