@@ -47,6 +47,7 @@ interface FormState {
   name: string;
   email: string;
   phone: string;
+  followUp: "email" | "whatsapp" | "phone";
   launchDate: string;
   budget: string;
   notes: string;
@@ -150,6 +151,7 @@ export default function GetAQuote() {
     name: "",
     email: "",
     phone: "",
+    followUp: "email",
     launchDate: "",
     budget: "",
     notes: "",
@@ -175,19 +177,23 @@ export default function GetAQuote() {
     });
   }
 
+  const phoneRequired = form.followUp === "whatsapp" || form.followUp === "phone";
+
   function canProceed(): boolean {
     if (step === 1) return !!form.businessType;
     if (step === 2) return form.websiteGoals.length > 0;
     if (step === 3) return !!form.pageCount && form.hasDomain !== null;
     if (step === 6) {
-      return !!form.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+      const baseOk = !!form.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+      const phoneOk = !phoneRequired || !!form.phone.trim();
+      return baseOk && phoneOk;
     }
     return true;
   }
 
   function next() {
     if (!canProceed()) {
-      setTouched({ all: true, name: true, email: true });
+      setTouched({ all: true, name: true, email: true, phone: true });
       return;
     }
     setTouched({});
@@ -200,7 +206,7 @@ export default function GetAQuote() {
   }
 
   async function handleSubmit() {
-    setTouched({ all: true, name: true, email: true });
+    setTouched({ all: true, name: true, email: true, phone: true });
     if (!canProceed()) return;
 
     setIsSubmitting(true);
@@ -547,9 +553,28 @@ export default function GetAQuote() {
                       </div>
                     </div>
 
+                    <div className="space-y-1">
+                      <Label htmlFor="q-followup" className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wide">
+                        Preferred follow-up method <span className="text-red-500">*</span>
+                      </Label>
+                      <select
+                        id="q-followup"
+                        value={form.followUp}
+                        onChange={(e) => set("followUp", e.target.value as FormState["followUp"])}
+                        className="flex h-10 w-full rounded-none border-0 border-b border-gray-300 bg-transparent px-0 py-2 text-sm focus:outline-none focus:border-accent font-sans transition-colors"
+                        data-testid="select-followup"
+                      >
+                        <option value="email">Email</option>
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="phone">Phone call</option>
+                      </select>
+                    </div>
+
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-1">
-                        <Label htmlFor="q-phone" className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wide">Phone <span className="text-foreground/30 font-normal normal-case">(optional)</span></Label>
+                        <Label htmlFor="q-phone" className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wide">
+                          Phone{phoneRequired ? <span className="text-red-500 ml-0.5">*</span> : <span className="text-foreground/30 font-normal normal-case"> (optional)</span>}
+                        </Label>
                         <Input
                           id="q-phone"
                           type="tel"
@@ -558,7 +583,11 @@ export default function GetAQuote() {
                           onChange={(e) => set("phone", e.target.value)}
                           className="rounded-none border-0 border-b border-gray-300 focus-visible:ring-0 focus-visible:border-accent h-10 bg-transparent px-0 shadow-none"
                           data-testid="input-phone"
+                          aria-required={phoneRequired}
                         />
+                        {touched.phone && phoneRequired && !form.phone.trim() && (
+                          <p className="text-red-500 text-xs mt-1 font-sans" role="alert">Phone number is required for this follow-up method.</p>
+                        )}
                       </div>
                       <div className="space-y-1">
                         <Label htmlFor="q-launch" className="text-xs font-headline font-bold text-foreground/50 uppercase tracking-wide">Ideal Launch Date <span className="text-foreground/30 font-normal normal-case">(optional)</span></Label>
@@ -647,7 +676,7 @@ export default function GetAQuote() {
                     className="flex-1 sm:flex-none sm:min-w-[200px]"
                     data-testid="button-submit"
                   >
-                    {isSubmitting ? "Calculating…" : "Get My Guide Quote →"}
+                    {isSubmitting ? "Calculating…" : "View Guide Price Now →"}
                   </Button>
                 )}
               </div>
@@ -664,10 +693,14 @@ export default function GetAQuote() {
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-5">
                   <CheckCircle2 size={32} className="text-accent" />
                 </div>
-                <h2 className="text-3xl font-headline font-bold text-primary mb-3" data-testid="text-success-heading">Quote Sent!</h2>
-                <p className="text-foreground/70 font-sans leading-relaxed">
-                  Your guide quote is on its way to Joey at Crettyard Digital. You'll hear back within one business day with a more detailed proposal.
+                <h2 className="text-3xl font-headline font-bold text-primary mb-3" data-testid="text-success-heading">Quote Request Sent!</h2>
+                <p className="text-foreground/70 font-sans leading-relaxed mb-3">
+                  Your request has been received by Crettyard Digital.
                 </p>
+                <div className="inline-block text-left bg-accent/8 border border-accent/20 rounded-xl px-5 py-4 text-sm font-sans text-foreground/70 leading-relaxed">
+                  <strong className="text-primary block mb-1">What you see below is an initial guide price.</strong>
+                  A full fixed quote will be prepared and sent to you by Crettyard Digital on the next working day.
+                </div>
               </div>
 
               <div className="bg-[#f3f4f5] rounded-2xl p-7 mb-8">
@@ -703,7 +736,7 @@ export default function GetAQuote() {
                   <span className="text-2xl font-headline font-extrabold text-accent">{fmt(pricing.oneTime)}</span>
                 </div>
 
-                <p className="text-xs text-foreground/40 mt-4 font-sans italic">This is a guide price only. A firm fixed quote will follow after a brief consultation.</p>
+                <p className="text-xs text-foreground/40 mt-4 font-sans italic">Guide price only — your fixed quote from Crettyard Digital will follow on the next working day.</p>
               </div>
 
               <div className="bg-primary rounded-2xl p-7 text-white mb-8">

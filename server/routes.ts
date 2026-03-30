@@ -53,6 +53,7 @@ interface QuoteEmailData {
   name: string;
   email: string;
   phone?: string;
+  followUp?: string;
   businessName?: string;
   businessType?: string;
   websiteGoals?: string[];
@@ -125,6 +126,7 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
             <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.name)}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Email</td><td style="padding:5px 0;font-size:14px;"><a href="mailto:${esc(data.email)}" style="color:#12B388;">${esc(data.email)}</a></td></tr>
             ${data.phone ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Phone</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.phone)}</td></tr>` : ""}
+            ${data.followUp ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Preferred Follow-up</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.followUp === "whatsapp" ? "WhatsApp" : data.followUp === "phone" ? "Phone call" : "Email"}</td></tr>` : ""}
             ${data.businessName ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Business Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.businessName)}</td></tr>` : ""}
           </table>
         </td>
