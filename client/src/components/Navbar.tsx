@@ -27,6 +27,8 @@ export function Navbar() {
     { label: "About", path: "/about" },
   ];
 
+  const isGetAQuote = location === "/get-a-quote";
+
   return (
     <header
       className={`sticky top-0 z-50 w-full backdrop-blur-md transition-colors duration-300 ${
@@ -66,6 +68,18 @@ export function Navbar() {
                 <LogIn size={14} />
                 Client Login
               </a>
+            </li>
+            <li>
+              <Link href="/get-a-quote">
+                <Button
+                  size="sm"
+                  variant={isGetAQuote ? "default" : "outline"}
+                  className="px-5 h-9 text-[13px]"
+                  data-testid="button-nav-get-quote"
+                >
+                  Get a Quote
+                </Button>
+              </Link>
             </li>
             <li>
               <Link href="/contact#send-message">
@@ -126,11 +140,18 @@ export function Navbar() {
               </a>
             </li>
           </ul>
-          <Link href="/contact#send-message" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button className="w-full mt-2" data-testid="button-mobile-contact">
-              Book a Free Consultation
-            </Button>
-          </Link>
+          <div className="flex flex-col gap-2 mt-2">
+            <Link href="/get-a-quote" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button variant="outline" className="w-full" data-testid="button-mobile-get-quote">
+                Get a Quote
+              </Button>
+            </Link>
+            <Link href="/contact#send-message" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full" data-testid="button-mobile-contact">
+                Book a Free Consultation
+              </Button>
+            </Link>
+          </div>
         </div>
       </nav>
     </header>

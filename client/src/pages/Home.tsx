@@ -31,8 +31,10 @@ export default function Home() {
                     Book a Free Consultation
                   </Button>
                 </Link>
-                <Link href="/portfolio" className="text-accent font-headline font-bold hover:text-primary transition-all duration-200 flex items-center gap-1 text-sm" data-testid="link-view-portfolio">
-                  View Our Work <ArrowRight size={14} />
+                <Link href="/get-a-quote">
+                  <Button size="lg" variant="outline" className="px-8" data-testid="button-get-quote">
+                    Get a Quote →
+                  </Button>
                 </Link>
               </div>
               <div className="mt-8" data-testid="section-trust-badges">

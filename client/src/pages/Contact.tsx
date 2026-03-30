@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/FadeIn";
-import { MessageCircle, Clock, FileText, CheckCircle, MapPin } from "lucide-react";
+import { MessageCircle, Clock, FileText, CheckCircle, MapPin, Calculator } from "lucide-react";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -176,6 +177,27 @@ export default function Contact() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      <section className="py-12 bg-accent/5 border-b border-accent/10">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <FadeIn>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 p-6 bg-white rounded-2xl shadow-sm border border-accent/10">
+              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                <Calculator className="w-6 h-6 text-accent" />
+              </div>
+              <div className="flex-1">
+                <p className="font-headline font-bold text-primary mb-1">Looking for a website quote?</p>
+                <p className="text-sm text-foreground/60 font-sans">Use our 2-minute quote calculator to get a guide price for your new website — no contact needed until you're ready.</p>
+              </div>
+              <Link href="/get-a-quote">
+                <Button variant="outline" className="shrink-0 whitespace-nowrap" data-testid="button-contact-get-quote">
+                  Get a Quote →
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

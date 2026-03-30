@@ -25,14 +25,14 @@ export default function WebDesign() {
                 Your website should be your hardest-working employee — bringing in enquiries, building trust, and making your business look as professional as the work you do. I design and build fast, mobile-friendly websites for tradespeople, contractors, and local service businesses across Laois, Carlow, and the surrounding counties.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact#send-message">
-                  <Button data-testid="button-hero-cta" size="lg" className="px-10">
-                    Book a Free Website Consultation
+                <Link href="/get-a-quote">
+                  <Button data-testid="button-hero-get-quote" size="lg" className="px-10">
+                    Get a Website Quote →
                   </Button>
                 </Link>
-                <Link href="/portfolio">
-                  <Button data-testid="button-hero-portfolio" variant="outline" size="lg" className="px-8">
-                    View My Work →
+                <Link href="/contact#send-message">
+                  <Button data-testid="button-hero-cta" variant="outline" size="lg" className="px-8">
+                    Book a Free Consultation
                   </Button>
                 </Link>
               </div>
@@ -250,7 +250,12 @@ export default function WebDesign() {
           </div>
 
           <FadeIn className="text-center mb-24">
-            <p className="text-foreground/70 text-[15px] font-sans">All prices are indicative. I'll give you a clear, fixed quote after a free consultation — no hidden fees, no surprises.</p>
+            <p className="text-foreground/70 text-[15px] font-sans mb-5">All prices are indicative. I'll give you a clear, fixed quote after a free consultation — no hidden fees, no surprises.</p>
+            <Link href="/get-a-quote">
+              <Button size="lg" className="px-10" data-testid="button-pricing-get-quote">
+                Get Your Free Guide Quote →
+              </Button>
+            </Link>
           </FadeIn>
 
           <FadeIn className="text-center mb-14">
@@ -308,11 +313,18 @@ export default function WebDesign() {
               <div className="text-center md:text-left">
                 <h2 className="text-3xl text-white mb-4" data-testid="text-bottom-cta-heading">Ready to Get a Website That Works for Your Business?</h2>
                 <p className="text-white/70 mb-8 font-sans font-normal leading-relaxed">Book a free, no-obligation consultation and I'll show you exactly how a professional website can help you win more customers.</p>
-                <Link href="/contact#send-message">
-                  <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-consultation">
-                    Book a Free Consultation
-                  </Button>
-                </Link>
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                  <Link href="/get-a-quote">
+                    <Button size="lg" className="px-10 bg-accent text-white hover:bg-[#18a07e]" data-testid="button-cta-get-quote">
+                      Get a Quote →
+                    </Button>
+                  </Link>
+                  <Link href="/contact#send-message">
+                    <Button size="lg" variant="outline" className="px-8 border-white/30 text-white hover:bg-white/10" data-testid="button-cta-consultation">
+                      Book a Free Consultation
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>

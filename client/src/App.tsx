@@ -15,6 +15,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsAndConditions from "@/pages/TermsAndConditions";
 import CookiePolicy from "@/pages/CookiePolicy";
 import ParentalControls from "@/pages/ParentalControls";
+import GetAQuote from "@/pages/GetAQuote";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -68,6 +69,10 @@ const pageSEO: Record<string, { title: string; description: string; noindex?: bo
   "/parental-controls": {
     title: "Parental Controls for Families | Safer Internet Setup for Kids | Crettyard Digital",
     description: "Simple parental controls for families who want safer internet access at home. Block harmful content, set sensible limits, and protect your children's devices with plain-English help from Crettyard Digital."
+  },
+  "/get-a-quote": {
+    title: "Get a Website Quote in 2 Minutes | Crettyard Digital",
+    description: "Use our free quote calculator to get a guide price for your new website. Pick your pages, features, and add-ons — takes 2 minutes, no obligation."
   }
 };
 
@@ -161,6 +166,7 @@ function Router() {
           <Route path="/terms-and-conditions" component={TermsAndConditions} />
           <Route path="/cookie-policy" component={CookiePolicy} />
           <Route path="/parental-controls" component={ParentalControls} />
+          <Route path="/get-a-quote" component={GetAQuote} />
           <Route component={NotFound} />
         </Switch>
       </main>

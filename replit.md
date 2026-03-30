@@ -5,9 +5,10 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 
 ## Architecture
 - **React/Vite** frontend for development, exported to **static HTML** via Puppeteer-based export script
-- No database, no backend — static site only
-- Contact form posts to `info@crettyard.com` via FormSubmit.co
-- Static export outputs to `/docs` folder for GitHub Pages
+- **Express backend** (server/index.ts) used for development and future Cloudflare Pages Functions
+- Contact form posts to `info@crettyard.ie` via FormSubmit.co
+- Quote funnel posts to `POST /api/quote` which sends via **Resend** (`RESEND_API_KEY` env var required)
+- Static export outputs to `/docs` folder for GitHub Pages (quote funnel page exported as initial step HTML; interactive version requires JS)
 
 ## Pages
 - **Home** (`/`) — Hero, online presence value prop, comparison section, investment section, process, services, featured projects, FAQ, CTA
@@ -20,6 +21,7 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - **Privacy Policy** (`/privacy-policy`) — GDPR-compliant privacy policy
 - **Terms & Conditions** (`/terms-and-conditions`) — Business terms and conditions
 - **Cookie Policy** (`/cookie-policy`) — Cookie usage and consent information
+- **Get a Quote** (`/get-a-quote`) — 7-step interactive quote calculator funnel for web design projects; sends detailed HTML email via Resend to info@crettyard.ie
 
 ## Key Files
 - `client/src/pages/` — All page components
@@ -56,9 +58,12 @@ Static multi-page website for Crettyard Digital — a small Irish digital servic
 - sitemap.xml + robots.txt for `digital.crettyard.com`
 
 ## External Services
-- **FormSubmit.co** — Contact form submission to info@crettyard.com
+- **FormSubmit.co** — Contact form submission to info@crettyard.ie
+- **Resend** — Quote funnel email delivery (`RESEND_API_KEY` env var, `RESEND_FROM_EMAIL` optional — defaults to `onboarding@resend.dev`; set to a verified domain address for production)
 - **WhatsApp** — Floating button, number 353879700701
 - **Google Analytics** — G-F31MN0XL4T
+- **Google Ads** — AW-18044040603 (conversion: AW-18044040603/aBUrCJPXsZAcEJvriJxD)
+- **Facebook Pixel** — 1167510658706586
 
 ## Asset Imports
 - Use `@assets/` alias (Vite). Never use `attached_assets/` in src URLs.
