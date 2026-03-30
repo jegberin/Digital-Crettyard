@@ -23,6 +23,23 @@ const FEATURE_PRICES: Record<string, { label: string; price: number }> = {
 const DOMAIN_YEARLY = 24;
 const EMAIL_PER_USER_MONTHLY = 6;
 
+const BUSINESS_TYPE_LABELS: Record<string, string> = {
+  tradesperson: "Tradesperson / Contractor",
+  retail: "Retail / Hospitality",
+  professional: "Professional Services",
+  service: "Service Business",
+  charity: "Charity / Community",
+  other: "Other",
+};
+
+const GOAL_LABELS: Record<string, string> = {
+  enquiries: "Get more enquiries & leads",
+  showcase: "Showcase my work & portfolio",
+  credibility: "Build credibility & trust",
+  ecommerce: "Sell products or services online",
+  information: "Provide information & contact",
+};
+
 function esc(value: unknown): string {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -81,7 +98,9 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
     )
     .join("");
 
-  const goals = (data.websiteGoals ?? []).map(esc).join(", ") || "—";
+  const goals = (data.websiteGoals ?? [])
+    .map((g) => esc(GOAL_LABELS[g] ?? g))
+    .join(", ") || "—";
 
   return `<!DOCTYPE html>
 <html>
@@ -115,7 +134,7 @@ function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePr
         <td style="padding:16px 40px;">
           <h2 style="color:#0C2366;font-size:15px;margin:0 0 16px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Business &amp; Project</h2>
           <table width="100%" cellpadding="0" cellspacing="0">
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Business Type</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.businessType ?? "—")}</td></tr>
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Business Type</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(BUSINESS_TYPE_LABELS[data.businessType ?? ""] ?? data.businessType ?? "—")}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Website Goals</td><td style="padding:5px 0;color:#555;font-size:14px;">${goals}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Pages Needed</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.pageCount)}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Redesign?</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.isRedesign ? "Yes — 20% base discount applied" : "No"}</td></tr>
