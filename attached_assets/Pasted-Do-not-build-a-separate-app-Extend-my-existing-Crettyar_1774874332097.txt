@@ -1,0 +1,499 @@
+Do not build a separate app. Extend my existing Crettyard Digital codebase and make the quote funnel feel native to the current website. The current site already uses a routed page structure, so this should be added as another page within the same app architecture.
+
+Build a Web Design & SEO quote funnel for my website digital.crettyard.ie.
+
+Important scope
+This funnel is only for:
+
+Web Design & SEO
+
+Do not build routing or pricing flows for:
+
+Microsoft 365 & Email
+
+Network & Wi‑Fi
+
+Parental Controls
+
+This job is specifically to create a low-friction web design quote funnel that:
+
+is easy for customers to complete,
+
+gives them a guide price only at the end,
+
+captures enough information for me to understand what they need,
+
+emails the submission and guide price to info@crettyard.ie.
+
+Deployment and architecture constraints
+This site will be deployed on Cloudflare Pages / Workers.
+
+You must design the implementation so it is compatible with Cloudflare Pages / Workers environment and capabilities.
+
+That means:
+
+do not assume a traditional always-on Node server,
+
+do not depend on server features that are unsuitable for Cloudflare Pages / Workers,
+
+keep the architecture compatible with static frontend + Cloudflare-compatible backend/API handling,
+
+use storage, email handling, and environment variables in a way that can work in Cloudflare deployment.
+
+If any part of the current codebase needs to be adapted to suit Cloudflare Pages / Workers constraints, explain that clearly in the implementation plan.
+
+Replit is allowed to ask questions
+Before coding, you are allowed to ask me for any missing information needed to complete a correct implementation plan, especially around:
+
+email delivery method,
+
+Cloudflare environment details,
+
+storage/database choice,
+
+secrets/API keys,
+
+form submission handling,
+
+whether Cloudflare Workers, Pages Functions, or another Cloudflare-compatible approach should be used.
+
+If something is uncertain, ask instead of assuming.
+
+Objective
+Create a new quote funnel page for Web Design & SEO that:
+
+collects customer details and project requirements,
+
+uses a slider for page count,
+
+calculates a guide quote internally,
+
+does not show prices for selected options during the form,
+
+shows the total and breakdown only at the end,
+
+emails all submitted information and the calculated guide price to info@crettyard.ie,
+
+stores the lead submission in a Cloudflare-compatible way if feasible.
+
+Route and integration
+Add a new page route:
+
+/get-a-quote
+
+Also add CTA links to this page from:
+
+home page,
+
+web design page,
+
+contact page,
+
+navbar if appropriate.
+
+The funnel should feel like part of the existing site and reuse the current visual style and layout patterns.
+
+Funnel structure
+Step 1 — Simple intro
+Show a short heading and reassurance text.
+
+Example:
+
+“Get a website guide quote”
+
+“Answer a few quick questions and get a guide price based on what you need.”
+
+Then ask:
+
+What best describes your business?
+
+Trades & Contracting
+
+Professional Services
+
+Retail & Hospitality
+
+General Service Business
+
+Other
+
+Step 2 — Contact details
+Collect:
+
+Full name
+
+Business name
+
+Email
+
+Phone
+
+County / location
+
+Step 3 — Website basics
+Ask:
+
+Do you currently have a website?
+
+No, this is my first website
+
+Yes, I have a website and want it redesigned
+
+Yes, but I’m not sure if I should replace or improve it
+
+What is the main goal of the website?
+
+Get found by local customers on Google
+
+Look more professional and build trust
+
+Take online bookings
+
+Sell products online
+
+Just need a simple online brochure
+
+Other
+
+How many pages do you think you need?
+
+Use a slider
+
+Range: 1 to 12
+
+Show “10+” when value is 10 or more
+
+Helper text:
+
+1–3 = simple brochure site
+
+4–9 = standard small business site
+
+10+ = larger business site
+
+Do you already have a professional logo and high-quality photos?
+
+Yes, I have both
+
+I have some, but may need help
+
+No, I need help with branding and/or visuals
+
+What is your approximate budget?
+
+Under €1,000
+
+€1,000–€2,500
+
+€2,500–€5,000
+
+Over €5,000
+
+Step 4 — Project detail questions
+Ask:
+
+What pages do you already know you need?
+
+What does your business do, and what problem do you solve?
+
+Who is your ideal customer?
+
+Can you share 1–3 websites you like?
+
+If your business had a personality, what 2–3 words describe it?
+
+Who will provide the text and images?
+
+I have most of it ready
+
+I have some, but need help
+
+I need help with most of it
+
+What is your ideal launch timeframe?
+
+ASAP
+
+Within 1 month
+
+Within 1–3 months
+
+Just planning ahead
+
+Do you have any ideas for your domain name?
+
+Step 5 — Feature selection
+Use checkboxes or toggles.
+
+Important:
+Do not show prices beside these options during the form.
+
+Options:
+
+I need a more advanced contact form than a standard enquiry form
+
+I need online booking or calendar integration
+
+I need to take payments on the site
+
+I need a full online shop
+
+I want newsletter/email signup integration
+
+I want live chat or WhatsApp on the site
+
+I need a private member/client area
+
+I need the site in a second language
+
+I want full copywriting help
+
+I need a new logo designed
+
+I want help choosing colours and fonts
+
+I need business email set up
+
+I do not already own a domain name
+
+Also show this note:
+“Some third-party tools such as booking systems, payment providers, e-commerce apps, or membership platforms may have their own monthly or transaction fees. These are not included unless clearly stated.”
+
+Step 6 — Guide quote result
+Only at the end, show:
+
+total guide quote,
+
+line-by-line breakdown,
+
+one-time costs,
+
+yearly recurring costs,
+
+monthly recurring costs if business email is selected,
+
+a short disclaimer.
+
+Step 7 — Submission confirmation
+After submission:
+
+show success message,
+
+confirm that the details have been received,
+
+confirm that I will review the request and follow up.
+
+Quote calculation rules
+Use these exact internal pricing rules.
+
+Base website package
+1–3 pages = €499
+
+4–9 pages = €899
+
+10+ pages = €1,399
+
+Redesign discount
+If the customer says they already have a website and want a redesign, apply 20% off the base package only.
+
+Add-ons
+Advanced contact form = €49
+
+Booking/calendar integration = €99
+
+Payment gateway integration = €199
+
+Full e-commerce setup = €499
+
+Newsletter/email signup = €49
+
+Live chat / WhatsApp widget = €49
+
+Private member/client area = €299
+
+Private member/client area renewal = €49/year
+
+Multilingual / second-language version = €199
+
+Full copywriting package = €99
+
+Full logo design = €49
+
+Brand colours / font selection / mini brand pack = €49
+
+Business email setup = €249 one-time
+
+Domain registration = €24/year if customer does not already own a domain
+
+Domain renewal = €24/year
+
+Included at no additional charge
+Treat these as included:
+
+hosting
+
+light copy editing
+
+image sourcing / stock image selection
+
+image optimisation / upload
+
+basic logo tidy-up
+
+reworking messy client content into website-ready structure
+
+extra revision rounds during the build
+
+blog/news section
+
+portfolio/gallery section
+
+analytics/tracking
+
+cookie banner setup
+
+Included update allowance for year one
+1–3 page site: up to 5 updates/adjustment requests
+
+4–9 page site: up to 10 updates/adjustment requests
+
+10+ page site: up to 20 updates/adjustment requests
+
+After year one
+Ongoing support is ad hoc
+
+Additional changes after the included allowance are billed at €39 per 30 minutes
+
+Business email monthly pricing
+If business email is selected, ask:
+
+how many users are needed
+
+which plan they want
+
+Use these VAT-inclusive monthly prices:
+
+Exchange Online Plan 1 = €4.30 per user/month
+
+Exchange Online Plan 2 = €8.48 per user/month
+
+Microsoft 365 Business Standard = €13.28 per user/month
+
+Pricing display rule
+Very important:
+
+Do not show option prices during the questionnaire
+
+Only show the itemised pricing breakdown on the final quote screen
+
+Email handling
+When the customer submits the funnel:
+
+send an email to info@crettyard.ie
+
+include all answers from every step
+
+include the final calculated guide quote
+
+include the breakdown of one-time, yearly, and monthly costs
+
+include submission date/time
+
+clearly separate:
+
+contact details
+
+business type
+
+website/project details
+
+selected features
+
+pricing summary
+
+long text answers / notes
+
+Because this must work in a Cloudflare Pages / Workers deployment, choose an email delivery approach that is compatible with that environment.
+
+If email cannot be implemented cleanly without credentials or a provider decision, stop and ask me what email service I want to use.
+
+Data storage
+If feasible within Cloudflare-compatible architecture, store each submission with:
+
+full name
+
+business name
+
+email
+
+phone
+
+location
+
+business type
+
+all answers as JSON
+
+calculated quote as JSON
+
+created_at timestamp
+
+Use a storage approach that is suitable for Cloudflare deployment.
+
+If storage choice is unclear, ask me which Cloudflare-compatible storage/database I want to use.
+
+UX requirements
+mobile-first
+
+simple and fast to complete
+
+plain English throughout
+
+progress indicator
+
+ability to go back without losing entered data
+
+preserve answers during navigation
+
+clear validation
+
+polished final quote screen
+
+optional anti-spam protection such as a honeypot field
+
+optional local/session persistence if suitable
+
+Deliverables
+First, produce a short implementation plan.
+
+If you need any missing information, ask me before coding.
+
+Once ready, implement and then return:
+
+files changed,
+
+summary of how the quote logic works,
+
+how email sending is configured,
+
+how the Cloudflare-compatible submission flow works,
+
+anything still needed from me such as credentials, provider setup, or environment variables.
+
+Questions Replit may ask me first
+You may ask me for:
+
+preferred email delivery provider for Cloudflare-compatible deployment,
+
+whether I want Cloudflare Workers / Pages Functions handling form submission,
+
+preferred database/storage option,
+
+whether I already use any Cloudflare bindings,
+
+where I want quote submissions stored,
+
+whether I want a copy sent to the customer as well.
+
+Small adjustment
+Because your current app already uses dedicated routed pages, tell Replit to implement this as a native page inside that same routing pattern rather than as a separate microsite or embedded external form.
