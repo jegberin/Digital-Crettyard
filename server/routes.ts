@@ -23,6 +23,33 @@ const FEATURE_PRICES: Record<string, { label: string; price: number }> = {
 const DOMAIN_YEARLY = 24;
 const EMAIL_PER_USER_MONTHLY = 6;
 
+function esc(value: unknown): string {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+interface QuoteEmailData {
+  name: string;
+  email: string;
+  phone?: string;
+  businessName?: string;
+  businessType?: string;
+  websiteGoals?: string[];
+  pageCount: string;
+  isRedesign: boolean;
+  hasDomain: boolean;
+  features: string[];
+  wantsEmail: boolean;
+  emailUsers: number;
+  launchDate?: string;
+  budget?: string;
+  notes?: string;
+}
+
 function calculatePrice(data: {
   pageCount?: string;
   isRedesign?: boolean;
@@ -43,16 +70,18 @@ function calculatePrice(data: {
   return { base: discountedBase, addons, oneTime, yearly, monthly };
 }
 
-function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): string {
+function buildEmail(data: QuoteEmailData, pricing: ReturnType<typeof calculatePrice>): string {
   const fmt = (n: number) => `€${n.toLocaleString("en-IE")}`;
 
-  const featureRows = (data.features ?? [])
-    .map((f: string) => FEATURE_PRICES[f])
+  const featureRows = data.features
+    .map((f) => FEATURE_PRICES[f])
     .filter(Boolean)
-    .map((f: { label: string; price: number }) =>
-      `<tr><td style="padding:6px 0;color:#555;font-size:14px;">✓ ${f.label}</td><td style="padding:6px 0;color:#555;font-size:14px;text-align:right;">${fmt(f.price)}</td></tr>`
+    .map((f) =>
+      `<tr><td style="padding:6px 0;color:#555;font-size:14px;">✓ ${esc(f.label)}</td><td style="padding:6px 0;color:#555;font-size:14px;text-align:right;">${fmt(f.price)}</td></tr>`
     )
     .join("");
+
+  const goals = (data.websiteGoals ?? []).map(esc).join(", ") || "—";
 
   return `<!DOCTYPE html>
 <html>
@@ -74,10 +103,10 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
         <td style="padding:32px 40px 16px;">
           <h2 style="color:#0C2366;font-size:15px;margin:0 0 16px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Contact Details</h2>
           <table width="100%" cellpadding="0" cellspacing="0">
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.name ?? "—"}</td></tr>
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Email</td><td style="padding:5px 0;font-size:14px;"><a href="mailto:${data.email}" style="color:#12B388;">${data.email ?? "—"}</a></td></tr>
-            ${data.phone ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Phone</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.phone}</td></tr>` : ""}
-            ${data.businessName ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Business Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.businessName}</td></tr>` : ""}
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.name)}</td></tr>
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Email</td><td style="padding:5px 0;font-size:14px;"><a href="mailto:${esc(data.email)}" style="color:#12B388;">${esc(data.email)}</a></td></tr>
+            ${data.phone ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Phone</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.phone)}</td></tr>` : ""}
+            ${data.businessName ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Business Name</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.businessName)}</td></tr>` : ""}
           </table>
         </td>
       </tr>
@@ -86,13 +115,13 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
         <td style="padding:16px 40px;">
           <h2 style="color:#0C2366;font-size:15px;margin:0 0 16px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Business &amp; Project</h2>
           <table width="100%" cellpadding="0" cellspacing="0">
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Business Type</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.businessType ?? "—"}</td></tr>
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Website Goals</td><td style="padding:5px 0;color:#555;font-size:14px;">${(data.websiteGoals ?? []).join(", ") || "—"}</td></tr>
-            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Pages Needed</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.pageCount ?? "—"}</td></tr>
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;width:40%;font-weight:bold;">Business Type</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.businessType ?? "—")}</td></tr>
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Website Goals</td><td style="padding:5px 0;color:#555;font-size:14px;">${goals}</td></tr>
+            <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Pages Needed</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.pageCount)}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Redesign?</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.isRedesign ? "Yes — 20% base discount applied" : "No"}</td></tr>
             <tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Has Domain?</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.hasDomain ? "Yes" : "No — domain registration needed"}</td></tr>
-            ${data.launchDate ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Ideal Launch</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.launchDate}</td></tr>` : ""}
-            ${data.budget ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Budget Range</td><td style="padding:5px 0;color:#555;font-size:14px;">${data.budget}</td></tr>` : ""}
+            ${data.launchDate ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Ideal Launch</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.launchDate)}</td></tr>` : ""}
+            ${data.budget ? `<tr><td style="padding:5px 0;color:#333;font-size:14px;font-weight:bold;">Budget Range</td><td style="padding:5px 0;color:#555;font-size:14px;">${esc(data.budget)}</td></tr>` : ""}
           </table>
         </td>
       </tr>
@@ -106,7 +135,7 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
           </table>
           ${data.wantsEmail ? `
           <div style="margin-top:12px;padding:12px 16px;background:#f3f4f5;border-radius:6px;font-size:14px;color:#555;">
-            <strong style="color:#0C2366;">Business Email (Microsoft 365):</strong> ${data.emailUsers ?? 1} mailbox${(data.emailUsers ?? 1) > 1 ? "es" : ""} — ${fmt(EMAIL_PER_USER_MONTHLY)}/mailbox/month
+            <strong style="color:#0C2366;">Business Email (Microsoft 365):</strong> ${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""} — ${fmt(EMAIL_PER_USER_MONTHLY)}/mailbox/month
           </div>` : ""}
         </td>
       </tr>
@@ -120,7 +149,7 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
               <td style="padding:10px 16px;background:#0C2366;color:#12B388;font-size:18px;font-weight:bold;text-align:right;border-radius:6px 6px 0 0;">${fmt(pricing.oneTime)}</td>
             </tr>
             <tr>
-              <td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Base build (${data.pageCount ?? "?"} pages)</td>
+              <td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Base build (${esc(data.pageCount)} pages)</td>
               <td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.base)}</td>
             </tr>
             ${pricing.addons > 0 ? `<tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Feature add-ons</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.addons)}</td></tr>` : ""}
@@ -130,7 +159,7 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
               <td style="padding:10px 16px;background:#f3f4f5;color:#333;font-size:14px;font-weight:bold;border-radius:6px 6px 0 0;">Monthly</td>
               <td style="padding:10px 16px;background:#f3f4f5;color:#0C2366;font-size:15px;font-weight:bold;text-align:right;border-radius:6px 6px 0 0;">${fmt(pricing.monthly)}/mo</td>
             </tr>
-            <tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Microsoft 365 (${data.emailUsers ?? 1} mailbox${(data.emailUsers ?? 1) > 1 ? "es" : ""})</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.monthly)}/mo</td></tr>
+            <tr><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;">Microsoft 365 (${data.emailUsers} mailbox${data.emailUsers > 1 ? "es" : ""})</td><td style="padding:6px 16px;background:#f7f8fa;color:#555;font-size:13px;text-align:right;">${fmt(pricing.monthly)}/mo</td></tr>
             ` : ""}
             ${pricing.yearly > 0 ? `
             <tr><td colspan="2" style="padding:4px;"></td></tr>
@@ -149,7 +178,7 @@ function buildEmail(data: any, pricing: ReturnType<typeof calculatePrice>): stri
       <tr>
         <td style="padding:0 40px 32px;">
           <h2 style="color:#0C2366;font-size:15px;margin:0 0 12px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #f3f4f5;padding-bottom:8px;">Additional Notes</h2>
-          <p style="margin:0;color:#555;font-size:14px;line-height:1.6;">${data.notes}</p>
+          <p style="margin:0;color:#555;font-size:14px;line-height:1.6;">${esc(data.notes)}</p>
         </td>
       </tr>` : ""}
 
@@ -242,8 +271,8 @@ export async function registerRoutes(
       const { error } = await resend.emails.send({
         from: `Crettyard Digital Quote Tool <${fromEmail}>`,
         to: ["info@crettyard.ie"],
-        replyTo: body.email,
-        subject: `New Quote Request — ${body.businessName || body.name} (${body.pageCount ?? "?"} pages, ${pricing.oneTime > 0 ? `€${pricing.oneTime}` : "TBD"})`,
+        replyTo: sanitised.email,
+        subject: `New Quote Request — ${sanitised.businessName || sanitised.name} (${sanitised.pageCount} pages, ${pricing.oneTime > 0 ? `€${pricing.oneTime}` : "TBD"})`,
         html,
       });
 

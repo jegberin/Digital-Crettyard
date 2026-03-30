@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import type { LucideIcon } from "lucide-react";
 import {
   Hammer, Store, Briefcase, Users, Heart, Building2,
   Target, Image, Newspaper, CalendarCheck, ShoppingCart, Calendar,
@@ -93,7 +94,7 @@ function SelectCard({
 }: {
   selected: boolean;
   onClick: () => void;
-  icon?: React.FC<any>;
+  icon?: LucideIcon;
   label: string;
   desc?: string;
   badge?: string;
