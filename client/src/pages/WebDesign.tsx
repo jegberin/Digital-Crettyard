@@ -228,7 +228,7 @@ export default function WebDesign() {
             <FadeIn>
               <div className="bg-[#f3f4f5] p-7 rounded-2xl text-center card-hover" data-testid="card-pricing-starter">
                 <h3 className="text-lg mb-2">Starter Site</h3>
-                <p className="text-2xl font-headline font-extrabold text-accent mb-3">From €500</p>
+                <p className="text-2xl font-headline font-extrabold text-accent mb-3">From €499</p>
                 <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">A clean 1–3 page site for tradespeople or new businesses who need a professional online presence quickly.</p>
               </div>
             </FadeIn>
@@ -236,8 +236,8 @@ export default function WebDesign() {
               <div className="bg-accent/10 border-2 border-accent p-7 rounded-2xl text-center card-hover relative" data-testid="card-pricing-business">
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-headline font-bold px-4 py-1 rounded-full">Most Popular</span>
                 <h3 className="text-lg mb-2">Business Site</h3>
-                <p className="text-2xl font-headline font-extrabold text-accent mb-3">From €900</p>
-                <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">A 4–8 page website with multiple service pages, contact forms, SEO, and Google Maps — ideal for established businesses.</p>
+                <p className="text-2xl font-headline font-extrabold text-accent mb-3">From €899</p>
+                <p className="text-foreground/70 text-[15px] leading-relaxed font-sans font-normal">A 4–7 page website with multiple service pages, contact forms, SEO, and Google Maps — ideal for established businesses.</p>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>

@@ -205,7 +205,7 @@ export default function Home() {
       {/* Services Grid */}
       <section id="services" className="py-28 bg-[#f3f4f5]">
         <div className="container mx-auto px-4">
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
             <StaggerItem>
               <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-webdesign">
                 <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -247,6 +247,21 @@ export default function Home() {
                 </p>
                 <Link href="/network-wifi-security" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-network">
                   Explore network and Wi-Fi solutions <ArrowRight size={14} className="ml-1" />
+                </Link>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="rounded-2xl p-8 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full glass-card reveal-on-scroll" data-testid="card-service-parental">
+                <div className="w-14 h-14 bg-accent/10 text-accent flex items-center justify-center rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Shield size={24} />
+                </div>
+                <h3 className="text-xl mb-3">Parental Controls</h3>
+                <p className="text-foreground/70 mb-8 flex-grow text-[15px] leading-relaxed font-sans font-normal">
+                  Simple, effective internet safety for families — block harmful content, set sensible limits, and keep your children safer online without the technical headaches.
+                </p>
+                <Link href="/parental-controls" className="text-accent font-headline font-bold inline-flex items-center mt-auto hover:text-primary transition-colors text-sm" data-testid="link-parental">
+                  Explore parental controls &amp; family safety <ArrowRight size={14} className="ml-1" />
                 </Link>
               </div>
             </StaggerItem>

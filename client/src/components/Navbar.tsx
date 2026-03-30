@@ -20,9 +20,6 @@ export function Navbar() {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Web Design", path: "/web-design" },
-    { label: "Microsoft 365", path: "/microsoft-365" },
-    { label: "Network & Wi-Fi", path: "/network-wifi-security" },
-    { label: "Parental Controls", path: "/parental-controls" },
     { label: "Portfolio", path: "/portfolio" },
     { label: "About", path: "/about" },
   ];
